@@ -1,28 +1,31 @@
 <%-- 
-    Document   : index
-    Created on : 2020-4-26, 13:58:36
+    Document   : main
+    Created on : 2020-4-30, 2:12:07
     Author     : AAKK
 --%>
 
+<%@page import="ISD.Assignment.Model.user"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="ISD.Assignment.Model.*"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/index.css">
-        <script type="text/javascript" src="js/script.js"></script>
-        <title>Home Page</title>
+        <title>Main Page</title>
     </head>
-    <body onload="startTime()">
-        <h1>SMARTCARD System</h1>
+    <body>
+        <h2>User Profile</h2>
+        
+        <p class="right">
+        <a class="button"  href="logout.jsp"> Logout</a>
+        </p>
+        
         <div>
-            <p class="navi">
-                <a class="button"  href ="shipmentNew.jsp">Login</a>
-                <a class="button"  href = "AllShipmentsServlet">Register </a>
-                
-            </p>
+            <jsp:include page="profile.jsp" flush="true" />
         </div>
-        <jsp:include page = "/ConnServlet" flush = "true"/>
+ 
+        
+     
+  
     </body>
 </html>
