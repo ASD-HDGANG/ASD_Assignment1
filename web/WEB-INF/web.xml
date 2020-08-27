@@ -24,6 +24,14 @@
         <servlet-name>NewShipmentServlet</servlet-name>
         <servlet-class>ASD.SmartCard.Controller.NewShipmentServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ReportServlet</servlet-name>
+        <servlet-class>ASD.SmartCard.Controller.ReportServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>tripPlannerServlet</servlet-name>
+        <servlet-class>ASD.SmartCard.Controller.tripPlannerServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>shipmentSearchServlet</servlet-name>
         <url-pattern>/shipmentSearchServlet</url-pattern>
@@ -47,6 +55,14 @@
     <servlet-mapping>
         <servlet-name>NewShipmentServlet</servlet-name>
         <url-pattern>/NewShipmentServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReportServlet</servlet-name>
+        <url-pattern>/ReportServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>tripPlannerServlet</servlet-name>
+        <url-pattern>/tripPlannerServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
