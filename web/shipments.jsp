@@ -22,6 +22,7 @@
         <div class="topnav">
         <%--left    button
             <a href="StoreServlet" style="float: left;">All Products</a>--%>
+                    <a href="AllAdminServlet" style="float: right;">Admin</a>
             <a href="AllShipmentsServlet" style="float: right;">Shipments</a>
         </div>
         
