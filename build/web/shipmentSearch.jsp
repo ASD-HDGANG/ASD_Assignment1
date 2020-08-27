@@ -1,13 +1,14 @@
-<%@page import="ASD.SmartCard.Model.shipment"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/SmartCard.css">
         <script type="text/javascript" src="js/script.js"></script>
-    <title>Shipment</title>
-</head>
-<body onload="startTime(); resetSearch();">
+        <title>Shipment_Search</title>
+    </head>
+    <body onload="startTime()">
     <div class="header-img">
         <ul>
           <li><a href="index.jsp"><img class="logo" src="css/SmartCard.png"/></a></li>
@@ -24,14 +25,22 @@
         </div>
         
         <main class="main-content">
-
-  <h1>Shipment Search Result</h1>
-  <h1>
-  <a class="button" href="ShipmentEditServlet">Edit</a>
-  <a class="button" href="ShipmentDeleteServlet">Delete</a>
-  </h1>
-  
-
+        <h1>Shipment_Search</h1>
+        <form action ="shipmentSearchServlet" method="post">
+            <table>
+                <tr>
+                    <td>ShipmentID:</td>
+                    <td><input type="text"  name="shipmentID" required></td>
+                </tr>
+                <tr><td>Date</td>
+                    <td><input type="date"  name="shipmentDate" required> </td>
+                </tr>
+                <tr><td></td>
+                     <td><a class="button"  href = "AllShipmentsServlet">Back </a><input class="button" type="submit" value="Search"></td>
+                </tr>
+               
+            </table>   
+        </form>
         </main>
-</body>
+    </body>
 </html>
