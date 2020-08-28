@@ -42,7 +42,7 @@ public class NewShipmentServlet extends HttpServlet {
         
         
         //add more
-         request.getRequestDispatcher("main.jsp").include(request, response);
+         request.getRequestDispatcher("index.jsp").include(request, response);
         
 }
 }
