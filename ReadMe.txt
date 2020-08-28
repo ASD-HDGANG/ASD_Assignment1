@@ -4,3 +4,6 @@ After login to the page, it is welcome page which has customers information.
 Following by Main page which is customer profile. And, it has logout function to let the customer logout the system.
 
 For deployment, you should import it into the netbean and it will work.
+
+Daohu xia 13155799 (Trip planner)(Reporting)
+Jiebin Wang 12997262 (Shipment)(Customer Management)
