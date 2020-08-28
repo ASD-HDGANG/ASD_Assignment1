@@ -20,9 +20,9 @@
         </div>
         <div class="topnav">
         <%--left    button
-            <a href="StoreServlet" style="float: left;">All Products</a>--%>
-                    <a href="AllAdminServlet" style="float: right;">Admin</a>
-            <a href="AllShipmentsServlet" style="float: right;">Shipments</a>
+            <a href="StoreServlet" style="float: left;">All Products</a>
+            <a href="AllShipmentsServlet" style="float: right;">Shipments</a>--%>
+            <a href="home.jsp" style="float: left;"> Home </a>
         </div>
         
         <main class="main-content">
