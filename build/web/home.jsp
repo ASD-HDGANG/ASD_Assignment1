@@ -38,6 +38,12 @@
         %>
 
         <h1>Smart Card System</h1>
+            <a class="button"  href = "userProfile.jsp"> User Profile </a>
+                 <br>
+            <a class="button"  href = "adminProfile.jsp"> Promotion(Admin) </a>
+                        <br>
+            <a class="button"  href = "userPromotion.jsp"> Promotion(Users) </a>
+            <br>
             <a class="button"  href ="AllShipmentsServlet">Shipment</a>
             <br>
             <a class="button"  href = "AllAdminServlet"> Admin </a>
@@ -45,6 +51,8 @@
             <a class="button"  href = "reportManage.jsp"> Report </a>
             <br>
             <a class="button"  href = "tripPlanner.jsp"> TripPlanner </a>
+
+   
         
             </form>
         </main>
