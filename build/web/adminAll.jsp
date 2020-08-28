@@ -1,3 +1,8 @@
+<%-- 
+    Document   : adminNew
+    Created on : 27/08/2020, 10:31:15 PM
+    Author     : admin
+--%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -6,10 +11,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/SmartCard.css">
         <script type="text/javascript" src="js/script.js"></script>
-        <title>Shipment_Search</title>
+        <title>New Shipment</title>
     </head>
-    <body onload="startTime()">
-    <div class="header-img">
+    <body onload ="startTime()">
+   <div class="header-img">
         <ul>
           <li><a href="index.jsp"><img class="logo" src="css/SmartCard.png"/></a></li>
       <%-- if you want to use button, you can use the below styling
@@ -23,25 +28,29 @@
             <a href="StoreServlet" style="float: left;">All Products</a>
             <a href="AllShipmentsServlet" style="float: right;">Shipments</a>--%>
             <a href="home.jsp" style="float: left;"> Home </a>
+
         </div>
         
         <main class="main-content">
-        <h1>Shipment_Search</h1>
-        <form action ="shipmentSearchServlet" method="post">
-            <table>
-                <tr>
-                    <td>ShipmentID:</td>
-                    <td><input type="text"  name="shipmentID" required></td>
-                </tr>
-                <tr><td>Date</td>
-                    <td><input type="date"  name="shipmentDate" required> </td>
-                </tr>
-                <tr><td></td>
-                     <td><a class="button"  href = "AllShipmentsServlet">Back </a><input class="button" type="submit" value="Search"></td>
-                </tr>
-               
-            </table>   
-        </form>
+        <%
+            String existErr = (String) session.getAttribute("existErr"); 
+            String  postCodeErr  = (String) session.getAttribute("postCodeErr"); 
+            String  phoneErr  = (String) session.getAttribute("phoneErr");
+        %>
+
+        <h1>All Admin</h1>
+        <table>
+            
+            <h1>        <a class="button"  href = "adminNew.jsp">Add new admin </a>
+            </h1>
+             <tr>
+                <td>AdminID </td>
+                <td>UserID</td>
+                <td>Email</td>
+             </tr>
+        </table>        
+        
+            </form>
         </main>
     </body>
 </html>

@@ -16,28 +16,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import ASD.SmartCard.Model.shipment;
+import ASD.SmartCard.Model.admin;
 //import ISD.Assignment.Model.Dao.ShipmentManager;
 
 /**
  *
  * @author admin
  */
-public class NewShipmentServlet extends HttpServlet {
+public class NewAdminServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException{
         HttpSession session = request.getSession();
-        String preferName = request.getParameter("name");
+        String userID = request.getParameter("userID");
         String email = request.getParameter("email");
-        String phone_number = request.getParameter("phone");
-        String address = request.getParameter("address");
-        String city = request.getParameter("city");
-        String territory = request.getParameter("city");
-        String post_code = request.getParameter("post_code");
-        String startDate = request.getParameter("startDate");
-        String shipmentMethod = request.getParameter("shipmentMethod");
      //   ShipmentManager manager = (ShipmentManager) session.getAttribute("manager");
         
         
@@ -46,3 +39,4 @@ public class NewShipmentServlet extends HttpServlet {
         
 }
 }
+
