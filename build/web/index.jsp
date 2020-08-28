@@ -18,7 +18,9 @@
         <h1>SMARTCARD System</h1>
         <div>
             <p class="navi">
-                <a class="button"  href ="shipmentNew.jsp">Login</a>
+                <a class="button"  href ="userProfile.jsp">Login</a>
+                <a class="button"  href ="adminProfile.jsp">Login Admin</a>
+                <a class="button"  href ="shipmentNew.jsp">Shipment</a>
                 <a class="button"  href = "AllShipmentsServlet">Register </a>
                 
             </p>
