@@ -5,8 +5,6 @@
  */
 package ASD.SmartCard.Controller;
 
-import java.io.IOException;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,10 +14,16 @@ import javax.servlet.http.HttpSession;
  *
  * @author Kyle
  */
-public class PromotionServlet extends HttpServlet{
+public class RegisterServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession();
+        String id = request.getParameter("id");
+        String firstName = request.getParameter("firstName");
+        String lastName = request.getParameter("lastName");
+        String email = request.getParameter("email");
+        String address = request.getParameter("address");
+        String password = request.getParameter("password");
         
     }
 }

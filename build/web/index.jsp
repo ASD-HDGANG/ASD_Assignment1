@@ -21,7 +21,7 @@
                 <a class="button"  href ="userProfile.jsp">Login</a>
                 <a class="button"  href ="adminProfile.jsp">Login Admin</a>
                 <a class="button"  href ="shipmentNew.jsp">Shipment</a>
-                <a class="button"  href = "AllShipmentsServlet">Register </a>
+                <a class="button"  href = "register.jsp">Register </a>
                 
             </p>
         </div>

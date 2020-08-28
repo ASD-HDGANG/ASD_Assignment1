@@ -21,6 +21,5 @@ public class PromotionServlet extends HttpServlet{
     protected void doGet(HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession();
         
-        
     }
 }
