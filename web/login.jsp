@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/SmartCard.css">
         <title>Login Page</title>
     </head>
     <body>
@@ -19,10 +19,13 @@
             <h1>Login</h1>
             <label for="email">Email address</label>
             <input id="email" name="email" type="text" placeholder="email"/>
+            
             <label for="password">Password</label>
-            <input id="password" name="password" placeholder="password"/>
+            <input id="password" name="password" type="text" placeholder="password"/>
+            <br>
             <a class="button" href="index.jsp"> Cancel </a>
-            <input class="button" type="submit" value="Login"/><br>
+            <a class="button" href="home.jsp"> Login </a><br>
+          <%--  <input class="button" type="submit" value="Login"/> --%>
             <p class="instructions">New User? <a href= "register.jsp"> Sign Up Here</p>
         </form>
         

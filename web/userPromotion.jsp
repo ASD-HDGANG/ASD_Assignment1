@@ -1,7 +1,7 @@
 <%-- 
-    Document   : adminNew
-    Created on : 27/08/2020, 10:31:15 PM
-    Author     : admin
+    Document   : userPromotion
+    Created on : 28/08/2020, 12:58:38 PM
+    Author     : Kyle
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -10,11 +10,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/SmartCard.css">
-        <script type="text/javascript" src="js/script.js"></script>
-        <title>New Shipment</title>
+        <title>Promotions Page</title>
     </head>
-    <body onload ="startTime()">
-   <div class="header-img">
+    <body>
+        <div class="header-img">
         <ul>
           <li><a href="index.jsp"><img class="logo" src="css/SmartCard.png"/></a></li>
       <%-- if you want to use button, you can use the below styling
@@ -30,28 +29,21 @@
             <a href="home.jsp" style="float: left;"> Home </a>
 
         </div>
-        
-        <main class="main-content">
-        <%
-            String existErr = (String) session.getAttribute("existErr"); 
-            String  postCodeErr  = (String) session.getAttribute("postCodeErr"); 
-            String  phoneErr  = (String) session.getAttribute("phoneErr");
-        %>
-
-        <h1>All Admin</h1>
+        <h1>Promotions</h1>
+        <h1>
+        <a class="button"  href ="shipmentNew.jsp">Shipment Address</a>
+        </h1>
         <table>
-            
-            <h1>        <a class="button"  href = "adminNew.jsp">Add new admin </a>
-                        <a class="button"  href = "adminProfile.jsp"> Promotion(Admin) </a>
-            </h1>
-             <tr>
-                <td>AdminID </td>
-                <td>UserID</td>
-                <td>Email</td>
-             </tr>
-        </table>        
-        
-            </form>
-        </main>
+            <tr>
+                <td>promotionId</td>
+                <td>promotionTitle</td>
+                <td>promotionStartDate</td>
+                <td>promotionEndDate</td>
+                <td>promotionAuthor</td>
+                <td>promotionDescription</td>
+                <td>promotionStatus</td>
+                
+            </tr>
+        </table>
     </body>
 </html>

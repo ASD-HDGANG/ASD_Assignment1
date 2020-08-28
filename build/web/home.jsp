@@ -27,7 +27,9 @@
             <a href="StoreServlet" style="float: left;">All Products</a>
             <a href="AllShipmentsServlet" style="float: right;">Shipments</a>--%>
             <a href="home.jsp" style="float: left;"> Home </a>
-
+            <a href="tripPlanner.jsp" style="float: left;"> Trip_Planner </a>
+            <a href="userProfile.jsp" style="float: right;">Profile</a>
+            <a href="AllAdminServlet" style="float: right;">Admin</a>
         </div>
         
         <main class="main-content">
@@ -38,13 +40,20 @@
         %>
 
         <h1>Smart Card System</h1>
-            <a class="button"  href ="AllShipmentsServlet">Shipment</a>
+            <a class="button"  href = "TopUp.jsp"> Top up </a>       
             <br>
-            <a class="button"  href = "AllAdminServlet"> Admin </a>
+            <a class="button"  href = "OrderHistory.jsp"> Order History </a>
+            <br>
+            <a class="button"  href = "userPromotion.jsp"> Promotion </a>
+            <br>
+            <a class="button"  href ="AllShipmentsServlet">Shipment</a>
             <br>
             <a class="button"  href = "reportManage.jsp"> Report </a>
             <br>
-            <a class="button"  href = "tripPlanner.jsp"> TripPlanner </a>
+            <a class="button"  href = "notification.jsp"> Notification </a>
+                        <br>
+            <a class="button"  href = "billing.jsp"> Billing </a>
+
         
             </form>
         </main>

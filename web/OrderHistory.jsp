@@ -1,9 +1,3 @@
-<%-- 
-    Document   : adminNew
-    Created on : 27/08/2020, 10:31:15 PM
-    Author     : admin
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -11,7 +5,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/SmartCard.css">
         <script type="text/javascript" src="js/script.js"></script>
-        <title>New Shipment</title>
+        <title>Order History</title>
     </head>
     <body onload ="startTime()">
    <div class="header-img">
@@ -38,16 +32,23 @@
             String  phoneErr  = (String) session.getAttribute("phoneErr");
         %>
 
-        <h1>All Admin</h1>
+        <h1>Order History</h1>
+             <tr align="center">
+                    <td>Select Card</td>
+                    <td>
+                        <select id="paymentType" name="paymentType">
+                            <option value="None">...</option>
+                        </select>
+                    </td>
+              </tr>
+
         <table>
-            
-            <h1>        <a class="button"  href = "adminNew.jsp">Add new admin </a>
-                        <a class="button"  href = "adminProfile.jsp"> Promotion(Admin) </a>
-            </h1>
              <tr>
-                <td>AdminID </td>
-                <td>UserID</td>
-                <td>Email</td>
+                <td>Order#</td>
+                <td>Time</td>
+                <td>Location</td>
+                <td>Type</td>
+                <td>Amount</td>
              </tr>
         </table>        
         

@@ -1,9 +1,3 @@
-<%-- 
-    Document   : adminNew
-    Created on : 27/08/2020, 10:31:15 PM
-    Author     : admin
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -11,9 +5,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/SmartCard.css">
         <script type="text/javascript" src="js/script.js"></script>
-        <title>New Shipment</title>
+        <title>Top-Up</title>
     </head>
-    <body onload ="startTime()">
+   <body onload ="startTime()">
    <div class="header-img">
         <ul>
           <li><a href="index.jsp"><img class="logo" src="css/SmartCard.png"/></a></li>
@@ -37,19 +31,15 @@
             String  postCodeErr  = (String) session.getAttribute("postCodeErr"); 
             String  phoneErr  = (String) session.getAttribute("phoneErr");
         %>
-
-        <h1>All Admin</h1>
-        <table>
+        <h1>Top Up</h1>
+        <form method = "post" action="NewAdminServlet">
             
-            <h1>        <a class="button"  href = "adminNew.jsp">Add new admin </a>
-                        <a class="button"  href = "adminProfile.jsp"> Promotion(Admin) </a>
-            </h1>
-             <tr>
-                <td>AdminID </td>
-                <td>UserID</td>
-                <td>Email</td>
-             </tr>
-        </table>        
+            <label for="name">Card Number</label><input type="text" name="cardNumber" placeholder="16-digits card number" required>
+            <label for="name">Security Code</label><input type="password" name="securityCode" placeholder="4-digit security code" required> 
+            <label for="name">Amount</label><input type="text" name="orderAmount" placeholder="$ 0.00" required>  
+            <input type="hidden" name="topUpOrConsume">  
+            <input class="button" type ="submit" value="submit">
+                
         
             </form>
         </main>

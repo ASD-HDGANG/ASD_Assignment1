@@ -64,7 +64,7 @@
 		</div>
             <div class="col-sm-offset-2 col-sm-10">
 			
-		 <a class="button"  href ="main.jsp">back</a>
+		 <a class="button"  href ="home.jsp">back</a>
             </div>
 	</div>
 </form>

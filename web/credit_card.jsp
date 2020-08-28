@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="css/credit_card.css">
     </head>
+    
     <body>
 
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -31,7 +32,7 @@
             <div class="row">
                 <aside class="col-sm-6">
                     <p>Payment form1</p>
-
+                    <a button href ="userProfile.jsp"> Back</a>
                     <article class="card">
                         <div class="card-body p-5">
                             <p> <img src="/main/images/icons/pay-visa.png"> 
@@ -88,7 +89,7 @@
                                         </div> <!-- form-group.// -->
                                     </div>
                                 </div> <!-- row.// -->
-                                <button class="subscribe btn btn-primary btn-block" type="button"> Confirm  </button>
+                                <button class="subscribe btn btn-primary btn-block" type="button" > Confirm  </button>
                             </form>
                         </div> <!-- card-body.// -->
                     </article> <!-- card.// -->
