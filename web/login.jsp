@@ -24,7 +24,8 @@
             <input id="password" name="password" type="text" placeholder="password"/>
             <br>
             <a class="button" href="index.jsp"> Cancel </a>
-            <input class="button" type="submit" value="Login"/><br>
+            <a class="button" href="home.jsp"> Login </a><br>
+          <%--  <input class="button" type="submit" value="Login"/> --%>
             <p class="instructions">New User? <a href= "register.jsp"> Sign Up Here</p>
         </form>
         

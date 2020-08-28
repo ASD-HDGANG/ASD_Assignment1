@@ -51,6 +51,8 @@
             <a class="button"  href = "reportManage.jsp"> Report </a>
             <br>
             <a class="button"  href = "notification.jsp"> Notification </a>
+                        <br>
+            <a class="button"  href = "billing.jsp"> Billing </a>
 
         
             </form>

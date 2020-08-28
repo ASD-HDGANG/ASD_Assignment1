@@ -8,3 +8,6 @@ For deployment, you should import it into the netbean and it will work.
 Daohu xia 13155799 :Trip planner + Reporting
 Jiebin Wang 12997262: Shipment + Customer Management
 Kyle Zeng 12568806: User Management + Promotions
+Martinn 11698192: Billing + Notification
+Wai: Credit Card
+Yike: Order Management + Card Management
