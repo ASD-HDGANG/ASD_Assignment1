@@ -49,6 +49,8 @@
             <a class="button"  href ="AllShipmentsServlet">Shipment</a>
             <br>
             <a class="button"  href = "reportManage.jsp"> Report </a>
+            <br>
+            <a class="button"  href = "notification.jsp"> Notification </a>
 
         
             </form>
