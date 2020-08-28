@@ -18,8 +18,8 @@
         <h1>SMARTCARD System</h1>
         <div>
             <p class="navi">
-                <a class="button"  href ="shipmentNew.jsp">Shipment</a>
-                <a class="button"  href = "AllAdminServlet"> Admin </a>
+                <a class="button"  href ="home.jsp">Home</a>
+
                 
             </p>
         </div>

@@ -13,7 +13,7 @@
         <script type="text/javascript" src="js/script.js"></script>
         <title>New Shipment</title>
     </head>
-    <body onload ="startTime()">
+   <body onload ="startTime()">
    <div class="header-img">
         <ul>
           <li><a href="index.jsp"><img class="logo" src="css/SmartCard.png"/></a></li>
@@ -25,9 +25,10 @@
         </div>
         <div class="topnav">
         <%--left    button
-            <a href="StoreServlet" style="float: left;">All Products</a>--%>
-             <a href="AllAdminServlet" style="float: right;">Admin</a>
-            <a href="AllShipmentsServlet" style="float: right;">Shipments</a>
+            <a href="StoreServlet" style="float: left;">All Products</a>
+            <a href="AllShipmentsServlet" style="float: right;">Shipments</a>--%>
+            <a href="home.jsp" style="float: left;"> Home </a>
+
         </div>
         
         <main class="main-content">
