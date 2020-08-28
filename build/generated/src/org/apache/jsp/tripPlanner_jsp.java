@@ -53,6 +53,7 @@ public final class tripPlanner_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t<link rel=\"stylesheet\" href=\"https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css\">  \n");
       out.write("\t<script src=\"https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js\"></script>\n");
       out.write("\t<script src=\"https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js\"></script>\n");
+      out.write("        <link rel=\"stylesheet\" href=\"css/Report.css\">\n");
       out.write("</head>\n");
       out.write("<body>\n");
       out.write("\t\n");
@@ -81,12 +82,13 @@ public final class tripPlanner_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t</div>\n");
       out.write("\t</div>\n");
       out.write("\t<div class=\"form-group\">\n");
-      out.write("\t\t<div class=\"col-sm-offset-2 col-sm-10\">\n");
-      out.write("\t\t\t<button type=\"submit\" class=\"btn btn-default\">search</button>\n");
-      out.write("\t\t</div>\n");
+      out.write("\t\t <div class=\"col-sm-offset-2 col-sm-10\">\n");
+      out.write("\t\t\t\n");
+      out.write("\t\t <a class=\"button\"  href =\"tripPlannerServlet\">Search</a>\n");
+      out.write("            </div>\n");
       out.write("            <div class=\"col-sm-offset-2 col-sm-10\">\n");
       out.write("\t\t\t\n");
-      out.write("\t\t <a class=\"button\"  href =\"main.jsp\">back</a>\n");
+      out.write("\t\t <a class=\"button\"  href =\"main.jsp\">Back</a>\n");
       out.write("            </div>\n");
       out.write("\t</div>\n");
       out.write("</form>\n");

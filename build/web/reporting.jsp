@@ -13,6 +13,7 @@
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
 	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+          <link rel="stylesheet" href="css/Report.css">
 </head>
 <body>
 <form role="form">
@@ -25,7 +26,7 @@
    
 	  <div class="col-sm-offset-2 col-sm-20">
 			
-		 <a class="button"  href ="reportManage.jsp">send</a>
+		 <a class="button"  href ="ReportServlet">send</a>
                  
             </div>
     <div class="col-sm-offset-2 col-sm-20">

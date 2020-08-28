@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class reportManage_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class tripSolution_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -56,10 +56,10 @@ public final class reportManage_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write("        <div class=\"col-sm-offset-2 col-sm-10\">\n");
       out.write("\t\t\t\n");
       out.write("\t\t\n");
-      out.write("                 <a class=\"button\"  href =\"main.jsp\">back</a>\n");
+      out.write("                 <a class=\"button\"  href =\"tripPlanner.jsp\">Search again</a>\n");
       out.write("            </div>\n");
       out.write("    </body>\n");
-      out.write("</html>\n");
+      out.write("</html>");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;

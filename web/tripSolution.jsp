@@ -1,6 +1,6 @@
 <%-- 
-    Document   : reportManage.jsp
-    Created on : 28/08/2020, 12:32:08 AM
+    Document   : tripSolution
+    Created on : 28/08/2020, 9:01:58 AM
     Author     : daohuxia
 --%>
 
@@ -17,7 +17,7 @@
         <div class="col-sm-offset-2 col-sm-10">
 			
 		
-                 <a class="button"  href ="main.jsp">back</a>
+                 <a class="button"  href ="tripPlanner.jsp">Search again</a>
             </div>
     </body>
 </html>

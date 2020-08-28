@@ -52,6 +52,7 @@ public final class reporting_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t<link rel=\"stylesheet\" href=\"https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css\">  \n");
       out.write("\t<script src=\"https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js\"></script>\n");
       out.write("\t<script src=\"https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js\"></script>\n");
+      out.write("          <link rel=\"stylesheet\" href=\"css/Report.css\">\n");
       out.write("</head>\n");
       out.write("<body>\n");
       out.write("<form role=\"form\">\n");
@@ -64,7 +65,7 @@ public final class reporting_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("   \n");
       out.write("\t  <div class=\"col-sm-offset-2 col-sm-20\">\n");
       out.write("\t\t\t\n");
-      out.write("\t\t <a class=\"button\"  href =\"reportManage.jsp\">send</a>\n");
+      out.write("\t\t <a class=\"button\"  href =\"ReportServlet\">send</a>\n");
       out.write("                 \n");
       out.write("            </div>\n");
       out.write("    <div class=\"col-sm-offset-2 col-sm-20\">\n");

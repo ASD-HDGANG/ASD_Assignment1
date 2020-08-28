@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
 	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="css/Report.css">
 </head>
 <body>
 	
@@ -42,12 +43,13 @@
 		</div>
 	</div>
 	<div class="form-group">
-		<div class="col-sm-offset-2 col-sm-10">
-			<button type="submit" class="btn btn-default">search</button>
-		</div>
+		 <div class="col-sm-offset-2 col-sm-10">
+			
+		 <a class="button"  href ="tripPlannerServlet">Search</a>
+            </div>
             <div class="col-sm-offset-2 col-sm-10">
 			
-		 <a class="button"  href ="main.jsp">back</a>
+		 <a class="button"  href ="main.jsp">Back</a>
             </div>
 	</div>
 </form>
