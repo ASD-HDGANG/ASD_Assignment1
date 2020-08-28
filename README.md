@@ -1,3 +1,3 @@
 # ASD_Assignment1
-# Hello Word!
-# Hello Word!
+# EmailLogic in souce package overiew - When user register a new account, an email alert will be sent to notify them his/her account has been created
+# Credit card detail is for payment purpose
