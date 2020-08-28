@@ -1,9 +1,3 @@
-<%-- 
-    Document   : adminNew
-    Created on : 27/08/2020, 10:31:15 PM
-    Author     : admin
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -11,8 +5,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/SmartCard.css">
         <script type="text/javascript" src="js/script.js"></script>
-        <title>New Shipment</title>
-    </head>   <body onload ="startTime()">
+        <title>Order History</title>
+    </head>
+    <body onload ="startTime()">
    <div class="header-img">
         <ul>
           <li><a href="index.jsp"><img class="logo" src="css/SmartCard.png"/></a></li>
@@ -37,25 +32,25 @@
             String  phoneErr  = (String) session.getAttribute("phoneErr");
         %>
 
-        <h1>Smart Card System</h1>
-            <a class="button"  href = "userProfile.jsp"> User Profile </a>
-                 <br>
-            <a class="button"  href = "adminProfile.jsp"> Promotion(Admin) </a>
-                        <br>
-            <a class="button"  href = "userPromotion.jsp"> Promotion(Users) </a>
-            <br>
-            <a class="button"  href ="AllShipmentsServlet">Shipment</a>
-            <br>
-            <a class="button"  href = "AllAdminServlet"> Admin </a>
-            <br>
-            <a class="button"  href = "reportManage.jsp"> Report </a>
-            <br>
-            <a class="button"  href = "tripPlanner.jsp"> TripPlanner </a>
-            <br>
-            <a class="button"  href = "OrderHistory.jsp"> Order History </a>
-             <br>
-            <a class="button"  href = "TopUp.jsp"> Top up </a>
-   
+        <h1>Order History</h1>
+             <tr align="center">
+                    <td>Select Card</td>
+                    <td>
+                        <select id="paymentType" name="paymentType">
+                            <option value="None">...</option>
+                        </select>
+                    </td>
+              </tr>
+
+        <table>
+             <tr>
+                <td>Order#</td>
+                <td>Time</td>
+                <td>Location</td>
+                <td>Type</td>
+                <td>Amount</td>
+             </tr>
+        </table>        
         
             </form>
         </main>

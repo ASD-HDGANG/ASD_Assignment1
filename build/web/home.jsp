@@ -51,7 +51,10 @@
             <a class="button"  href = "reportManage.jsp"> Report </a>
             <br>
             <a class="button"  href = "tripPlanner.jsp"> TripPlanner </a>
-
+            <br>
+            <a class="button"  href = "OrderHistory.jsp"> Order History </a>
+             <br>
+            <a class="button"  href = "TopUp.jsp"> Top up </a>
    
         
             </form>

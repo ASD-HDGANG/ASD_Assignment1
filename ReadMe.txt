@@ -5,5 +5,6 @@ Following by Main page which is customer profile. And, it has logout function to
 
 For deployment, you should import it into the netbean and it will work.
 
-Daohu xia 13155799 (Trip planner)(Reporting)
-Jiebin Wang 12997262 (Shipment)(Customer Management)
+Daohu xia 13155799 :Trip planner + Reporting
+Jiebin Wang 12997262: Shipment + Customer Management
+Kyle Zeng 12568806: User Management + Promotions
