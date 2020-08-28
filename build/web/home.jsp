@@ -55,7 +55,8 @@
             <a class="button"  href = "OrderHistory.jsp"> Order History </a>
              <br>
             <a class="button"  href = "TopUp.jsp"> Top up </a>
-   
+                <br>
+            <a class="button"  href = "Credit_Card.jsp"> Credit Card </a>
         
             </form>
         </main>
