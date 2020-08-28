@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ASD.Email.Controller;
+package ASD.Email.Model;
 
 import java.util.List;
 
