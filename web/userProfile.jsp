@@ -48,7 +48,9 @@
                 <td>Address: 123 Mary St</td>
             </tr>
             <tr>
-                <td><a class="button"  href ="editProfile.jsp">Edit Details</a></td>
+                <td><a class="button"  href ="credit_card.jsp">Add credit_card</a>
+                    <a class="button"  href ="editProfile.jsp">Edit Details</a></td>
+               
             </tr>
 
         </table>

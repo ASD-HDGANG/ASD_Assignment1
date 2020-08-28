@@ -32,7 +32,7 @@
             <div class="row">
                 <aside class="col-sm-6">
                     <p>Payment form1</p>
-
+                    <a button href ="userProfile.jsp"> Back</a>
                     <article class="card">
                         <div class="card-body p-5">
                             <p> <img src="/main/images/icons/pay-visa.png"> 
@@ -89,7 +89,7 @@
                                         </div> <!-- form-group.// -->
                                     </div>
                                 </div> <!-- row.// -->
-                                <button class="subscribe btn btn-primary btn-block" type="button"> Confirm  </button>
+                                <button class="subscribe btn btn-primary btn-block" type="button" > Confirm  </button>
                             </form>
                         </div> <!-- card-body.// -->
                     </article> <!-- card.// -->

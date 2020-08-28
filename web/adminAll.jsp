@@ -42,6 +42,7 @@
         <table>
             
             <h1>        <a class="button"  href = "adminNew.jsp">Add new admin </a>
+                        <a class="button"  href = "adminProfile.jsp"> Promotion(Admin) </a>
             </h1>
              <tr>
                 <td>AdminID </td>

@@ -42,7 +42,7 @@
                 </tr>
                 
                 <tr>
-                    <td><a class="button"  href ="main.jsp">Register</a></td>
+                    <td><a class="button"  href ="home.jsp">Register</a></td>
                 </tr>
             </table>
         </form>

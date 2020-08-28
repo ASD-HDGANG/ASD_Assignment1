@@ -30,6 +30,9 @@
 
         </div>
         <h1>Promotions</h1>
+        <h1>
+        <a class="button"  href ="shipmentNew.jsp">Shipment Address</a>
+        </h1>
         <table>
             <tr>
                 <td>promotionId</td>

@@ -20,8 +20,6 @@
             <p class="navi">
                 <a class="button"  href ="login.jsp"> Login </a>
                 <a class="button"  href = "register.jsp"> Register </a>
-                <br>
-                <a class="button"  href ="home.jsp"> Home </a>
                 
             </p>
         </div>
