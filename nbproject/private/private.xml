@@ -1,24 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-<<<<<<< HEAD
-            <file>file:/D:/Users/Patty/UTS/ASD_Assignment1/src/java/ASD/CreditCard/Model/CreditCardType.java</file>
-            <file>file:/D:/Users/Patty/UTS/ASD_Assignment1/src/java/ASD/CreditCard/Model/CreditCard.java</file>
-=======
-            <file>file:/E:/UTS%20S5/ASD/R0/Code/ASD_Assignment1/web/shipmentSearch.jsp</file>
-            <file>file:/E:/UTS%20S5/ASD/R0/Code/ASD_Assignment1/src/java/ASD/SmartCard/Controller/AllShipmentsServlet.java</file>
-            <file>file:/E:/UTS%20S5/ASD/R0/Code/ASD_Assignment1/web/shipmentSearchResult.jsp</file>
-            <file>file:/E:/UTS%20S5/ASD/R0/Code/ASD_Assignment1/src/java/ASD/SmartCard/Controller/ShipmentDeleteServlet.java</file>
-            <file>file:/E:/UTS%20S5/ASD/R0/Code/ASD_Assignment1/web/index.jsp</file>
-            <file>file:/E:/UTS%20S5/ASD/R0/Code/ASD_Assignment1/src/java/ASD/SmartCard/Controller/NewShipmentServlet.java</file>
-            <file>file:/E:/UTS%20S5/ASD/R0/Code/ASD_Assignment1/web/shipments.jsp</file>
-            <file>file:/E:/UTS%20S5/ASD/R0/Code/ASD_Assignment1/web/shipmentEdit.jsp</file>
-            <file>file:/E:/UTS%20S5/ASD/R0/Code/ASD_Assignment1/web/shipmentNew.jsp</file>
-            <file>file:/E:/UTS%20S5/ASD/R0/Code/ASD_Assignment1/src/java/ASD/SmartCard/Model/shipment.java</file>
-            <file>file:/E:/UTS%20S5/ASD/R0/Code/ASD_Assignment1/web/main.jsp</file>
->>>>>>> be00732a4b799d554a3e6d5da43038d9bbd8fb40
-        </group>
-    </open-files>
 </project-private>
