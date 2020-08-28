@@ -9,9 +9,31 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link rel="stylesheet" href="css/SmartCard.css">
+        <title>Promotions Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <div class="header-img">
+        <ul>
+          <li><a href="index.jsp"><img class="logo" src="css/SmartCard.png"/></a></li>
+      <%-- if you want to use button, you can use the below styling
+        <li style="float:right; margin-right:10px;"> <a class="button top-actions"href="register.jsp"> Register </a></li>
+          <li style="float:right; margin-right:10px;"><a class="button top-actions" href="login.jsp"> Login </a></li>
+      --%>
+        </ul>
+        </div>
+        <h1>Promotions</h1>
+        <table>
+            <tr>
+                <td>promotionId</td>
+                <td>promotionTitle</td>
+                <td>promotionStartDate</td>
+                <td>promotionEndDate</td>
+                <td>promotionAuthor</td>
+                <td>promotionDescription</td>
+                <td>promotionStatus</td>
+                
+            </tr>
+        </table>
     </body>
 </html>

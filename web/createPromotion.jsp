@@ -1,6 +1,6 @@
 <%-- 
-    Document   : editProfile
-    Created on : 28/08/2020, 1:51:21 PM
+    Document   : createPromotion
+    Created on : 28/08/2020, 2:13:51 PM
     Author     : Kyle
 --%>
 
@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/SmartCard.css">
-        <title>Edit User Page</title>
+        <title>Create Promotion Page</title>
     </head>
     <body>
         <div class="header-img">
@@ -22,22 +22,24 @@
       --%>
         </ul>
         </div>
-        <h1>Change Profile Details</h1>
+        <h1>Create new promotion</h1>
         <form>
             <table>
                 <tr>
-                    <td><label for="firstName">Enter first name:</label><input type="text" name="firstName" placeholder="Enter first name" required></td>
+                    <td><label for="title">Enter Promotion Title:</label><input type="text" name="title" placeholder="Promotion title" required></td>
                 </tr>
                 <tr>
-                    <td><label for="lastName">Enter last name:</label><input type="text" name="lastName" placeholder="Enter last name" required></td>
+                    <td><label for="startDate">Enter start date:</label><input type="text" name="startDate" placeholder="Enter start date" required></td>
                 </tr>
                 <tr>
-                    <td><label for="email">New Email:</label><input type="email" name="email" placeholder="Enter email" required></td>
+                    <td><label for="endDate">Enter end date:</label><input type="text" name="endDate" placeholder="Enter end date" required></td>
                 </tr>
                 <tr>
-                    <td><a class="button"  href ="userProfile.jsp">Save</a></td>
+                    <td><label for="description">Enter description:</label><input type="text" name="description" placeholder="Enter description" required></td>
+                </tr>
+                <tr>
+                    <td><a class="button"  href ="userPromotion.jsp">Post Promotion</a></td>
                 </tr>
             </table>
-        </form>
     </body>
 </html>
