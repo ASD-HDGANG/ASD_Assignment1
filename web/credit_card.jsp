@@ -1,9 +1,11 @@
+<%-- 
+    Document   : credit_card
+    Created on : 28 Aug. 2020, 11:19:49 am
+    Author     : Patty
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <title>Credit Card</title>
@@ -38,7 +40,7 @@ and open the template in the editor.
                             </p>
                             <p class="alert alert-success">Some text success or error</p>
 
-                            <form role="form">
+                            <form role="form" action="validatePayment">
                                 <div class="form-group">
                                     <label for="username">Full name (on the card)</label>
                                     <div class="input-group">
