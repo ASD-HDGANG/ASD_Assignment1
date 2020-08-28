@@ -80,3 +80,11 @@ tr>th{
     padding:0;
     text-align: center;
 }
+
+.searchDiv{
+    float: left;
+    width: 1500px;
+    padding: 100px;
+    
+    text-align: center;
+}
