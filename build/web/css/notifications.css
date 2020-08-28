@@ -80,11 +80,37 @@ tr>th{
     padding:0;
     text-align: center;
 }
-
+.container{
+  width: 80%;
+  height: 200px;
+  margin: auto;
+  padding: 10px;
+}
 .searchDiv{
-    float: left;
-    width: 1500px;
-    padding: 100px;
-    
-    text-align: center;
+  width: 30%;
+  height: 200px;
+
+  float: left;
+  text-align: right;
+}
+
+.billingSearchDiv{
+  margin-left: 10%;
+  height: 200px;
+  
+}
+.billingtable {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
 }
