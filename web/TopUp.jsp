@@ -35,7 +35,9 @@
         <form method = "post" action="NewAdminServlet">
             
             <label for="name">Card Number</label><input type="text" name="cardNumber" placeholder="16-digits card number" required>
-            <label for="name">Security Code</label><input type="password" name="securityCode" placeholder="4-digit security code" required>    
+            <label for="name">Security Code</label><input type="password" name="securityCode" placeholder="4-digit security code" required> 
+            <label for="name">Amount</label><input type="text" name="orderAmount" placeholder="$ 0.00" required>  
+            <input type="hidden" name="topUpOrConsume">  
             <input class="button" type ="submit" value="submit">
                 
         
