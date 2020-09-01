@@ -1,0 +1,43 @@
+<%-- 
+    Document   : register
+    Created on : 28/08/2020, 3:05:56 PM
+    Author     : Kyle
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="css/SmartCard.css">
+        <title>Register Page</title>
+    </head>
+    <body>
+        <div class="header-img">
+            <ul>
+                <li><a href="index.jsp"><img class="logo" src="css/SmartCard.png"/></a></li>
+                        <%-- if you want to use button, you can use the below styling
+                          <li style="float:right; margin-right:10px;"> <a class="button top-actions"href="register.jsp"> Register </a></li>
+                            <li style="float:right; margin-right:10px;"><a class="button top-actions" href="login.jsp"> Login </a></li>
+                        --%>
+            </ul>
+        </div>
+        <h1>Registration</h1>
+
+
+        <form action="UserVerification" method="post">
+            <!--            <label for="firstName">Enter first name:</label><input type="text" name="firstName" placeholder="Enter first name" required>
+                        <label for="lastName">Enter last name:</label><input type="text" name="lastName" placeholder="Enter last name" required>
+                        <label for="email">Enter Email:</label><input type="email" name="email" placeholder="Enter email" required>
+                        <label for="address">Enter Address:</label><input type="text" name="address" placeholder="Enter address" required>
+                        <label for="password">Enter Password:</label><input type="password" name="password" placeholder="Enter password" required>
+                        <input class="button" type="submit" value="Register">-->
+            <label>User Name</label>
+            <input type="text" name="firstName">
+            <label>User Email</label>
+            <input type="email" name="email">
+            <input type="submit" value="Register">
+        </form>
+
+    </body>
+</html>

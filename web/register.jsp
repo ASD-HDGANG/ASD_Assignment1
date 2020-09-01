@@ -23,7 +23,7 @@
         </ul>
         </div>
         <h1>Registration</h1>
-                <form>
+<!--        <form action="UserVerification" method="POST">
             <table>
                 <tr>
                     <td><label for="firstName">Enter first name:</label><input type="text" name="firstName" placeholder="Enter first name" required></td>
@@ -40,11 +40,20 @@
                 <tr>
                     <td><label for="password">Enter Password:</label><input type="password" name="password" placeholder="Enter password" required></td>
                 </tr>
-                
+
                 <tr>
-                    <td><a class="button"  href ="home.jsp">Register</a></td>
+                    <td><input class="button" type="submit" value="Register"></td>
                 </tr>
             </table>
-        </form>
+        </form>-->
+
+<form action="UserVerification" method="post">
+    <label for="firstName">Enter first name:</label><input type="text" name="firstName" placeholder="Enter first name" required>
+    <label for="lastName">Enter last name:</label><input type="text" name="lastName" placeholder="Enter last name" required>
+    <label for="email">Enter Email:</label><input type="email" name="email" placeholder="Enter email" required>
+    <label for="address">Enter Address:</label><input type="text" name="address" placeholder="Enter address" required>
+    <label for="password">Enter Password:</label><input type="password" name="password" placeholder="Enter password" required>
+    <input class="button" type="submit" value="Register">
+</form>
     </body>
 </html>
