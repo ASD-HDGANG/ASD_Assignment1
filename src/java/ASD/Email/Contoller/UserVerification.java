@@ -5,11 +5,11 @@
  */
 package ASD.Email.Contoller;
 
-import ASD.Email.Model.UserEmail;
-import ASD.SmartCard.Model.User;
+
 import ASD.Email.Model.User1;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javamail.SendEmail;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;

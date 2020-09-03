@@ -33,16 +33,16 @@
         <servlet-class>ASD.SmartCard.Controller.AllAdminServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>SendEmail</servlet-name>
-        <servlet-class>ASD.Email.Contoller.SendEmail</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>UserVerification</servlet-name>
         <servlet-class>ASD.Email.Contoller.UserVerification</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>VerifyCode</servlet-name>
         <servlet-class>ASD.Email.Contoller.VerifyCode</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SendEmail</servlet-name>
+        <servlet-class>ASD.Email.Contoller.SendEmail</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>shipmentSearchServlet</servlet-name>
@@ -77,16 +77,16 @@
         <url-pattern>/AllAdminServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>SendEmail</servlet-name>
-        <url-pattern>/SendEmail</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>UserVerification</servlet-name>
         <url-pattern>/UserVerification</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>VerifyCode</servlet-name>
         <url-pattern>/VerifyCode</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SendEmail</servlet-name>
+        <url-pattern>/SendEmail</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
