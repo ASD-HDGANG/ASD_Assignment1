@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>asd.maven.app</groupId>
-    <artifactId>ASD-Demo-app</artifactId>
+
+    <groupId>com.mycompany</groupId>
+    <artifactId>ASD-Smartcard-app</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>ASD-Demo-app</name>
+
+    <name>ASD-Smartcard-app</name>
+
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -37,9 +40,10 @@
             <artifactId>selenium-chrome-driver</artifactId>
             <version>3.141.59</version>
         </dependency>
-        <dependency> <groupId>org.seleniumhq.selenium</groupId> 
-        <artifactId>selenium-support</artifactId> 
-        <version>3.11.0</version>
+        <dependency> 
+            <groupId>org.seleniumhq.selenium</groupId> 
+            <artifactId>selenium-support</artifactId> 
+            <version>3.11.0</version>
         </dependency>
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
@@ -107,7 +111,7 @@
             <version>3.11.0</version>
         </dependency>
         <!-- JUnit dependency-->
-         <dependency>
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
@@ -122,35 +126,21 @@
             <scope>test</scope>
         </dependency>  
         <dependency>
-    <groupId>com.google.guava</groupId>
-    <artifactId>guava</artifactId>
-    <version>27.1-jre</version>
-</dependency>      
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>27.1-jre</version>
+        </dependency>      
     </dependencies>
+
     <build>
         <plugins>
             <plugin>
-                <groupId>com.google.cloud.tools</groupId>
-                <artifactId>appengine-maven-plugin</artifactId>
-                <version>2.0.0-rc2</version>
-            </plugin>
-            <plugin>
-                <groupId>com.google.appengine</groupId>
-                <artifactId>appengine-maven-plugin</artifactId>
-                <version>1.9.65</version>
-                <configuration>
-                    <enableJarClasses>false</enableJarClasses>
-                    <port>8181</port>
-                    <address>0.0.0.0</address>
-                </configuration>
-            </plugin>
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
+                <version>3.1</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>1.7</source>
+                    <target>1.7</target>
                     <compilerArguments>
                         <endorseddirs>${endorsed.dir}</endorseddirs>
                     </compilerArguments>
@@ -162,68 +152,34 @@
                 <version>2.3</version>
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
-                    <webResources>
-                        <resource>
-                            <directory>src</directory>
-                            <targetPath>WEB-INF</targetPath>
-                            <includes>
-                                <include>jax-ws-catalog.xml</include>
-                                <include>wsdl/**</include>
-                            </includes>
-                        </resource>
-                    </webResources>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
-                <version>2.3</version>
+                <version>2.6</version>
                 <executions>
                     <execution>
-                        <phase>package</phase>
+                        <phase>validate</phase>
                         <goals>
                             <goal>copy</goal>
                         </goals>
                         <configuration>
+                            <outputDirectory>${endorsed.dir}</outputDirectory>
+                            <silent>true</silent>
                             <artifactItems>
                                 <artifactItem>
-                                    <groupId>com.github.jsimone</groupId>
-                                    <artifactId>webapp-runner</artifactId>
-                                    <version>8.0.30.2</version>
-                                    <destFileName>webapp-runner.jar</destFileName>
+                                    <groupId>javax</groupId>
+                                    <artifactId>javaee-endorsed-api</artifactId>
+                                    <version>7.0</version>
+                                    <type>jar</type>
                                 </artifactItem>
                             </artifactItems>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.jvnet.jax-ws-commons</groupId>
-                <artifactId>jaxws-maven-plugin</artifactId>
-                <version>2.3</version>
-                <executions>
-
-                </executions>
-                <dependencies>
-                    <dependency>
-                        <groupId>javax.xml</groupId>
-                        <artifactId>webservices-api</artifactId>
-                        <version>2.0</version>
-                    </dependency>
-                </dependencies>
-                <configuration>
-                    <sourceDestDir>${project.build.directory}/generated-sources/jaxws-wsimport</sourceDestDir>
-                    <xnocompile>true</xnocompile>
-                    <verbose>true</verbose>
-                    <extension>true</extension>
-                    <catalog>${basedir}/src/jax-ws-catalog.xml</catalog>
-                </configuration>
-            </plugin>
-            <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-surefire-plugin</artifactId>
-          <version>2.19.1</version>
-        </plugin>
         </plugins>
     </build>
+
 </project>
