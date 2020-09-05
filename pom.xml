@@ -29,12 +29,16 @@
             <scope>provided</scope>
         </dependency>
         
-        <!-- ustom dependency - https://mvnrepository.com/artifact/javax.activation/activation -->
+        <!-- custom dependency - https://mvnrepository.com/artifact/javax.activation/activation -->
         <dependency>
             <groupId>javax.activation</groupId>
             <artifactId>activation</artifactId>
             <version>1.1.1</version>
         </dependency>
+        
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver -->
+
+
 
         
 
@@ -130,14 +134,13 @@
         
         
         <!-- Selenium support dependency for automating multi-browser platforms-->
-<!--        <dependency>
+        <!--<dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-support</artifactId>
             <version>3.11.0</version>
         </dependency>-->
+        
         <!-- JUnit dependency-->
-        
-        
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

@@ -13,33 +13,33 @@
         <script type="text/javascript" src="js/script.js"></script>
         <title>New Shipment</title>
     </head>   <body onload ="startTime()">
-   <div class="header-img">
-        <ul>
-          <li><a href="index.jsp"><img class="logo" src="css/SmartCard.png"/></a></li>
-      <%-- if you want to use button, you can use the below styling
-        <li style="float:right; margin-right:10px;"> <a class="button top-actions"href="register.jsp"> Register </a></li>
-          <li style="float:right; margin-right:10px;"><a class="button top-actions" href="login.jsp"> Login </a></li>
-      --%>
-        </ul>
+        <div class="header-img">
+            <ul>
+                <li><a href="index.jsp"><img class="logo" src="css/SmartCard.png"/></a></li>
+                        <%-- if you want to use button, you can use the below styling
+                          <li style="float:right; margin-right:10px;"> <a class="button top-actions"href="register.jsp"> Register </a></li>
+                            <li style="float:right; margin-right:10px;"><a class="button top-actions" href="login.jsp"> Login </a></li>
+                        --%>
+            </ul>
         </div>
         <div class="topnav">
-        <%--left    button
-            <a href="StoreServlet" style="float: left;">All Products</a>
-            <a href="AllShipmentsServlet" style="float: right;">Shipments</a>--%>
+            <%--left    button
+                <a href="StoreServlet" style="float: left;">All Products</a>
+                <a href="AllShipmentsServlet" style="float: right;">Shipments</a>--%>
             <a href="home.jsp" style="float: left;"> Home </a>
             <a href="tripPlanner.jsp" style="float: left;"> Trip_Planner </a>
             <a href="userProfile.jsp" style="float: right;">Profile</a>
             <a href="AllAdminServlet" style="float: right;">Admin</a>
         </div>
-        
-        <main class="main-content">
-        <%
-            String existErr = (String) session.getAttribute("existErr"); 
-            String  postCodeErr  = (String) session.getAttribute("postCodeErr"); 
-            String  phoneErr  = (String) session.getAttribute("phoneErr");
-        %>
 
-        <h1>Smart Card System</h1>
+        <main class="main-content">
+            <%
+                String existErr = (String) session.getAttribute("existErr");
+                String postCodeErr = (String) session.getAttribute("postCodeErr");
+                String phoneErr = (String) session.getAttribute("phoneErr");
+            %>
+
+            <h1>Smart Card System</h1>
             <a class="button"  href = "TopUp.jsp"> Top up </a>       
             <br>
             <a class="button"  href = "OrderHistory.jsp"> Order History </a>
@@ -51,11 +51,11 @@
             <a class="button"  href = "reportManage.jsp"> Report </a>
             <br>
             <a class="button"  href = "notification.jsp"> Notification </a>
-                        <br>
+            <br>
             <a class="button"  href = "billing.jsp"> Billing </a>
 
-        
-            </form>
-        </main>
-    </body>
+
+        </form>
+    </main>
+</body>
 </html>
