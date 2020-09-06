@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/SmartCard.css">
         <script type="text/javascript" src="js/script.js"></script>
-        <title>New Shipment</title>
+        <title>Home</title>
     </head>   
 
     <body onload ="startTime()">

@@ -1,11 +1,11 @@
 -------------------------------------------------------------------------------
 Test set: CucumberRunnerTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 5.83 sec <<< FAILURE!
-Website is deployed and loading(Website is deployed Properly)  Time elapsed: 5.445 sec  <<< FAILURE!
-org.junit.ComparisonFailure: expected:<[New Shipment]> but was:<[Application Error]>
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 5.919 sec <<< FAILURE!
+Website is deployed and loading(Website is deployed Properly)  Time elapsed: 5.534 sec  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[Home]> but was:<[Application Error]>
 	at org.junit.Assert.assertEquals(Assert.java:115)
 	at org.junit.Assert.assertEquals(Assert.java:144)
-	at Tester.thenStatment(Tester.java:37)
+	at Tester1.thenStatment(Tester1.java:37)
 	at ?.website returns content(file:src/test/java/demo1.feature:12)
 

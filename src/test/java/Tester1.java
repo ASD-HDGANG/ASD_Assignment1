@@ -10,7 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class Tester {
+public class Tester1 {
 
     WebDriver driver;
 
@@ -34,6 +34,6 @@ public class Tester {
 
     @Then("^website returns content$")
     public void thenStatment() {
-        Assert.assertEquals("New Shipment", driver.getTitle()); // need to match with the homepage title on html <head> section?
+        Assert.assertEquals("Home", driver.getTitle()); // need to match with the homepage title on html <head> section?
     }
 }
