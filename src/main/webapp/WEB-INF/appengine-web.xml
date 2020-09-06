@@ -3,7 +3,7 @@
     <!--
       Name of the app on GAE
     -->
-    <application>https://asd-assignment-app.herokuapp.com/</application>
+    <application>asd-smartcard-app</application>
     <version>1</version>
     <runtime>java8</runtime>
     <!--

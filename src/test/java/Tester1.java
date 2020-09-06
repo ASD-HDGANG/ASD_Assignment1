@@ -32,7 +32,7 @@ public class Tester1 {
         driver.get("https://asd-assignment-app.herokuapp.com/");
     }
 
-    @Then("^website returns content$")
+    @Then("^website return Application Error$")
     public void thenStatment() {
         Assert.assertEquals("Home", driver.getTitle()); // need to match with the homepage title on html <head> section?
     }
