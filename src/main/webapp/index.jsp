@@ -12,7 +12,9 @@
         <link rel="stylesheet" href="css/SmartCard.css">
         <script type="text/javascript" src="js/script.js"></script>
         <title>New Shipment</title>
-    </head>   <body onload ="startTime()">
+    </head>   
+
+    <body onload ="startTime()">
         <div class="header-img">
             <ul>
                 <li><a href="index.jsp"><img class="logo" src="css/SmartCard.png"/></a></li>

@@ -22,17 +22,18 @@ public class Tester {
         driver = driverClass.newInstance();
         //driver.get("https://maven-app-heroku.herokuapp.com/");						
         //driver.get("https://asd-demo-app1.herokuapp.com/");						
+        //driver.get("https://asd-assignment-app.herokuapp.com/");						
 
         System.out.println("Given statement executed successfully");
     }
 
     @When("^I visit website$")
     public void whenStatement() {
-        driver.get("https://asd-demo-app1.herokuapp.com/");
+        driver.get("https://asd-assignment-app.herokuapp.com/");
     }
 
     @Then("^website returns content$")
     public void thenStatment() {
-        Assert.assertEquals("Home", driver.getTitle()); // need to match with the homepage title on html <head> section?
+        Assert.assertEquals("New Shipment", driver.getTitle()); // need to match with the homepage title on html <head> section?
     }
 }
