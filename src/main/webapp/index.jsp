@@ -23,7 +23,7 @@
         <div class="bs-docs-header" id="content" tabindex="-1">
             <span class="time" id="time" ></span>
             <div class="container">
-                <h1>ASD  Demo Application</h1>                        
+                <h1>ASD Smartcard Application</h1>                        
                 <p class="p">Java Maven Web Application</p>                
             </div>
             <nav class="navbar navbar-inverse">
