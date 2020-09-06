@@ -1,63 +1,83 @@
-<%-- 
-    Document   : adminNew
-    Created on : 27/08/2020, 10:31:15 PM
-    Author     : admin
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="asd.demo.model.*"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="css/SmartCard.css">
-        <script type="text/javascript" src="js/script.js"></script>
-        <title>Home</title>
-    </head>   
+    <head>        
+        <link rel="stylesheet" href="webjars/bootstrap/3.3.5/css/bootstrap.css">
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.bundle.min.js" ></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" ></script>
+        <script src="jsanimation.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/demo.css">
+        <script type="text/javascript" src="js/script.js"></script>  
+        <script type="text/javascript" src="js/animation.js"></script> 
+        <link rel="stylesheet" type="text/css" href="css/style.css">  
+        <link rel="stylesheet" type="text/css" href="css/led.css">
+    </head>
+    <title>HomeTest</title>
+    <%
+        String status = (String)session.getAttribute("status");        
+    %>
+    <body onload="startTime()">           
+        <div class="bs-docs-header" id="content" tabindex="-1">
+            <span class="time" id="time" ></span>
+            <div class="container">
+                <h1>ASD  Demo Application</h1>                        
+                <p class="p">Java Maven Web Application</p>                
+            </div>
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
 
-    <body onload ="startTime()">
-        <div class="header-img">
-            <ul>
-                <li><a href="index.jsp"><img class="logo" src="css/SmartCard.png"/></a></li>
-                        <%-- if you want to use button, you can use the below styling
-                          <li style="float:right; margin-right:10px;"> <a class="button top-actions"href="register.jsp"> Register </a></li>
-                            <li style="float:right; margin-right:10px;"><a class="button top-actions" href="login.jsp"> Login </a></li>
-                        --%>
-            </ul>
-        </div>
-        <div class="topnav">
-            <%--left    button
-                <a href="StoreServlet" style="float: left;">All Products</a>
-                <a href="AllShipmentsServlet" style="float: right;">Shipments</a>--%>
-            <a href="home.jsp" style="float: left;"> Home </a>
-            <a href="tripPlanner.jsp" style="float: left;"> Trip_Planner </a>
-            <a href="userProfile.jsp" style="float: right;">Profile</a>
-            <a href="AllAdminServlet" style="float: right;">Admin</a>
-        </div>
+                        </button>
+                        <a class="navbar-brand" href="#Register-Div" data-toggle="tab" id="Register-Tab">Register</a>
+                        <a class="navbar-brand" href="#Login-Div" data-toggle="tab" id="Login-Tab">Login</a>
+                        <a class="navbar-brand" href="#MLab-Div" data-toggle="tab" id="MLab-Tab">MLab Connect</a>
+                        <div class="container">
+                            <div class="led-box">
+                                <div class="<%= (status != null) ? "led-green" : "led-red"%>"></div>                                
+                            </div>                            
+                        </div>
+                    </div>
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">                            
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Author<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="https://www.linkedin.com/in/georges-bou-ghantous/" target="_Blank" style="color:#cdbfe3;">Linked In of George</a></li>
+                                    <li><a href="mailto:Georges.BouGhantous-1@uts.edu.au" style="color:#cdbfe3; ">Contact</a></li>
+                                    <li><a href="https://www.uts.edu.au/" target="_Blank" style="color:#cdbfe3; ">UTS</a></li>
+                                </ul>
+                            </li> 
+                        </ul>
 
-        <main class="main-content">
-            <%
-                String existErr = (String) session.getAttribute("existErr");
-                String postCodeErr = (String) session.getAttribute("postCodeErr");
-                String phoneErr = (String) session.getAttribute("phoneErr");
-            %>
-
-            <h1>Smart Card System</h1>
-            <a class="button"  href = "TopUp.jsp"> Top up </a>       
-            <br>
-            <a class="button"  href = "OrderHistory.jsp"> Order History </a>
-            <br>
-            <a class="button"  href = "userPromotion.jsp"> Promotion </a>
-            <br>
-            <a class="button"  href ="AllShipmentsServlet">Shipment</a>
-            <br>
-            <a class="button"  href = "reportManage.jsp"> Report </a>
-            <br>
-            <a class="button"  href = "notification.jsp"> Notification </a>
-            <br>
-            <a class="button"  href = "billing.jsp"> Billing </a>
-
-
-        </form>
-    </main>
-</body>
+                    </div> 
+                </div>
+            </nav>           
+        </div> 
+        <div class="container" style="width:102%; height: 75%;">
+            <div class="row">                                  
+                <div class="tab-content">
+                    <iframe id="Display-frame" name="Display-frame" src="" frameborder="0"  allowFullScreen></iframe> 
+                </div>                
+            </div>            
+        </div>        
+        <div class="footer">            
+            <h2 id="buttons-options" class="title">Control Panel</h2>
+            <div class="bs-glyphicons" style="padding-bottom:10px;">          
+                <a class="btn btn-default glyphicon glyphicon-refresh"  data-toggle="tooltip" title="Refresh" href="#" iclass="tooltip"id="Default-Tab"></a>             
+                <a class="btn btn-primary glyphicon glyphicon-level-up" data-toggle="tooltip" title="GitHub" href="https://github.com/Georges034302" target="_blank"></a>               
+                <a class="btn btn-info glyphicon glyphicon-cloud" data-toggle="tooltip" title="Google Drive" href="https://www.google.com/drive/" target="_blank"></a>            
+                <a class="btn btn-warning glyphicon glyphicon-pencil" data-toggle="tooltip" title="Collaborate" href="http://collabedit.com/" target="_blank"></a>           
+                <a class="btn btn-primary glyphicon glyphicon-send" data-toggle="tooltip" title="Email" href="mailto: "></a>
+            </div>
+        </div>  
+        <script src="webjars/jquery/2.1.4/jquery.js"></script>
+        <script src="webjars/bootstrap/3.3.5/js/bootstrap.js"></script>
+    </body>
 </html>
