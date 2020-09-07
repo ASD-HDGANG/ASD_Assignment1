@@ -13,7 +13,6 @@ import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import java.util.ArrayList;
-import java.util.List;
 import org.bson.Document;
 
 /**
@@ -25,9 +24,9 @@ public class MongoDBConnector {
 //    public static MongoClient mongoClient;
 //    public static DB database;
     private static DBCollection asd_smartcard_app_test;
-    private List<Document> users = new ArrayList();
-    private String owner;
-    private String password;
+    private ArrayList<Document> users = new ArrayList();
+    private String owner = "heroku_lcjwqk0m";
+    private String password = "rl8a576pdf1dbb7e3armg0vfjt";
     private String connectionStringPostfix = "@ds011288.mlab.com:11288/heroku_lcjwqk0m";
 
     public MongoDBConnector(String owner, String password) {
@@ -68,5 +67,7 @@ public class MongoDBConnector {
     }
 
 }
+
+
 
 

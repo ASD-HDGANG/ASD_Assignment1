@@ -1,6 +1,7 @@
-ASD\SmartCard\Controller\RegisterServlet.class
 ASD\SmartCard\Model\_User.class
+ASD\SmartCard\Model\UserModel.class
+ASD\SmartCard\Controller\RegisterServlet.class
+mlab\Model\dao\MongoDB.class
 mlab\Model\dao\MongoDBConnector.class
 ASD\CreditCard\Model\CreditCard.class
 ASD\CreditCard\Model\CreditCardType.class
-ASD\SmartCard\Model\UserModel.class
