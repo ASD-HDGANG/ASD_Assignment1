@@ -5,21 +5,12 @@
  */
 package com.asd.smartcard.repository;
 
-import com.asd.smartcard.model.User;
-import java.util.Optional;
+import com.asd.smartcard.model.Role;
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.stereotype.Repository;
 
-@Repository
-public interface UserRepository extends MongoRepository<User, String> {
-    //User findByEmail(String email);
-    Optional<User> findByEmail(String email);
+public interface RoleRepository extends MongoRepository<Role, String> {
+    Role findByRole(String role);
 }
-
-
-
-
-
 
 
 

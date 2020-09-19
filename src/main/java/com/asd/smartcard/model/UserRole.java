@@ -5,9 +5,13 @@
  */
 package com.asd.smartcard.model;
 
-
+/**
+ *
+ * @author Patty
+ */
 public enum UserRole {
     ADMIN, USER
 }
+
 
 

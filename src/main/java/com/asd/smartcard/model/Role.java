@@ -5,19 +5,25 @@
  */
 package com.asd.smartcard.model;
 
-import java.io.Serializable;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.IndexDirection;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-public class Role implements Serializable {
+@Document(collection = "role")
+public class Role {
 
+    @Id
     private String id;
-    private String name;
+    @Indexed(unique = true, direction = IndexDirection.DESCENDING, dropDups = true)
+
+    private String role;
 
     public Role() {
     }
 
-    public Role(String name) {
-        super();
-        this.name = name;
+    public Role(String role) {
+        this.role = role;
     }
 
     public String getId() {
@@ -28,12 +34,12 @@ public class Role implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getRole() {
+        return role;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setRole(String role) {
+        this.role = role;
     }
 
 }

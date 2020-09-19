@@ -5,5 +5,7 @@ com\asd\smartcard\service\UserService.class
 com\asd\smartcard\model\UserRole.class
 com\asd\smartcard\dto\UserRegistrationDto.class
 com\asd\smartcard\repository\UserRepository.class
+com\asd\smartcard\repository\RoleRepository.class
 com\asd\smartcard\service\UserServiceImpl.class
+com\asd\smartcard\controller\MainController.class
 com\asd\smartcard\model\User.class

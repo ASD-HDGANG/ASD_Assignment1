@@ -10,10 +10,7 @@ import com.asd.smartcard.dto.UserRegistrationDto;
 
 public interface UserService {
 
-    //User findByEmail(String email);
     User save(UserRegistrationDto registrationDto);
+
 }
-
-
-
 

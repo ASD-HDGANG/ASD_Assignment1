@@ -5,11 +5,13 @@
  */
 package com.asd.smartcard.model;
 
+import java.util.Set;
 import java.util.Collection;
 import java.util.Collections;
-import javax.management.relation.Role;
-import lombok.*;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.IndexDirection;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -19,26 +21,21 @@ import org.springframework.security.core.userdetails.UserDetails;
 public class User {
 
     @Id
-    private String id; // consider use Long to take less bit
-    private String name;
+    private String id; // JPS use Long to take less bit
+    @Indexed(unique = true, direction = IndexDirection.DESCENDING, dropDups = true)
 
-    //@Indexed(unique = true, direction = IndexDirection.DESCENDING, dropDups = true)
+    private String name;
     private String email;
     private String password;
 
+    private Boolean locked = false;
 
+    private Boolean enabled = false;
+
+    //private UserRole userRole = UserRole.USER;
 //    @DBRef
 //    private Set<Role> roles;
-//    @Builder.Default
-//    private UserRole userRole = UserRole.USER;
-
-//    @Override
-//    public Collection<? extends GrantedAuthority> getAuthorities() {
-//
-//        final SimpleGrantedAuthority simpleGrantedAuthority = new SimpleGrantedAuthority(userRole.name());
-//        return Collections.singletonList(simpleGrantedAuthority);
-//    }
-
+    
     private Collection<Role> roles;
 
     public User() {
@@ -50,9 +47,17 @@ public class User {
         this.password = password;
         this.roles = roles;
     }
-    
-    
 
+//    @Override
+//    public Collection<? extends GrantedAuthority> getAuthorities() {
+//
+//        final SimpleGrantedAuthority simpleGrantedAuthority = new SimpleGrantedAuthority(userRole.name());
+//        return Collections.singletonList(simpleGrantedAuthority);
+//    }
+//    @Override
+//    public String getUsername() {
+//        return email;
+//    }
     public String getId() {
         return id;
     }
@@ -77,6 +82,21 @@ public class User {
         this.email = email;
     }
 
+//    public Set<Role> getRoles() {
+//        return roles;
+//    }
+//
+//    public void setRoles(Set<Role> roles) {
+//        this.roles = roles;
+//    }
+    public Collection<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Collection<Role> roles) {
+        this.roles = roles;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -86,24 +106,28 @@ public class User {
     }
 
 
-
-    public Collection<Role> getRoles() {
-        return roles;
+    public boolean isEnabled() {
+        return enabled;
     }
 
-    public void setRoles(Collection<Role> roles) {
-        this.roles = roles;
-    }
-
+    // Below are Springboot UserDetails feature
+//    @Override
+//    public boolean isAccountNonExpired() {
+//        return true;
+//    }
+//    
+//    @Override
+//    public boolean isAccountNonLocked() {
+//        return !locked;
+//    }
+//
+//
+//    @Override
+//    public boolean isCredentialsNonExpired() {
+//        return true;
+//    }
 }
 
-// Other possible method
-//    @Override
-//    public Collection<? extends GrantedAuthority> getAuthorities() {
-//
-//        final SimpleGrantedAuthority simpleGrantedAuthority = new SimpleGrantedAuthority(userRole.name());
-//        return Collections.singletonList(simpleGrantedAuthority);
-//    }
 
 
 
