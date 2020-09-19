@@ -54,7 +54,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/login")
                 .failureUrl("/bad-404")
-                .defaultSuccessUrl("/registration")
+                .defaultSuccessUrl("/")
                 .usernameParameter("email") //needed, if custom login page
                 .passwordParameter("password") //needed, if custom login page                
                 .permitAll()
@@ -69,6 +69,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
 }
+
+
 
 
 
