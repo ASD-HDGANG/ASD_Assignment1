@@ -7,5 +7,5 @@ D:\Users\Patty\UTS\smartcard-app\src\main\java\com\asd\smartcard\model\Role.java
 D:\Users\Patty\UTS\smartcard-app\src\main\java\com\asd\smartcard\model\User.java
 D:\Users\Patty\UTS\smartcard-app\src\main\java\com\asd\smartcard\repository\UserRepository.java
 D:\Users\Patty\UTS\smartcard-app\src\main\java\com\asd\smartcard\dto\UserRegistrationDto.java
+D:\Users\Patty\UTS\smartcard-app\src\main\java\com\asd\smartcard\config\WebSecurityConfig.java
 D:\Users\Patty\UTS\smartcard-app\src\main\java\com\asd\smartcard\controller\UserRegistrationController.java
-D:\Users\Patty\UTS\smartcard-app\src\main\java\com\asd\smartcard\repository\RoleRepository.java
