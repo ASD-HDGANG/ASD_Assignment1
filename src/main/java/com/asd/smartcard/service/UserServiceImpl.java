@@ -14,6 +14,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -33,6 +34,8 @@ public class UserServiceImpl implements UserService {
         this.userRepository = userRepository;
     }
 
+
+
     @Override
     public User save(UserRegistrationDto registrationDto) {
 
@@ -41,7 +44,7 @@ public class UserServiceImpl implements UserService {
 //        user.setEmail(registrationDto.getEmail());
 //        user.setPassword(registrationDto.getPassword());
         User user = new User(
-                registrationDto.getName(), registrationDto.getEmail(), passwordEncoder.encode((registrationDto.getPassword())), Arrays.asList(new Role("ROLE_USER")));
+                registrationDto.getName(), registrationDto.getEmail(), (passwordEncoder.encode(registrationDto.getPassword())), Arrays.asList(new Role("ROLE_USER")));
 
 //        Role userRole = roleRepository.findByRole("USER");
 //        user.setRoles(new HashSet<>(Arrays.asList(userRole)));
@@ -54,12 +57,12 @@ public class UserServiceImpl implements UserService {
 //
 //    }
     @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        User user = userRepository.findByEmail(email);
+        User user = userRepository.findByEmail(username);
 
         if (user == null) {
-            throw new UsernameNotFoundException(MessageFormat.format("User with email {0} not match.", email));
+            throw new UsernameNotFoundException(MessageFormat.format("User with email {0} not match.", username));
         }
         return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), mapRolesToAuthorities(user.getRoles()));
     }
@@ -77,6 +80,9 @@ public class UserServiceImpl implements UserService {
 //        Role userRole = roleRepository.findByRole("ADMIN");
 //        user.setRoles(new HashSet<>(Arrays.asList(userRole)));
 //        userRepository.save(user);
+
+
+
 
 
 

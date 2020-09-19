@@ -22,7 +22,7 @@ public class User {
 
     @Id
     private String id; // JPS use Long to take less bit
-    @Indexed(unique = true, direction = IndexDirection.DESCENDING, dropDups = true)
+    //@Indexed(unique = true, direction = IndexDirection.DESCENDING, dropDups = true)
 
     private String name;
     private String email;
@@ -40,6 +40,8 @@ public class User {
 
     public User() {
     }
+
+
 
     public User(String name, String email, String password, Collection<Role> roles) {
         this.name = name;
@@ -127,6 +129,8 @@ public class User {
 //        return true;
 //    }
 }
+
+
 
 
 
