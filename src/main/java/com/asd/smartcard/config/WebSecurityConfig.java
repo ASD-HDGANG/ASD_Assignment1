@@ -5,7 +5,6 @@
  */
 package com.asd.smartcard.config;
 
-import com.asd.smartcard.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,13 +15,14 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import com.asd.smartcard.service.IUserService;
 
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    private UserService userService;
+    private IUserService userService;
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
@@ -54,7 +54,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/login")
                 .failureUrl("/bad-404")
-                .defaultSuccessUrl("/")
+                //.defaultSuccessUrl("/")
                 .usernameParameter("email") //needed, if custom login page
                 .passwordParameter("password") //needed, if custom login page                
                 .permitAll()

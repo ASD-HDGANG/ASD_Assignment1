@@ -5,16 +5,10 @@
  */
 package com.asd.smartcard.service;
 
-import com.asd.smartcard.model.User;
-import com.asd.smartcard.repository.UserRepository;
-import com.asd.smartcard.dto.UserRegistrationDto;
+import com.asd.smartcard.dto.UserDto;
 import com.asd.smartcard.model.Role;
-import java.text.MessageFormat;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.stream.Collectors;
+import com.asd.smartcard.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,22 +16,26 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.text.MessageFormat;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.stream.Collectors;
+import com.asd.smartcard.repository.IUserRepository;
+
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements IUserService {
 
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
     @Autowired
-    private UserRepository userRepository;
+    private IUserRepository userRepository;
 
-    public UserServiceImpl(UserRepository userRepository) {
+    public UserServiceImpl(IUserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
-
-
     @Override
-    public User save(UserRegistrationDto registrationDto) {
+    public User save(UserDto registrationDto) {
 
 //        User user = new User(); // create new user for user signup      
 //        user.setName(registrationDto.getName());
@@ -49,13 +47,13 @@ public class UserServiceImpl implements UserService {
 //        Role userRole = roleRepository.findByRole("USER");
 //        user.setRoles(new HashSet<>(Arrays.asList(userRole)));
         return userRepository.save(user);
+
+        // send email
+        
+        
     }
 
     // This is for login creditential to override default springboot login
-//    @Override
-//    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-//
-//    }
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
@@ -73,6 +71,7 @@ public class UserServiceImpl implements UserService {
         return roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
 
     }
+
 }
 
 //        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
@@ -80,6 +79,8 @@ public class UserServiceImpl implements UserService {
 //        Role userRole = roleRepository.findByRole("ADMIN");
 //        user.setRoles(new HashSet<>(Arrays.asList(userRole)));
 //        userRepository.save(user);
+
+
 
 
 

@@ -5,13 +5,13 @@
  */
 package com.asd.smartcard.service;
 
+import com.asd.smartcard.dto.UserDto;
 import com.asd.smartcard.model.User;
-import com.asd.smartcard.dto.UserRegistrationDto;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
-public interface UserService extends UserDetailsService {
+public interface IUserService extends UserDetailsService {
 
-    User save(UserRegistrationDto registrationDto);
+    User save(UserDto registrationDto);
 
 }
 

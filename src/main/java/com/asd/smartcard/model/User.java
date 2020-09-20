@@ -5,24 +5,21 @@
  */
 package com.asd.smartcard.model;
 
-import java.util.Set;
-import java.util.Collection;
-import java.util.Collections;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.util.Collection;
 import org.springframework.data.mongodb.core.index.IndexDirection;
 import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.DBRef;
-import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
 @Document(collection = "User")
 public class User {
 
     @Id
     private String id; // JPS use Long to take less bit
-    //@Indexed(unique = true, direction = IndexDirection.DESCENDING, dropDups = true)
+    @Indexed(unique = true, direction = IndexDirection.DESCENDING, dropDups = true)
+
+    private Long userId;
 
     private String name;
     private String email;
@@ -35,13 +32,10 @@ public class User {
     //private UserRole userRole = UserRole.USER;
 //    @DBRef
 //    private Set<Role> roles;
-    
     private Collection<Role> roles;
 
     public User() {
     }
-
-
 
     public User(String name, String email, String password, Collection<Role> roles) {
         this.name = name;
@@ -66,6 +60,14 @@ public class User {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public String getName() {
@@ -107,7 +109,6 @@ public class User {
         this.password = password;
     }
 
-
     public boolean isEnabled() {
         return enabled;
     }
@@ -129,10 +130,4 @@ public class User {
 //        return true;
 //    }
 }
-
-
-
-
-
-
 

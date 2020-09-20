@@ -1,10 +1,6 @@
 package com.asd.smartcard.dto;
 
-import java.util.Set;
-import javax.management.relation.Role;
-import org.springframework.data.mongodb.core.mapping.DBRef;
-
-public class UserRegistrationDto {
+public class UserDto {
 
     private String name;
     private String password;
@@ -12,10 +8,10 @@ public class UserRegistrationDto {
   
 
 
-    public UserRegistrationDto() {
+    public UserDto() {
     }
 
-    public UserRegistrationDto(String name, String password, String email) {
+    public UserDto(String name, String password, String email) {
         this.name = name;
         this.password = password;
         this.email = email;

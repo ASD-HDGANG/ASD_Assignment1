@@ -15,10 +15,9 @@ public class Role {
 
     @Id
     private String id;
-    //@Indexed(unique = true, direction = IndexDirection.DESCENDING, dropDups = true)
+    @Indexed(unique = true, direction = IndexDirection.DESCENDING, dropDups = true)
 
-   // private String role;
-
+    // private String role;
     private String name;
 
     public Role() {
@@ -44,7 +43,6 @@ public class Role {
 //    public void setRole(String role) {
 //        this.role = role;
 //    }
-
     public String getName() {
         return name;
     }
@@ -54,6 +52,4 @@ public class Role {
     }
 
 }
-
-
 
