@@ -5,12 +5,15 @@
  */
 package com.asd.smartcard.model;
 
+import java.time.LocalDateTime;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Collection;
 import org.springframework.data.mongodb.core.index.IndexDirection;
 import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document(collection = "User")
 public class User {
@@ -18,8 +21,6 @@ public class User {
     @Id
     private String id; // JPS use Long to take less bit
     @Indexed(unique = true, direction = IndexDirection.DESCENDING, dropDups = true)
-
-    private Long userId;
 
     private String name;
     private String email;
@@ -29,10 +30,12 @@ public class User {
 
     private Boolean enabled = false;
 
-    //private UserRole userRole = UserRole.USER;
-//    @DBRef
-//    private Set<Role> roles;
     private Collection<Role> roles;
+
+    @Field("verification_code")
+    private String verificationCode;
+
+    private LocalDateTime dateCreated;
 
     public User() {
     }
@@ -44,30 +47,12 @@ public class User {
         this.roles = roles;
     }
 
-//    @Override
-//    public Collection<? extends GrantedAuthority> getAuthorities() {
-//
-//        final SimpleGrantedAuthority simpleGrantedAuthority = new SimpleGrantedAuthority(userRole.name());
-//        return Collections.singletonList(simpleGrantedAuthority);
-//    }
-//    @Override
-//    public String getUsername() {
-//        return email;
-//    }
     public String getId() {
         return id;
     }
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
     }
 
     public String getName() {
@@ -86,13 +71,6 @@ public class User {
         this.email = email;
     }
 
-//    public Set<Role> getRoles() {
-//        return roles;
-//    }
-//
-//    public void setRoles(Set<Role> roles) {
-//        this.roles = roles;
-//    }
     public Collection<Role> getRoles() {
         return roles;
     }
@@ -111,6 +89,22 @@ public class User {
 
     public boolean isEnabled() {
         return enabled;
+    }
+
+    public String getVerificationCode() {
+        return verificationCode;
+    }
+
+    public void setVerificationCode(String verificationCode) {
+        this.verificationCode = verificationCode;
+    }
+
+    public LocalDateTime getDateCreated() {
+        return dateCreated;
+    }
+
+    public void setDateCreated(LocalDateTime dateCreated) {
+        this.dateCreated = dateCreated;
     }
 
     // Below are Springboot UserDetails feature

@@ -21,6 +21,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.stream.Collectors;
 import com.asd.smartcard.repository.IUserRepository;
+import net.bytebuddy.utility.RandomString;
 
 @Service
 public class UserServiceImpl implements IUserService {
@@ -37,20 +38,20 @@ public class UserServiceImpl implements IUserService {
     @Override
     public User save(UserDto registrationDto) {
 
-//        User user = new User(); // create new user for user signup      
-//        user.setName(registrationDto.getName());
-//        user.setEmail(registrationDto.getEmail());
-//        user.setPassword(registrationDto.getPassword());
-        User user = new User(
-                registrationDto.getName(), registrationDto.getEmail(), (passwordEncoder.encode(registrationDto.getPassword())), Arrays.asList(new Role("ROLE_USER")));
+        User user = new User(); // create new user for user signup      
+        user.setName(registrationDto.getName());
+        user.setEmail(registrationDto.getEmail());
+        user.setEmail((passwordEncoder.encode(registrationDto.getPassword())));
+        user.setRoles(Arrays.asList(new Role("ROLE_USER")));
 
-//        Role userRole = roleRepository.findByRole("USER");
-//        user.setRoles(new HashSet<>(Arrays.asList(userRole)));
+        String verifyCode = RandomString.make(64);
+        
+        user.setVerificationCode(verifyCode);
+
+        // registrationDto.getName(), registrationDto.getEmail(), (passwordEncoder.encode(registrationDto.getPassword())), Arrays.asList(new Role("ROLE_USER")));
+        //user.setRoles(new HashSet<>(Arrays.asList(userRole)));
         return userRepository.save(user);
 
-        // send email
-        
-        
     }
 
     // This is for login creditential to override default springboot login
@@ -79,8 +80,6 @@ public class UserServiceImpl implements IUserService {
 //        Role userRole = roleRepository.findByRole("ADMIN");
 //        user.setRoles(new HashSet<>(Arrays.asList(userRole)));
 //        userRepository.save(user);
-
-
 
 
 
