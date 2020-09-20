@@ -45,10 +45,9 @@ public class UserServiceImpl implements IUserService {
         user.setRoles(Arrays.asList(new Role("ROLE_USER")));
 
         String verifyCode = RandomString.make(64);
-        
+
         user.setVerificationCode(verifyCode);
 
-        // registrationDto.getName(), registrationDto.getEmail(), (passwordEncoder.encode(registrationDto.getPassword())), Arrays.asList(new Role("ROLE_USER")));
         //user.setRoles(new HashSet<>(Arrays.asList(userRole)));
         return userRepository.save(user);
 
@@ -80,9 +79,5 @@ public class UserServiceImpl implements IUserService {
 //        Role userRole = roleRepository.findByRole("ADMIN");
 //        user.setRoles(new HashSet<>(Arrays.asList(userRole)));
 //        userRepository.save(user);
-
-
-
-
 
 
