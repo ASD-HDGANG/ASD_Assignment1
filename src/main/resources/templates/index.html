@@ -5,20 +5,32 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="header">
-    <head>
-        <title>Springboot tutorial</title>
-        <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                </head>
-                <body>
-                    <div class ="container" layout:fragment="content">
+      xmlns:th="http://www.thymeleaf.org">
 
-                        <h1>Welcome to your first dashboard!</h1>
-                        
+    <head th:replace="fragments/html_head :: html_head" />
+    <body>
 
-                    </div>
-                </body>
-                </html>
+        <div class ="container">
+            <div th:replace="fragments/topnav :: navbar">
+            </div>            
+            <h1>Welcome to your first dashboard!</h1>
+        </div>
+        
+        
+
+        <div th:replace="fragments/body-bottom-scripts :: body-bottom-scripts">
+        </div>
+        
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

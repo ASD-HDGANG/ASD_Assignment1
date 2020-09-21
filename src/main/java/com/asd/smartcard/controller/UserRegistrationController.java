@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.asd.smartcard.service.IUserService;
+import org.springframework.ui.Model;
 
 @Controller
 @RequestMapping("/registration")
@@ -39,15 +40,28 @@ public class UserRegistrationController {
 //        model.addAttribute("user", new UserRegistrationDto());
 //        return "sign-up";
 //    }
+//    @PostMapping
+//    public String registerUser(@ModelAttribute("user") UserDto registration) {
+//
+//        userService.save(registration);
+//        return "redirect:/registration?success"; // thymeleaf success parameter
+//        
+//        // send a notification
+//
+//    }
     @PostMapping
-    public String registerUser(@ModelAttribute("user") UserDto registration) {
+    public String registerUser(UserDto registration, Model model) {
 
         userService.save(registration);
-        return "redirect:/registration?success"; // thymeleaf success parameter
-        
-        // send a notification
+
+        model.addAttribute("pageTitle", "Thanks for sign up");
+
+        return "registration/register_success"; 
 
     }
 
 }
+
+
+
 

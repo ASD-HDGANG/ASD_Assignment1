@@ -2,12 +2,10 @@ com\asd\smartcard\controller\UserRegistrationController.class
 com\asd\smartcard\model\Role.class
 com\asd\smartcard\dto\UserDto.class
 com\asd\smartcard\SmartcardApplication.class
-com\asd\smartcard\dto\TokenDto.class
 com\asd\smartcard\model\UserRole.class
 com\asd\smartcard\service\IUserService.class
 com\asd\smartcard\service\UserServiceImpl.class
 com\asd\smartcard\config\WebSecurityConfig.class
 com\asd\smartcard\controller\MainController.class
 com\asd\smartcard\repository\IUserRepository.class
-com\asd\smartcard\service\NotificationService.class
 com\asd\smartcard\model\User.class

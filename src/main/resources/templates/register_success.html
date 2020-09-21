@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="fragments/html_head :: html_head" />
+    <body>
+        <div class="container">
+
+            <div th:replace="fragments/topnav :: navbar">
+            </div>
+
+            <div class="starter-template">
+                <h1>Check Email!</h1>
+                <p class="lead">Please verify your account</p>
+            </div>
+        </div><!-- /.container -->
+
+        <div th:replace="fragments/body-bottom-scripts :: body-bottom-scripts">
+        </div>        
+
+    </body>
+</html>

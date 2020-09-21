@@ -1,77 +1,87 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-       layout:decorate="header">
-    <head>
-        <title>Register & Login</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!--<link th:href ="@{/css/style.css}" rel="stylesheet"/>-->        
-    </head>
+      xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="fragments/html_head :: html_head" />
+
     <body>
-        <!--nav header-->
-<!--       <nav class="navbar navbar-default navbar-fixed-top navbar">
-            <div class="container" layout:fragment="content">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" th:href="@{/}">Sign up and Login</a>
+
+        <div class="container">
+            <div th:replace="fragments/topnav :: navbar">
             </div>
-        </nav>-->
 
-        <div layout:fragment="content">
-            <div class="row">
-                <div class="col-md6 col-md-offset-3">
+            <div  class="container">
+                <div class="row" >
+                    <div class="col-md6 col-md-offset-3">
 
-                    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>                    
-                    <form th:action="@{/login}" method="post">
-                        <!--error message-->
-                        <div th:if="${param.error}">
-                            <span class="alert alert-danger">Invalid email or password</span>
-                        </div>
+                        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>                    
+                        <form th:action="@{/login}" method="post">
+                            <!--error message-->
+                            <div th:if="${param.error}">
+                                <span class="alert alert-danger">Invalid email or password</span>
+                            </div>
 
-                        <!--logout message-->
-                        <div th:if="${param.logout}">
-                            <span class="alert alert-info">You've been logged out</span>
-                        </div>
+                            <!--logout message-->
+                            <div th:if="${param.logout}">
+                                <span class="alert alert-info">You've been logged out</span>
+                            </div>
 
 
-                        <div class = "form-group">
-                            <input type="text" class = "form-control" id ="username" name = "email"
-                                   placeholder="Enter Email" autofocus="autofocus">
-                        </div>
+                            <div class = "form-group">
+                                <input type="text" class = "form-control" id ="username" name = "email"
+                                       placeholder="Enter Email" autofocus="autofocus">
+                            </div>
 
-                        <div class="form-group">
-                            <input type="password"
-                                   id="password" name="password" class="form-control"
-                                   placeholder="Password" />
-                        </div>
+                            <div class="form-group">
+                                <input type="password"
+                                       id="password" name="password" class="form-control"
+                                       placeholder="Password" />
+                            </div>
 
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-sm-6 col-sm-offset-3">
-                                    <input type="submit" name="login-submit" id="login-submit"
-                                           class="form-control btn btn-primary" value="Log In" />
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-6 col-sm-offset-3">
+                                        <input type="submit" name="login-submit" id="login-submit"
+                                               class="form-control btn btn-primary" value="Log In" />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
 
-                    <div class="form-group">
-                        <span>New user? <a href="/" th:href="@{/registration}">Sign up
-                                here</a></span>
-                    </div> 
+                        <div class="form-group">
+                            <span>New user? <a href="/" th:href="@{/registration}">Sign up
+                                    here</a></span>
+                        </div> 
+                    </div>
                 </div>
-            </div>
+            </div>                        
+        </div>                    
+
+        <div th:replace="fragments/body-bottom-scripts :: body-bottom-scripts">
         </div>
+
     </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
