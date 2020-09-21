@@ -36,12 +36,12 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public User save(UserDto registrationDto) {
+    public User save(UserDto userDto) {
 
         User user = new User(); // create new user for user signup      
-        user.setName(registrationDto.getName());
-        user.setEmail(registrationDto.getEmail());
-        user.setPassword((passwordEncoder.encode(registrationDto.getPassword())));
+        user.setName(userDto.getName());
+        user.setEmail(userDto.getEmail());
+        user.setPassword((passwordEncoder.encode(userDto.getPassword())));
         user.setRoles(Arrays.asList(new Role("ROLE_USER")));
 
         String verifyCode = RandomString.make(64);
@@ -49,7 +49,10 @@ public class UserServiceImpl implements IUserService {
         user.setVerificationCode(verifyCode);
 
         //user.setRoles(new HashSet<>(Arrays.asList(userRole)));
-        return userRepository.save(user);
+       return userRepository.save(user);
+        
+        // Send Email here or controller?
+        //return userRepository.sendVerifiedEmail(verifyCode);
 
     }
 
@@ -79,6 +82,10 @@ public class UserServiceImpl implements IUserService {
 //        Role userRole = roleRepository.findByRole("ADMIN");
 //        user.setRoles(new HashSet<>(Arrays.asList(userRole)));
 //        userRepository.save(user);
+
+
+
+
 
 
 

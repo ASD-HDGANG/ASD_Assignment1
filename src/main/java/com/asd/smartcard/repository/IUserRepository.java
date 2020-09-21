@@ -13,7 +13,13 @@ import org.springframework.stereotype.Repository;
 public interface IUserRepository extends MongoRepository<User, String> {
     User findByEmail(String email);
     //Optional<User> findByEmail(String email);
+    
+    //User sendVerifiedEmail(String email);
 }
+
+
+
+
 
 
 

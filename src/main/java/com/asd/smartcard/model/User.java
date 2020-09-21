@@ -28,7 +28,7 @@ public class User {
 
     private Boolean locked = false;
 
-    private Boolean enabled = false;
+    private Boolean IsEnabled;
 
     private Collection<Role> roles;
 
@@ -87,9 +87,15 @@ public class User {
         this.password = password;
     }
 
-    public boolean isEnabled() {
-        return enabled;
+    public Boolean getIsEnabled() {
+        return IsEnabled;
     }
+
+    public void setIsEnabled(Boolean IsEnabled) {
+        this.IsEnabled = IsEnabled;
+    }
+
+
 
     public String getVerificationCode() {
         return verificationCode;
@@ -124,4 +130,7 @@ public class User {
 //        return true;
 //    }
 }
+
+
+
 

@@ -49,6 +49,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 "/js/**",
                 "/css/**",
                 "/img/**").permitAll()
+                .antMatchers("/register").permitAll()
+                .antMatchers("/confirm").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -69,6 +71,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
 }
+
+
+
 
 
 
