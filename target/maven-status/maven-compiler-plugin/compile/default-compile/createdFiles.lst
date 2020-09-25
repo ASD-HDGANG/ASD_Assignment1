@@ -1,5 +1,5 @@
 uts\asd\model\dao\UserDaoImpl.class
 uts\asd\model\dao\dBUtils.class
+uts\asd\controller\UserServlet.class
 uts\asd\model\User.class
 uts\asd\model\dao\UserDao.class
-uts\asd\controller\RegisterServlet.class

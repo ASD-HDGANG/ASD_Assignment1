@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/smartcard">
+  <Resource auth="Container" closeMethod="close" connectionString="mongodb://hugh:hugh990104@ds011288.mlab.com:11288/heroku_lcjwqk0m" factory="com.mongodb.client.jndi.MongoClientFactory" name="mongodb/mongoClient" singleton="true" type="com.mongodb.MongoClient"/>
+</Context>

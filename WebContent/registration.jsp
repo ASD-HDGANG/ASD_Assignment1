@@ -8,31 +8,27 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
         <title>Registration Form</title>
-        <!-- Font Icon -->
-        <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
-
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 
         <!-- Register css -->
         <link rel="stylesheet" href="css/register.css">   
     </head>
 
 
+
     <body>
 
+        <%--<%@ include file = "header.jsp" %>--%>
 
         <div class="main">
             <div class="container">
                 <div class="sign-up-content">
-                    <form action="RegisterServlet" method="POST" class="signup-form">
+                    <form action="<%= request.getContextPath() %>/register" method="POST" class="signup-form">
                         <h2 class="form-title">Create Account</h2>
 
                         <div class="form-textbox">
-                            <label for="name">Name</label>
-                            <input type="text" name="name" id="name" />
+                            <label for="name">First Name</label>
+                            <input type="text" name="fname" id="name" />
                         </div>
 
                         <div class="form-textbox">
@@ -62,6 +58,8 @@
             </div>
 
         </div>
+
+        <%@ include file = "common/footer.jsp" %>          
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
