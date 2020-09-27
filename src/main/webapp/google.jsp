@@ -103,9 +103,6 @@ var d=0;
 
 
 
-
-
-
         function initMap() {
 
 
@@ -152,53 +149,9 @@ var d=0;
                 }
             );
         }
-
-        function setValue(value){
-            if (departure=="epping"&&destination=="mq"){
-                var route="24 mins" +" "+ "Train 9"+ " "+"$6";
-            }
-            if (departure=="mq"&&destination=="epping"){
-                var route="24 mins" +" "+ "Train 9"+ " "+"$6";
-            }
-            if (departure=="epping"&&destination=="carlinford"){
-                var route="15 mins" +" "+ "Bus 550"+ " "+"$2";
-            }
-            if (departure=="carlinford"&&destination=="epping"){
-                var route="15 mins" +" "+ "Bus 546"+ " "+"$2";
-            }
-            if (departure=="epping"&&destination=="eastwood"){
-                var route="2 mins" +" "+ "Train 9 Bus 288"+ " "+"$2";
-            }
-            if (departure=="eastwood"&&destination=="epping"){
-                var route="2 mins" +" "+ "Train 9"+ " "+"$2";
-            }
-            if (departure=="mq"&&destination=="carlinford"){
-                var route="20 mins" +" "+ "Bus 550"+ " "+"$3";
-            }
-            if (departure=="carlinford"&&destination=="mq"){
-                var route="20 mins" +" "+ "Bus 550"+ " "+"$3";
-            }
-            if (departure=="mq"&&destination=="eastwood"){
-                var route="12 mins" +" "+ "Bus 545"+ " "+"$2";
-            }
-            if (departure=="eastwood"&&destination=="mq"){
-                var route="15 mins" +" "+ "Train 9"+ " "+"$4";
-            }
-            if (departure=="eastwood"&&destination=="carlinford"){
-                var route="14 mins" +" "+ "Bus 545"+ " "+"$5";
-            }
-            if (departure=="carlinford"&&destination=="eastwood"){
-                var route="20 mins" +" "+ "Bus 546=>Tain 9"+ " "+"$6";
-            }
-
-
-            document.getElementById("test").value=route;
-
-        }
-
     </script>
 </head>
-<body >
+<body>
 
 
 
@@ -211,17 +164,6 @@ var d=0;
         <option value="TRANSIT">Transit</option>
     </select>
     <input name="" type="button" value="search again " onClick="javascript:logout()" />
-
-
-    <input type="text" id="test"/>
-
-
-    <input type="button" onclick="javascript:setValue('abc')" value="Route Details"/>
-
 </div>
-
-
-
 <div id="map"></div>
 </body>
-</html>
