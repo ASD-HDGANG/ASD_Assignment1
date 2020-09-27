@@ -12,7 +12,7 @@ import uts.asd.model.User;
  *
  * @author Patty
  */
-public class UserDAO implements GenericDAO<User> {
+public class UserDAO implements IGenericDAO<User> {
 
     @Override
     public User create(User user) {
@@ -27,7 +27,7 @@ public class UserDAO implements GenericDAO<User> {
 
     @Override
     public User get(Object userId) {
-        return super.find(User.class, userId);
+        return null;
     }
     
     public User findByEmail(String email){
@@ -45,11 +45,13 @@ public class UserDAO implements GenericDAO<User> {
     }
 
     @Override
-    public Long coutn() {
+    public Long count() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
+
+
 
 
 

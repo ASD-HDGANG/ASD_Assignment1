@@ -5,6 +5,8 @@ import com.mongodb.MongoClientSettings;
 import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.MongoIterable;
 import java.net.UnknownHostException;
@@ -12,8 +14,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import junit.framework.Assert;
+import org.bson.Document;
 
 public class dBUtils {
+
+    private MongoCollection<Document> collection;
 
     public static MongoDatabase getMongoDB() {
 
@@ -46,9 +51,12 @@ public class dBUtils {
         return null;
     }
 
+    public void showCollection() {
+        MongoCursor<Document> cursor = this.collection.find().iterator();
+        while (cursor.hasNext()) {
+            PrettyJson.printJSON(cursor.next());
+        }
+    }
+
 }
-
-
-
-
 
