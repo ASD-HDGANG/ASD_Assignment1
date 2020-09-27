@@ -37,7 +37,7 @@ public class JUnitTest {
     @Test
     public void testOrderHistory() {
         OrderDao orderDao = new OrderDao(mongoClient);
-        List<Order> o = orderDao.listOrder("5f6f86ef38d82e0bd78f9e35");
+        List<Order> o = orderDao.listOrder("1234123412341234");
          assertNotNull("Testing Order History",o);
         for(Order i:o)
             System.out.println(i);
@@ -47,7 +47,7 @@ public class JUnitTest {
     @Test
     public void testLinkedSmartCardList() {
         SmartCardDao smartCardDao = new SmartCardDao(mongoClient);
-        List<SmartCard> o = smartCardDao.listLinkedSmartCard("5f7067cb618a4834749e1f7d");
+        List<SmartCard> o = smartCardDao.listLinkedSmartCard("12341234");
          assertNotNull("Testing Linked Smart Card List ",o);
             System.out.println("Getting the linked smart card");
              System.out.println(o);
