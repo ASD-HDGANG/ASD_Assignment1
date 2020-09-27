@@ -32,6 +32,10 @@
         <servlet-name>SmartCardListServlet</servlet-name>
         <servlet-class>servlets.SmartCardListServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>BillingServlet</servlet-name>
+        <servlet-class>servlets.BillingServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AddReportServlet</servlet-name>
         <url-pattern>/AddReportServlet</url-pattern>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>SmartCardListServlet</servlet-name>
         <url-pattern>/SmartCardListServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BillingServlet</servlet-name>
+        <url-pattern>/BillingServlet</url-pattern>
     </servlet-mapping>
    <session-config>
         <session-timeout>
