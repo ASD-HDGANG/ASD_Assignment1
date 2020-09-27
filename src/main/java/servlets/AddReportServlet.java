@@ -33,7 +33,7 @@ public class AddReportServlet extends HttpServlet {
           // 2 连接数据库  
            MongoDatabase database = Util.getConnect();
 
-        MongoCollection<Document> collection = database.getCollection("Order");
+        MongoCollection<Document> collection = database.getCollection("Reporting");
        
  
 	
@@ -53,9 +53,7 @@ public class AddReportServlet extends HttpServlet {
    Document document = new Document();
    
     // document.put("id",i);
-                document.append("description",description);
-                document.append("smartCardNumber","123123312");
-        document.append("fromLocation","asd");
+                document.put("description",description);
    // BasicDBObject o= new BasicDBObject();
           //  o.append("description", description);
            
