@@ -28,6 +28,7 @@
             <a href="AllShipmentsServlet" style="float: right;">Shipments</a>--%>
             <a href="home.jsp" style="float: left;"> Home </a>
             <a href="tripPlanner.jsp" style="float: left;"> Trip_Planner </a>
+            <a href="smartCardManagement.jsp" style="float: left;"> Smart Card Manage </a>
             <a href="userProfile.jsp" style="float: right;">Profile</a>
             <a href="AllAdminServlet" style="float: right;">Admin</a>
         </div>

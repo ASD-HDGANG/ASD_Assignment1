@@ -1,3 +1,10 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+
 import entity.Order;
 import entity.SmartCard;
 import dao.OrderDao;
@@ -31,8 +38,8 @@ public class JUnitTest {
     public void testOrderHistory() {
         OrderDao orderDao = new OrderDao(mongoClient);
         List<Order> o = orderDao.listOrder("5f6f86ef38d82e0bd78f9e35");
-         assertNotNull("Testing Adding Shipments",o);
-        System.out.println(" Test Succeed");  
+         assertNotNull("Testing Adding Reports",o);
+        System.out.println("Reportinh Test Succeed");  
     }
  
     @Test
@@ -40,9 +47,9 @@ public class JUnitTest {
         SmartCardDao smartCardDao = new SmartCardDao(mongoClient);
         List<SmartCard> o = smartCardDao.listLinkedSmartCard("5f7067cb618a4834749e1f7d");
          assertNotNull("Testing report withdraw",o);
-            System.out.println("Deleting Shipments");
+            System.out.println("Getting the Report withdrawed");
              System.out.println(o);
-            System.out.println("Test Succeed");
+            System.out.println("Report withdraw function Test Succeed");
     }
     
 }

@@ -60,7 +60,7 @@
 			
 		 <a class="button"  href ="reporting.jsp">Add One More</a>
                  <a class="button"  href ="ReportManageServlet?todo=deleteReport" data-toggle="modal" data-target="#myModal">Withdraw</a>
-                  <a class="button"  href ="ReportManageServlet?todo=updateReport">update</a>
+<!--                  <a class="button"  href ="ReportManageServlet?todo=updateReport">update</a>-->
                  <a class="button"  href ="home.jsp">Home</a>
                  
 	  
