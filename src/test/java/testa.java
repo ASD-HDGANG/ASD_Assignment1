@@ -8,6 +8,6 @@
  *
  * @author yike8
  */
-public class CucumberRunnerTest {
+public class testa {
     
 }
