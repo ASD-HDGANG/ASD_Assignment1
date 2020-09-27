@@ -4,6 +4,7 @@
         <servlet-name>AddReportServlet</servlet-name>
         <servlet-class>servlets.AddReportServlet</servlet-class>
     </servlet>
+    
        <servlet>
         <servlet-name>NewShipmentServlet</servlet-name>
         <servlet-class>servlets.NewShipmentServlet</servlet-class>
@@ -12,6 +13,11 @@
         <servlet-name>AllShipmentsServlet</servlet-name>
         <servlet-class>servlets.AllShipmentsServlet</servlet-class>
     </servlet>
+           <servlet>
+        <servlet-name>ShipmentDeleteServlet</servlet-name>
+        <servlet-class>servlets.ShipmentDeleteServlet</servlet-class>
+    </servlet>    
+ 
     <servlet>
         <servlet-name>ReportManageServlet</servlet-name>
         <servlet-class>servlets.ReportManageServlet</servlet-class>
@@ -72,6 +78,7 @@
         <servlet-name>SmartCardListServlet</servlet-name>
         <url-pattern>/SmartCardListServlet</url-pattern>
     </servlet-mapping>
+    
       <servlet-mapping>
         <servlet-name>NewShipmentServlet</servlet-name>
         <url-pattern>/NewShipmentServlet</url-pattern>
@@ -80,6 +87,10 @@
         <servlet-name>AllShipmentsServlet</servlet-name>
         <url-pattern>/AllShipmentsServlet</url-pattern>
     </servlet-mapping>
+          <servlet-mapping>
+        <servlet-name>ShipmentDeleteServlet</servlet-name>
+        <url-pattern>/ShipmentDeleteServlet</url-pattern>
+    </servlet-mapping>    
    <session-config>
         <session-timeout>
             30

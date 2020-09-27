@@ -46,10 +46,10 @@ public class ShipmentDao {
             collection.insertOne(document);
         }
                 
-        public void deleteShipment(String email,String date){
+        public void deleteShipment(String email){
             Document document = new Document();
-            document.put("name", email);
-            document.put("arriveDate", date);
+            document.put("email", email);
+         
             
             collection.deleteOne(document);
         }

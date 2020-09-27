@@ -68,7 +68,7 @@
                         <td><c:out value="${shipment.shipmentMethod}"/></td>
                         <td><c:out value="${shipment.currentStatus}"/></td>
                   <td>    <a href="ShipmentEditServlet?email=<c:out value ="${shipment.email}"/>&date=<c:out value="${shipment.arriveDate}"/>">Detail</a>
-                            <a href="ShipmentDeleteServlet?id=<c:out value ="${shipment.arriveDate}"/>">Delete</a>            
+                            <a href="ShipmentDeleteServlet?email=<c:out value ="${shipment.email}"/>&date=<c:out value="${shipment.arriveDate}"/>">Delete</a>            
                     </td>
                     </tr>
                 </c:forEach>
