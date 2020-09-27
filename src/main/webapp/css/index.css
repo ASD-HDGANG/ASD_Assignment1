@@ -43,24 +43,3 @@ h1{
 .button:active{
     background-color: #416F49;
 }
-
-.notificationDiv{
-  margin: auto;
-  width: 50%;
-}
-
-table{
-    
-    margin:0 auto;
-    padding:0;
-}
-
-tr>th{
-    background:#0066ff;
-    border-right: 1px solid white;
-    color:white;
-    padding:6px 8px;
-    text-align:center;
-}
-
-
