@@ -31,8 +31,8 @@ public class JUnitTest {
     public void testOrderHistory() {
         OrderDao orderDao = new OrderDao(mongoClient);
         List<Order> o = orderDao.listOrder("5f6f86ef38d82e0bd78f9e35");
-         assertNotNull("Testing Adding Reports",o);
-        System.out.println("Reportinh Test Succeed");  
+         assertNotNull("Testing Adding Shipments",o);
+        System.out.println(" Test Succeed");  
     }
  
     @Test
@@ -40,9 +40,9 @@ public class JUnitTest {
         SmartCardDao smartCardDao = new SmartCardDao(mongoClient);
         List<SmartCard> o = smartCardDao.listLinkedSmartCard("5f7067cb618a4834749e1f7d");
          assertNotNull("Testing report withdraw",o);
-            System.out.println("Getting the Report withdrawed");
+            System.out.println("Deleting Shipments");
              System.out.println(o);
-            System.out.println("Report withdraw function Test Succeed");
+            System.out.println("Test Succeed");
     }
     
 }
