@@ -155,40 +155,40 @@ var d=0;
 
         function setValue(value){
             if (departure=="epping"&&destination=="mq"){
-                var route="24 mins" +" "+ "Train 9"+ " "+"$6";
+                var route="24 mins" +" "+ " "+ " "+"$6";
             }
             if (departure=="mq"&&destination=="epping"){
-                var route="24 mins" +" "+ "Train 9"+ " "+"$6";
+                var route="24 mins" +" "+ " "+ " "+"$6";
             }
             if (departure=="epping"&&destination=="carlinford"){
-                var route="15 mins" +" "+ "Bus 550"+ " "+"$2";
+                var route="15 mins" +" "+ " "+ " "+"$2";
             }
             if (departure=="carlinford"&&destination=="epping"){
-                var route="15 mins" +" "+ "Bus 546"+ " "+"$2";
+                var route="15 mins" +" "+ " "+ " "+"$2";
             }
             if (departure=="epping"&&destination=="eastwood"){
-                var route="2 mins" +" "+ "Train 9 Bus 288"+ " "+"$2";
+                var route="2 mins" +" "+ " "+ " "+"$2";
             }
             if (departure=="eastwood"&&destination=="epping"){
-                var route="2 mins" +" "+ "Train 9"+ " "+"$2";
+                var route="2 mins" +" "+ " "+ " "+"$2";
             }
             if (departure=="mq"&&destination=="carlinford"){
-                var route="20 mins" +" "+ "Bus 550"+ " "+"$3";
+                var route="20 mins" +" "+ " "+ " "+"$3";
             }
             if (departure=="carlinford"&&destination=="mq"){
-                var route="20 mins" +" "+ "Bus 550"+ " "+"$3";
+                var route="20 mins" +" "+ " "+ " "+"$3";
             }
             if (departure=="mq"&&destination=="eastwood"){
-                var route="12 mins" +" "+ "Bus 545"+ " "+"$2";
+                var route="12 mins" +" "+ " "+ " "+"$2";
             }
             if (departure=="eastwood"&&destination=="mq"){
                 var route="15 mins" +" "+ "Train 9"+ " "+"$4";
             }
             if (departure=="eastwood"&&destination=="carlinford"){
-                var route="14 mins" +" "+ "Bus 545"+ " "+"$5";
+                var route="14 mins" +" "+ " "+ " "+"$5";
             }
             if (departure=="carlinford"&&destination=="eastwood"){
-                var route="20 mins" +" "+ "Bus 546=>Tain 9"+ " "+"$6";
+                var route="20 mins" +" "+ " "+ " "+"$6";
             }
 
 
