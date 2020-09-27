@@ -4,6 +4,10 @@
         <servlet-name>AddReportServlet</servlet-name>
         <servlet-class>servlets.AddReportServlet</servlet-class>
     </servlet>
+       <servlet>
+        <servlet-name>NewShipmentServlet</servlet-name>
+        <servlet-class>servlets.NewShipmentServlet</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>ReportManageServlet</servlet-name>
         <servlet-class>servlets.ReportManageServlet</servlet-class>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>SmartCardListServlet</servlet-name>
         <url-pattern>/SmartCardListServlet</url-pattern>
+    </servlet-mapping>
+      <servlet-mapping>
+        <servlet-name>NewShipmentServlet</servlet-name>
+        <url-pattern>/NewShipmentServlet</url-pattern>
     </servlet-mapping>
    <session-config>
         <session-timeout>

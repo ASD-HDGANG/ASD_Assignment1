@@ -5,6 +5,7 @@
  */
 package dao;
 
+import Utils.Util;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
@@ -24,7 +25,8 @@ public class ShipmentDao {
 	public ShipmentDao(MongoClient mongoClient) {
 		this.mongoClient = mongoClient;
 		database = mongoClient.getDatabase("heroku_lcjwqk0m");
-		collection = database.getCollection("SmartCard");
+		collection = database.getCollection("Shipment");                
+           
 	}
         
         public void addShipment(String name, String email, String phone_number, String address, String city, String territory, String post_code, String arriveDate, String shipmentMethod,String currentStatus){

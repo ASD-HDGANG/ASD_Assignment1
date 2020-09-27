@@ -27,7 +27,10 @@ public class AddReportServlet extends HttpServlet {
     //1 接受参数
         String  description=req.getParameter("description");
         req.getServletContext().setAttribute("description",description);
-     
+                
+        
+      
+
 
             
           // 2 连接数据库  

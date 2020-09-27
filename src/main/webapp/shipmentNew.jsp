@@ -32,7 +32,6 @@
         
         <main class="main-content">
         <%
-            String existErr = (String) session.getAttribute("existErr"); 
             String  postCodeErr  = (String) session.getAttribute("postCodeErr"); 
             String  phoneErr  = (String) session.getAttribute("phoneErr");
         %>
