@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+       <servlet>
+        <servlet-name>NewShipmentServlet</servlet-name>
+        <servlet-class>servlets.NewShipmentServlet</servlet-class>
+    </servlet>
+           <servlet>
+        <servlet-name>AllShipmentsServlet</servlet-name>
+        <servlet-class>servlets.AllShipmentsServlet</servlet-class>
+    </servlet>
+           <servlet>
+        <servlet-name>ShipmentDeleteServlet</servlet-name>
+        <servlet-class>servlets.ShipmentDeleteServlet</servlet-class>
+    </servlet>    
+ <servlet>
+        <servlet-name>ShipmentEditServlet</servlet-name>
+        <servlet-class>servlets.ShipmentEditServlet</servlet-class>
+    </servlet> 
+     <servlet>
+        <servlet-name>shipmentUpdateServlet</servlet-name>
+        <servlet-class>servlets.shipmentUpdateServlet</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>AddReportServlet</servlet-name>
         <servlet-class>servlets.AddReportServlet</servlet-class>
@@ -63,6 +83,29 @@
     <servlet-mapping>
         <servlet-name>SmartCardListServlet</servlet-name>
         <url-pattern>/SmartCardListServlet</url-pattern>
+    </servlet-mapping>
+
+
+
+    <servlet-mapping>
+        <servlet-name>NewShipmentServlet</servlet-name>
+        <url-pattern>/NewShipmentServlet</url-pattern>
+    </servlet-mapping>
+          <servlet-mapping>
+        <servlet-name>AllShipmentsServlet</servlet-name>
+        <url-pattern>/AllShipmentsServlet</url-pattern>
+    </servlet-mapping>
+          <servlet-mapping>
+        <servlet-name>ShipmentDeleteServlet</servlet-name>
+        <url-pattern>/ShipmentDeleteServlet</url-pattern>
+    </servlet-mapping>    
+         <servlet-mapping>
+        <servlet-name>ShipmentEditServlet</servlet-name>
+        <url-pattern>/ShipmentEditServlet</url-pattern>
+    </servlet-mapping>     
+        <servlet-mapping>
+        <servlet-name>shipmentUpdateServlet</servlet-name>
+        <url-pattern>/shipmentUpdateServlet</url-pattern>
     </servlet-mapping>
    <session-config>
         <session-timeout>

@@ -3,20 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-import cucumber.api.java.en.Given;
+/*import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import io.github.bonigarcia.wdm.WebDriverManager;
+import io.github.bonigarcia.wdm.WebDriverManager;*/
 
 /**
  *
  * @author yike8
  */
-public class Tester {
+/*public class Tester {
     WebDriver driver;
 
     @Given("^I have opened the Firefox browser$")
@@ -48,4 +47,4 @@ public class Tester {
      driver.findElement(By.name("activated")).click();
      
 }
-}
+}*/
