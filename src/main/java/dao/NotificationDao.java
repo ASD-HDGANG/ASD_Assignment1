@@ -8,7 +8,6 @@ package dao;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import entity.Billing;
 import entity.Notification;
 import java.util.ArrayList;
 import org.bson.Document;
@@ -73,7 +72,7 @@ public class NotificationDao {
                 
                 
                 
-                documents.add(new Notification(notificationID,customerID,createdDate,notificationDate,type,priority,message));
+                //documents.add(new Notification(notificationID,customerID,createdDate,notificationDate,type,priority,message));
             }
             return documents;
      }
