@@ -8,6 +8,30 @@
         <servlet-name>ReportManageServlet</servlet-name>
         <servlet-class>servlets.ReportManageServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddOrderServlet</servlet-name>
+        <servlet-class>servlets.AddOrderServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>OrderHistoryServlet</servlet-name>
+        <servlet-class>servlets.OrderHistoryServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddSmartCardServlet</servlet-name>
+        <servlet-class>servlets.AddSmartCardServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TopUpServlet</servlet-name>
+        <servlet-class>servlets.TopUpServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SmartCardLinkingServlet</servlet-name>
+        <servlet-class>servlets.SmartCardLinkingServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SmartCardListServlet</servlet-name>
+        <servlet-class>servlets.SmartCardListServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AddReportServlet</servlet-name>
         <url-pattern>/AddReportServlet</url-pattern>
@@ -15,6 +39,30 @@
     <servlet-mapping>
         <servlet-name>ReportManageServlet</servlet-name>
         <url-pattern>/ReportManageServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddOrderServlet</servlet-name>
+        <url-pattern>/AddOrderServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrderHistoryServlet</servlet-name>
+        <url-pattern>/OrderHistoryServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddSmartCardServlet</servlet-name>
+        <url-pattern>/AddSmartCardServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TopUpServlet</servlet-name>
+        <url-pattern>/TopUpServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SmartCardLinkingServlet</servlet-name>
+        <url-pattern>/SmartCardLinkingServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SmartCardListServlet</servlet-name>
+        <url-pattern>/SmartCardListServlet</url-pattern>
     </servlet-mapping>
    <session-config>
         <session-timeout>
