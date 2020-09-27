@@ -36,7 +36,7 @@
 
   <table>
       <h1>
-                <a class="button"  href ="shipmentSearch.jsp">shipmentSearch</a>
+           <%--       <a class="button"  href ="shipmentSearch.jsp">shipmentSearch</a>--%>
                 <a class="button"  href = "AllShipmentsServlet">All shipments </a>
       </h1>
                 <tr>

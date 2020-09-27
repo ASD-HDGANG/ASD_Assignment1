@@ -73,11 +73,12 @@ public class ShipmentDao {
             return temp;
         }
         
-        public shipment searchShipment(String email,String date){
+        public shipment searchShipment(String email){
             for(Document doc: collection.find()){
-            if(doc.get("email").equals(email)&&doc.get("arriveDate").equals(date)){
+            if(doc.get("email").equals(email)){
                 String preferName = doc.get("name").toString();
                 String phone_number=doc.get("phone_number").toString();
+                String date = doc.get("arriveDate").toString();
                 String address=doc.get("address").toString();
                 String city=doc.get("city").toString();
                 String territory=doc.get("territory").toString();
@@ -94,7 +95,7 @@ public class ShipmentDao {
         //fix document
         Document document = new Document();
 	document.put("email",email);
-        document.put("arriveDate",date);
+    
         
         //update element
 	Document updateDocument = new Document();
@@ -106,11 +107,12 @@ public class ShipmentDao {
         updateDocument.put("post_code",post_code);
         updateDocument.put("shipmentMethod",shipmentMethod);
         updateDocument.put("currentStatus",currentStatus);
+        updateDocument.put("arriveDate",date);
         
         //update 
 	Document setDocument = new Document();
 	setDocument.put("$set",updateDocument);
-	collection.updateOne(document,setDocument);
+	collection.updateMany(document,setDocument);
             
         }
         }

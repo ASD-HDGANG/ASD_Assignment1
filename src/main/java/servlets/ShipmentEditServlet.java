@@ -26,40 +26,29 @@ import org.bson.Document;
  * @author daohuxia
  */
 
-public class ShipmentDeleteServlet extends HttpServlet {
+public class ShipmentEditServlet extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-    
-         //getting para
-         String  email=req.getParameter("email");
-         String arriveDate= req.getParameter("arriveDate");
+        
+    //para
+        String email = req.getParameter("email");
+        shipment shipment = null;
+        
+    //connection
+         MongoDBConnector connector = new MongoDBConnector();
+         MongoClient client = connector.openConnection();
+         
+    //using dao
+         ShipmentDao smd = new ShipmentDao(client);
          HttpSession session = req.getSession();
          
-         //connecting to database
-        MongoDatabase database = Util.getConnect();
-
-        MongoCollection<Document> collection = database.getCollection("Shipment");
+         //return arraylist
+        shipment = smd.searchShipment(email);
+         session.setAttribute("shipment", shipment);
+         req.getRequestDispatcher("shipmentEdit.jsp").include(req, resp);
+         
        
-        
-        //3.insert into database
-        
-        Document document = new Document();
-        document.put("email", email);
-            
-        collection.deleteOne(document);
-        
-         req.getRequestDispatcher("shipments.jsp").include(req, resp);
-         
-         
-        
-     
-            
-            
-          
-        
-     
   
        
     }

@@ -17,7 +17,16 @@
         <servlet-name>ShipmentDeleteServlet</servlet-name>
         <servlet-class>servlets.ShipmentDeleteServlet</servlet-class>
     </servlet>    
- 
+ <servlet>
+        <servlet-name>ShipmentEditServlet</servlet-name>
+        <servlet-class>servlets.ShipmentEditServlet</servlet-class>
+    </servlet> 
+     <servlet>
+        <servlet-name>shipmentUpdateServlet</servlet-name>
+        <servlet-class>servlets.shipmentUpdateServlet</servlet-class>
+    </servlet>
+    
+    
     <servlet>
         <servlet-name>ReportManageServlet</servlet-name>
         <servlet-class>servlets.ReportManageServlet</servlet-class>
@@ -91,6 +100,14 @@
         <servlet-name>ShipmentDeleteServlet</servlet-name>
         <url-pattern>/ShipmentDeleteServlet</url-pattern>
     </servlet-mapping>    
+         <servlet-mapping>
+        <servlet-name>ShipmentEditServlet</servlet-name>
+        <url-pattern>/ShipmentEditServlet</url-pattern>
+    </servlet-mapping>     
+        <servlet-mapping>
+        <servlet-name>shipmentUpdateServlet</servlet-name>
+        <url-pattern>/shipmentUpdateServlet</url-pattern>
+    </servlet-mapping>
    <session-config>
         <session-timeout>
             30

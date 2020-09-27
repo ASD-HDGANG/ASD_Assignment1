@@ -39,16 +39,10 @@ public class Test {
             }
         }*/
     
-        Document document = new Document();
-	document.put("name","jiebin");
-        document.put("address",35);
-	Document updateDocument = new Document();
-	updateDocument.put("city",10);
-        updateDocument.put("territory",100);
-	Document setDocument = new Document();
-	setDocument.put("$set",updateDocument);
-	collection.updateOne(document,setDocument);
-       
+        
+    Document found = (Document) collection.find(new Document("email",1));
+    
+  
         
 
     }
