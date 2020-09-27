@@ -32,15 +32,17 @@
             String  phoneErr  = (String) session.getAttribute("phoneErr");
         %>
         <h1>Top Up</h1>
-        <form method = "post" action="NewAdminServlet">
-            
-            <label for="name">Card Number</label><input type="text" name="cardNumber" placeholder="16-digits card number" required>
-            <label for="name">Security Code</label><input type="password" name="securityCode" placeholder="4-digit security code" required> 
-            <label for="name">Amount</label><input type="text" name="orderAmount" placeholder="$ 0.00" required>  
-            <input type="hidden" name="topUpOrConsume">  
+        <form method = "post" action="NewAdminServlet">   
+            <label for="name">Card Number</label><input type="text" id="smartCardNumber" name="smartCardNumber"  maxlength="16" size="16" placeholder="16-digits card number" required>
+            <label for="name">Security Code</label><input type="password" id="securityCode" name="securityCode" maxlength="4"size="4" placeholder="4-digit security code" required> 
+            <label for="name">Amount</label><input type="text" id="topUpAmount" name="topUpAmount" list="amountList" maxlength="4" size="4" placeholder="Top up amount" required> 
+            <datalist id="amountList">
+                                     <option value="10">
+                                     <option value="20">
+                                     <option value="50">
+                                     <option value="100">
+            </datalist>
             <input class="button" type ="submit" value="submit">
-                
-        
             </form>
         </main>
     </body>
