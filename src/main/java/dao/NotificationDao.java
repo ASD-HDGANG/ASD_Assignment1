@@ -9,6 +9,7 @@ import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import entity.Billing;
+import entity.Notification;
 import java.util.ArrayList;
 import org.bson.Document;
 
@@ -36,11 +37,18 @@ public class NotificationDao {
            return null;
         }
     
-    public void create() {
+    public void create(int notificationID, String customerID, String createdDate, String notificationDate, String type, String priority, String message) {
         
             Document document = new Document();
-        
             
+            document.put("notificationID",notificationID);
+            document.put("customerID",customerID);
+            document.put("createdDate",createdDate);
+            document.put("notificationDate",notificationDate);
+            document.put("type",type);
+            document.put("priority",priority);
+            document.put("message",message);
+        
             collection.insertOne(document);
         }
     
@@ -50,23 +58,23 @@ public class NotificationDao {
             collection.deleteMany(document);
         }
     
-     public ArrayList<Billing> readAll(){
-           ArrayList<Billing> documents = new ArrayList();
+     public ArrayList<Notification> readAll(){
+           ArrayList<Notification> documents = new ArrayList();
             
             for (Document doc : collection.find()){
                 
-                int orderID = Integer.parseInt(doc.get("orderID").toString());
-                int customerID = Integer.parseInt(doc.get("customerID").toString());
-                String paymentMethod=doc.get("paymentMethod").toString();
-                String paymentDate=doc.get("paymentDate").toString();
-                String billDateGenerated=doc.get("billDateGenerated").toString();
-                String tax=doc.get("tax").toString();
-                String service=doc.get("service").toString();
-                String location = doc.get("location").toString();
-                String amount= doc.get("amount").toString();
-                System.out.println(orderID);
+                int notificationID = Integer.parseInt(doc.get("notificationID").toString());
+                String customerID = doc.get("customerID").toString();
+                String createdDate=doc.get("createdDate").toString();
+                String notificationDate=doc.get("notificationDate").toString();
+                String type=doc.get("type").toString();
+                String priority=doc.get("priority").toString();
+                String message=doc.get("message").toString();
                 
-                documents.add(new Billing(orderID,customerID,paymentMethod,paymentDate,billDateGenerated,tax,service,location,amount));
+                
+                
+                documents.add(new Notification(notificationID,customerID,createdDate,notificationDate,type,priority,message));
             }
             return documents;
+     }
 }
