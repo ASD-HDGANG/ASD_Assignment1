@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
        <servlet>
+        <servlet-name>BillingServlet</servlet-name>
+        <servlet-class>servlets.BillingServlet</servlet-class>
+    </servlet>    
+           <servlet>
+        <servlet-name>AddBillingServlet</servlet-name>
+        <servlet-class>servlets.AddBillingServlet</servlet-class>
+    </servlet>    
+           <servlet>
+        <servlet-name>ViewBillServlet</servlet-name>
+        <servlet-class>servlets.ViewBillServlet</servlet-class>
+    </servlet>    
+    <servlet>
         <servlet-name>NewShipmentServlet</servlet-name>
         <servlet-class>servlets.NewShipmentServlet</servlet-class>
     </servlet>
@@ -106,6 +118,18 @@
         <servlet-mapping>
         <servlet-name>shipmentUpdateServlet</servlet-name>
         <url-pattern>/shipmentUpdateServlet</url-pattern>
+    </servlet-mapping>
+            <servlet-mapping>
+        <servlet-name>ViewBillServlet</servlet-name>
+        <url-pattern>/ViewBillServlet</url-pattern>
+    </servlet-mapping>
+            <servlet-mapping>
+        <servlet-name>AddBillingServlet</servlet-name>
+        <url-pattern>/AddBillingServlet</url-pattern>
+    </servlet-mapping>
+            <servlet-mapping>
+        <servlet-name>BillingServlet</servlet-name>
+        <url-pattern>/BillingServlet</url-pattern>
     </servlet-mapping>
    <session-config>
         <session-timeout>
