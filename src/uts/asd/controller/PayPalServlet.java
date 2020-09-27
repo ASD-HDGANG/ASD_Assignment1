@@ -17,10 +17,10 @@ import uts.asd.service.PayPalService;
  *
  * @author Patty
  */
-@WebServlet("/authorize_paypal")
+@WebServlet("/authorize_payment")
 public class PayPalServlet extends HttpServlet {
 
-    //private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -36,7 +36,7 @@ public class PayPalServlet extends HttpServlet {
 
         try {
             PayPalService paymentServices = new PayPalService();
-            String approvalLink = paymentServices.authorizePaypal(orderDetail);
+            String approvalLink = paymentServices.authorizePayment(orderDetail);
 
             response.sendRedirect(approvalLink);
 
@@ -47,6 +47,4 @@ public class PayPalServlet extends HttpServlet {
         }
     }
 }
-
-
 

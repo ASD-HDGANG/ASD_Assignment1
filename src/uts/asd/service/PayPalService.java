@@ -22,7 +22,7 @@ public class PayPalService {
     private static final String CLIENT_SECRET = "EIZxmbhY6oxmUJy0FcuVsodaAr5QM4bOI8PdOUtuLY03sAFSKipuc9euzkKZrOJ7e2xSHZlg54K2PRcH";
     private static final String MODE = "sandbox";
 
-    public String authorizePaypal(OrderDAO orderDetail) throws PayPalRESTException {
+    public String authorizePayment(OrderDAO orderDetail) throws PayPalRESTException {
 
         Payer payer = getPayerInfo();
         RedirectUrls redirectUrls = getRedirectURLs();
@@ -123,6 +123,7 @@ public class PayPalService {
     }
 
 }
+
 
 
 

@@ -55,10 +55,13 @@ public class OrderDAO {
     }
 
     public String getTotal() {
-        return String.format("%.2f", total);
+        return String.format("%.2f", tax + shipping + subtotal);
     }
 
 }
+
+
+
 
 
 
