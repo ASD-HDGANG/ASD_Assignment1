@@ -45,7 +45,7 @@
             <label for="name">City</label><input type="text" name="city" placeholder="Enter city" required>  
             <label for="name">Territory</label><input type="text" name="territory" placeholder="Enter territory" required>
             <label for="name">Post_code</label><input type="text" name="post_code" placeholder="<%= (postCodeErr != null ? postCodeErr :"Enter phone")%>" required>
-           <label for="name">Wished Delivery Date</label><input type="date" name="startDate" placeholder="Enter date (yyyy-mm-dd)" required>
+           <label for="name">Wished Delivery Date</label><input type="date" name="date" placeholder="Enter date (yyyy-mm-dd)" required>
             <label for="name">Shipment Method</label><input type="text" name="shipmentMethod" placeholder="" required>
             <input class="button" type ="submit" value="submit">
                 

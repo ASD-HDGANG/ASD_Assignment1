@@ -65,10 +65,10 @@ public class ShipmentDao {
                 String city=doc.get("city").toString();
                 String territory=doc.get("territory").toString();
                 String post_code=doc.get("post_code").toString();
-                String startDate=doc.get("arriveDate").toString();
+                String arriveDate=doc.get("arriveDate").toString();
                 String shipmentMethod=doc.get("shipmentMethod").toString();
                 String currentStatus=doc.get("currentStatus").toString();
-                temp.add(new shipment(preferName,email,phone_number,address,city,territory,post_code,startDate,shipmentMethod,currentStatus));
+                temp.add(new shipment(preferName,email,phone_number,address,city,territory,post_code,arriveDate,shipmentMethod,currentStatus));
             }
             return temp;
         }

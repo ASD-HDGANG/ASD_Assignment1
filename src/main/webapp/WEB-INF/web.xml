@@ -8,6 +8,10 @@
         <servlet-name>NewShipmentServlet</servlet-name>
         <servlet-class>servlets.NewShipmentServlet</servlet-class>
     </servlet>
+           <servlet>
+        <servlet-name>AllShipmentsServlet</servlet-name>
+        <servlet-class>servlets.AllShipmentsServlet</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>ReportManageServlet</servlet-name>
         <servlet-class>servlets.ReportManageServlet</servlet-class>
@@ -71,6 +75,10 @@
       <servlet-mapping>
         <servlet-name>NewShipmentServlet</servlet-name>
         <url-pattern>/NewShipmentServlet</url-pattern>
+    </servlet-mapping>
+          <servlet-mapping>
+        <servlet-name>AllShipmentsServlet</servlet-name>
+        <url-pattern>/AllShipmentsServlet</url-pattern>
     </servlet-mapping>
    <session-config>
         <session-timeout>

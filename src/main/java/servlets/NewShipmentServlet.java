@@ -27,7 +27,7 @@ public class NewShipmentServlet extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     //1 接受参数
-        HttpSession session = req.getSession();
+        
         String  name=req.getParameter("name");
         String  email=req.getParameter("email");
         String  phone=req.getParameter("phone");
@@ -38,7 +38,10 @@ public class NewShipmentServlet extends HttpServlet {
         String  date=req.getParameter("date");
         String  shipmentMethod=req.getParameter("shipmentMethod");
         String currentStatus = "Processing";
-        ShipmentDao smd = (ShipmentDao) session.getAttribute("smd");
+        
+      //using .dao but it fails 
+      // HttpSession session = req.getSession();
+      //  ShipmentDao smd = (ShipmentDao) session.getAttribute("smd");
      
 
            

@@ -7,33 +7,33 @@ package entity;
 
 
 public class shipment {
-   String preferName;
+   String name;
    String email;
    String phone_number;
    String address;
    String city;
    String territory;
    String post_code;
-   String startDate;
+   String arriveDate;
    String shipmentMethod;
    String currentStatus;
 
 
-    public shipment( String preferName, String email, String phone_number, String address, String city, String territory, String post_code, String startDate, String shipmentMethod, String currentStatus) {
-        this.preferName = preferName;
+    public shipment( String name, String email, String phone_number, String address, String city, String territory, String post_code, String arriveDate, String shipmentMethod, String currentStatus) {
+        this.name = name;
         this.email = email;
         this.phone_number = phone_number;
         this.address = address;
         this.city = city;
         this.territory = territory;
         this.post_code = post_code;
-        this.startDate = startDate;
+        this.arriveDate = arriveDate;
         this.shipmentMethod = shipmentMethod;
         this.currentStatus = currentStatus;
     }
 
-    public void setPreferName(String preferName) {
-        this.preferName = preferName;
+    public void setPreferName(String name) {
+        this.name = name;
     }
 
     public void setEmail(String email) {
@@ -60,8 +60,8 @@ public class shipment {
         this.post_code = post_code;
     }
 
-    public void setStartDate(String startDate) {
-        this.startDate = startDate;
+    public void setarriveDate(String arriveDate) {
+        this.arriveDate = arriveDate;
     }
 
     public void setShipmentMethod(String shipmentMethod) {
@@ -74,8 +74,8 @@ public class shipment {
 
 
 
-    public String getPreferName() {
-        return preferName;
+    public String getName() {
+        return name;
     }
 
     public String getEmail() {
@@ -102,8 +102,8 @@ public class shipment {
         return post_code;
     }
 
-    public String getStartDate() {
-        return startDate;
+    public String getarriveDate() {
+        return arriveDate;
     }
 
     public String getShipmentMethod() {
