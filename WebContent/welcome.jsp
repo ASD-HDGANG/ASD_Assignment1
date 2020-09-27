@@ -1,5 +1,6 @@
 
-<%@page import="uts.asd.model.dao.UserDao"%>
+<%@page import="uts.asd.model.dao.*"%>
+<%@page import="uts.asd.service.UserService"%>
 <%@page contentType="text/html" pageEncoding="UTF-8" import="uts.asd.model.*"%>
 <!DOCTYPE html>
 <html>
@@ -21,7 +22,7 @@
 
         <h1 class="form_title">Registration success, thank you.</h1>
 
-        <p class="p"> Hi, <%=fname%>, click <a href="index.jsp" class="link" target="_parent"> here </a> to go to main page.</p>
+        <p class="p"> Hi, <%= fname %> : email : <%= email %>, please click <a href="index.jsp" class="link" target="_parent"> here </a> to go to main page.</p>
     </body>
 
 

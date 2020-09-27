@@ -1,5 +1,7 @@
-uts\asd\model\dao\UserDaoImpl.class
+uts\asd\service\UserService.class
+uts\asd\model\dao\UserDAO.class
 uts\asd\model\dao\dBUtils.class
+uts\asd\model\dao\GenericDAO.class
 uts\asd\controller\UserServlet.class
 uts\asd\model\User.class
-uts\asd\model\dao\UserDao.class
+uts\asd\controller\RegisterServlet.class

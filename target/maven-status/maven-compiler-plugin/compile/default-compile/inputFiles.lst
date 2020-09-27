@@ -1,5 +1,7 @@
-D:\Users\Patty\UTS\uts.asd\src\uts\asd\model\dao\UserDaoImpl.java
+D:\Users\Patty\UTS\uts.asd\src\uts\asd\service\UserService.java
 D:\Users\Patty\UTS\uts.asd\src\uts\asd\model\User.java
+D:\Users\Patty\UTS\uts.asd\src\uts\asd\controller\RegisterServlet.java
 D:\Users\Patty\UTS\uts.asd\src\uts\asd\model\dao\dBUtils.java
 D:\Users\Patty\UTS\uts.asd\src\uts\asd\controller\UserServlet.java
-D:\Users\Patty\UTS\uts.asd\src\uts\asd\model\dao\UserDao.java
+D:\Users\Patty\UTS\uts.asd\src\uts\asd\model\dao\GenericDAO.java
+D:\Users\Patty\UTS\uts.asd\src\uts\asd\model\dao\UserDAO.java

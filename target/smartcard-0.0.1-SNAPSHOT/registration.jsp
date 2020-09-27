@@ -23,7 +23,7 @@
         <div class="main">
             <div class="container">
                 <div class="sign-up-content">
-                    <form action="<%= request.getContextPath() %>/register" method="POST" class="signup-form">
+                    <form action="<%= request.getContextPath() %>/register_success" method="POST" class="signup-form">
                         <h2 class="form-title">Create Account</h2>
 
                         <div class="form-textbox">

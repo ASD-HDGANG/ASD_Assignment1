@@ -6,87 +6,82 @@
 package uts.asd.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import uts.asd.model.User;
-import uts.asd.model.dao.UserDaoImpl; // a helper class for Dao design pattern, normally not require to do it.
 
-@WebServlet("/register")
+/**
+ *
+ * @author Patty
+ */
 public class UserServlet extends HttpServlet {
 
-    UserDaoImpl userDao = new UserDaoImpl();
-
-    @Override
-    public void init() {
-        userDao = new UserDaoImpl();
-    }
-
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        request.getRequestDispatcher("/registration.jsp").forward(request, response);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        User user = new User();
-
-        user.setFirstName(request.getParameter("fname"));
-        user.setEmail(request.getParameter("email"));
-        user.setPassword(request.getParameter("password"));
-
-        try {
-            userDao.save(user);
-        } catch (Exception e) {
-            e.printStackTrace();
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet UserServlet</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet UserServlet at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
-        request.getRequestDispatcher("/welcome.jsp").forward(request, response);
     }
+
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
+
 }
-
-//1 ????
-//        String description = req.getParameter("description");
-//        req.getServletContext().setAttribute("description", description);
-//
-//         2 ?????  
-//        MongoDatabase database = Util.getConnect();
-//
-//        MongoCollection<Document> collection = database.getCollection("Reporting");
-//
-//        3 ????
-//        if (description == null || description.isEmpty()) {
-//            req.setAttribute("message", "EMPTY BUG REPORT DESCRIPTION<br>");
-//            req.getRequestDispatcher("/reporting.jsp").forward(req, resp);
-//
-//        } else {
-//        IdGenerator idGenerator = new IdGenerator();
-//         long id = idGenerator.nextId();
-//        String i= String.valueOf(id);
-//
-//            Document document = new Document();
-//
-//             document.put("id",i);
-//            document.put("description", description);
-//             BasicDBObject o= new BasicDBObject();
-//              o.append("description", description);
-//
-//            collection.insertOne(document);
-//
-//            collection.deleteOne(document);
-//            req.getRequestDispatcher("/reportManage.jsp").forward(req, resp);
-//        }
-
-
-
-
-
-
-
-
-
-
 

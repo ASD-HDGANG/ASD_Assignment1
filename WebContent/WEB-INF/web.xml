@@ -2,13 +2,23 @@
 <web-app id="WebApp_ID" version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
     <display-name>uts.asd</display-name>
     <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>uts.asd.controller.RegisterServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/RegisterServlet</url-pattern>
+    </servlet-mapping>   
+     
+    <servlet>
         <servlet-name>UserServlet</servlet-name>
         <servlet-class>uts.asd.controller.UserServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>UserServlet</servlet-name>
-        <url-pattern>/Register</url-pattern>
+        <url-pattern>/UserServlet</url-pattern>
     </servlet-mapping>
+    
     <session-config>
         <session-timeout>
             30
