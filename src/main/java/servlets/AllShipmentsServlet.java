@@ -44,20 +44,11 @@ public class AllShipmentsServlet extends HttpServlet {
          session.setAttribute("shipments", shipments);
          req.getRequestDispatcher("shipments.jsp").include(req, resp);
          
-        
-     
-            
-            
-          
-        
-     
-  
+
        
     }
       
-      
-      
-      
+     
              
     }
 
