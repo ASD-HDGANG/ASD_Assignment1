@@ -40,7 +40,7 @@ public class BillingDao {
            return null;
         }
         
-        public void create(int orderID, int customerID, String paymentMethod, String paymentDate, String billDateGenerated, String tax, String service, Double amount) {
+        public void create(int orderID, int customerID, String paymentMethod, String paymentDate, String billDateGenerated, String tax, String service,String location, Double amount) {
         
             Document document = new Document();
         
@@ -51,6 +51,7 @@ public class BillingDao {
             document.put("billDateGenerated",billDateGenerated);
             document.put("tax",tax);
             document.put("service",service);
+            document.put("location", location);
             document.put("amount",amount);
         
             collection.insertOne(document);
@@ -63,19 +64,23 @@ public class BillingDao {
         }
         
         public ArrayList<Billing> readAll(){
-            ArrayList<Billing> documents = null;
+           ArrayList<Billing> documents = new ArrayList();
             
             for (Document doc : collection.find()){
-                int orderID = (int)doc.get("orderID");
-                int customerID = (int)doc.get("customerID");
+                
+                int orderID = Integer.parseInt(doc.get("orderID").toString());
+                int customerID = Integer.parseInt(doc.get("customerID").toString());
                 String paymentMethod=doc.get("paymentMethod").toString();
                 String paymentDate=doc.get("paymentDate").toString();
                 String billDateGenerated=doc.get("billDateGenerated").toString();
                 String tax=doc.get("tax").toString();
                 String service=doc.get("service").toString();
-                double amount= (double)doc.get("amount");
-                documents.add(new Billing(orderID,customerID,paymentMethod,paymentDate, billDateGenerated,tax, service, amount));
-           }
+                String location = doc.get("location").toString();
+                String amount= doc.get("amount").toString();
+                System.out.println(orderID);
+                
+                documents.add(new Billing(1,1,"m","m","m","m","m","m","m"));
+            }
             return documents;
         }
 }

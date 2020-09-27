@@ -16,9 +16,11 @@ public class Billing {
     private String BillDateGenerated;
     private String tax;
     private String service;
-    private double amount;
+    private String location;
+    private String amount;
+    
 
-    public Billing(int orderID, int CustomerID, String paymentMethod, String paymentDate, String BillDateGenerated, String tax, String service, double amount) {
+    public Billing(int orderID, int CustomerID, String paymentMethod, String paymentDate, String BillDateGenerated, String tax, String service,String location, String amount) {
         this.orderID = orderID;
         this.CustomerID = CustomerID;
         this.paymentMethod = paymentMethod;
@@ -26,6 +28,23 @@ public class Billing {
         this.BillDateGenerated = BillDateGenerated;
         this.tax = tax;
         this.service = service;
+        this.location = location;
+        this.amount = amount;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getAmount() {
+        return amount;
+    }
+
+    public void setAmount(String amount) {
         this.amount = amount;
     }
 

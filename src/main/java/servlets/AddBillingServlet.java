@@ -6,14 +6,23 @@
 package servlets;
 
 import Utils.Util;
+import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import dao.BillingDao;
+import dao.MongoDBConnector;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.UnknownHostException;
+import java.sql.SQLException;
+import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.bson.Document;
 
 /**
@@ -21,7 +30,8 @@ import org.bson.Document;
  * @author Martin
  */
 public class AddBillingServlet extends HttpServlet {
-
+    
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -31,8 +41,38 @@ public class AddBillingServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
+         
+        
+        MongoDBConnector connector = new MongoDBConnector();
+        MongoClient client = connector.openConnection();
+        
+        BillingDao BDao = new BillingDao(client);
+        HttpSession session = req.getSession();
+        
+        //Random r = new Random();
+        MongoDatabase database = Util.getConnect();
+        MongoCollection<Document> collection = database.getCollection("Billing");
+        
+        Document document = new Document();
+        
+            document.put("orderID",103);
+            document.put("customerID",103);
+            document.put("paymentMethod","PayPal");
+            document.put("paymentDate","2003");
+            document.put("billDateGenerated","2003");
+            document.put("tax","%5.0");
+            document.put("service","Top up");
+            document.put("location","Sydney");
+            document.put("amount","500");
+        
+            collection.insertOne(document);
+        //BDao.create(103, 103, "PayPal", "2003", "2003", "%5.0", "Top up", 0.0);
+        BDao.get(101);
+        req.getRequestDispatcher("billing.jsp").include(req, resp);
+        
+        /*
         //1 Get Parameter
         String orderID=req.getParameter("orderID");
         req.getServletContext().setAttribute("orderID",orderID);
@@ -74,5 +114,6 @@ public class AddBillingServlet extends HttpServlet {
         
         
         req.getRequestDispatcher("/shipmentNew.jsp").forward(req, resp);
+*/
     }
 }
