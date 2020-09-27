@@ -37,6 +37,7 @@ public class BillingServlet extends HttpServlet{
         
         MongoDBConnector connector = new MongoDBConnector();
         MongoClient client = connector.openConnection();
+        
         BillingDao BDao = new BillingDao(client);
         HttpSession session = req.getSession();
         

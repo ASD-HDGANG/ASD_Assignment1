@@ -5,65 +5,52 @@
  */
 package dao;
 
-import com.mongodb.BasicDBObject;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.model.Filters;
-import java.util.ArrayList;
-import java.util.List;
-import org.bson.Document;
-import org.bson.conversions.Bson;
-import org.bson.types.ObjectId;
 import entity.Billing;
+import java.util.ArrayList;
+import org.bson.Document;
+
 /**
  *
  * @author Martin
  */
-public class BillingDao {
+public class NotificationDao {
     MongoClient mongoClient;     
     MongoDatabase database;
     MongoCollection<Document> collection;
     
-    public BillingDao(MongoClient mongoClient) {
-		this.mongoClient = mongoClient;
-		this.database = mongoClient.getDatabase("heroku_lcjwqk0m");
-		this.collection = database.getCollection("Billing");
-	}
+    public NotificationDao(MongoClient mongoClient){
+        this.mongoClient = mongoClient;
+        this.database = mongoClient.getDatabase("heroku_lcjwqk0m");
+        this.collection = database.getCollection("Notification");
+    }
     
-        public Document get(int orderID){
+    public Document get(int notificationID){
            for (Document doc : collection.find()){
-               if ((doc.get("orderID")).equals(orderID)){
+               if ((doc.get("notificationID")).equals(notificationID)){
                    return doc;
                }
            }
            return null;
         }
-        
-        public void create(int orderID, int customerID, String paymentMethod, String paymentDate, String billDateGenerated, String tax, String service,String location, Double amount) {
+    
+    public void create() {
         
             Document document = new Document();
         
-            document.put("orderID",orderID);
-            document.put("customerID",customerID);
-            document.put("paymentMethod",paymentMethod);
-            document.put("paymentDate",paymentDate);
-            document.put("billDateGenerated",billDateGenerated);
-            document.put("tax",tax);
-            document.put("service",service);
-            document.put("location", location);
-            document.put("amount",amount);
-        
+            
             collection.insertOne(document);
         }
     
-        public void delete(int orderID){
+    public void delete(int notificationID){
             Document document = new Document();
-            document.put("orderID", orderID);
+            document.put("notificationID", notificationID);
             collection.deleteMany(document);
         }
-        
-        public ArrayList<Billing> readAll(){
+    
+     public ArrayList<Billing> readAll(){
            ArrayList<Billing> documents = new ArrayList();
             
             for (Document doc : collection.find()){
@@ -82,5 +69,4 @@ public class BillingDao {
                 documents.add(new Billing(orderID,customerID,paymentMethod,paymentDate,billDateGenerated,tax,service,location,amount));
             }
             return documents;
-        }
 }

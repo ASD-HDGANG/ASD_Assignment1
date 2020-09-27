@@ -12,6 +12,10 @@
         <servlet-name>ViewBillServlet</servlet-name>
         <servlet-class>servlets.ViewBillServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddNotificationServlet</servlet-name>
+        <servlet-class>servlets.AddNotificationServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>BillingServlet</servlet-name>
         <url-pattern>/BillingServlet</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>ViewBillServlet</servlet-name>
         <url-pattern>/ViewBillServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddNotificationServlet</servlet-name>
+        <url-pattern>/AddNotificationServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
