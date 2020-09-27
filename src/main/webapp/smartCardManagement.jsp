@@ -64,5 +64,11 @@
 		alert('Card linking successful!!');
 	}
        </script>
+       <script type="text/javascript">
+             var unlink="${requestScope.unlink}";
+	    if(unlink=="success"){
+		alert('Unlink successfull!!');
+	}
+       </script>
     </body>
 </html>

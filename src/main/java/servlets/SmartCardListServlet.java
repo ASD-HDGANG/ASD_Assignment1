@@ -38,9 +38,9 @@ public class SmartCardListServlet extends HttpServlet {
         MongoClient client = connector.openConnection();
         SmartCardDao db = new SmartCardDao(client);
         HttpSession session = req.getSession();
-        String uid = req.getParameter("userId");
-        List<SmartCard> smartCardList = db.listLinkedSmartCard(uid);
-        session.setAttribute("userId", uid);
+        String userId = req.getParameter("userId");
+        List<SmartCard> smartCardList = db.listLinkedSmartCard(userId);
+        session.setAttribute("userId", userId);
         session.setAttribute("smartCardList", smartCardList);
         req.getRequestDispatcher("smartCardList.jsp").forward(req, resp);
     }            
@@ -77,7 +77,9 @@ public class SmartCardListServlet extends HttpServlet {
             
             collection.updateOne(filter,update);
 
-           doGet(req, resp);
+            req.setAttribute("unlink", "success");
+
+           req.getRequestDispatcher("/smartCardManagement.jsp").forward(req, resp);
     }  
 
 }

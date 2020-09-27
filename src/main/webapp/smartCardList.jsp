@@ -67,7 +67,7 @@
     <h1>Smart Cards Linked With </h1><h1 style = "color: blue"><%=userId%></h1>
     <table border = "0">
         <tr>
-            <form role="form" action="smartCardListServlet" method="get">
+            <form role="form" action="SmartCardListServlet" method="get">
             <td><input type="text" name="userId"  maxlength="16" placeholder="Check another one" required></td>
             <td><input class="button" type ="submit" value="Search"></td>
             </form>
