@@ -28,7 +28,7 @@
             <a href="AllShipmentsServlet" style="float: right;">Shipments</a>--%>
             <a href="home.jsp" style="float: left;"> Home </a>
             <a href="tripPlanner.jsp" style="float: left;"> Trip_Planner </a>
-            <a href="orderManagerment.jsp" style="float: left;">Order </a>
+            <a href="orderManagement.jsp" style="float: left;">Order </a>
             <a href="bill.jsp" style="float: left;">Bill </a>
             <a href="shipmentNew.jsp" style="float: left;">Shipment </a>
             <a href="reporting.jsp" style="float: right;">Report </a>
