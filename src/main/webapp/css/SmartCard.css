@@ -303,3 +303,9 @@ img {
     
 }
 
+.billForm{
+    background-image: url("css/Invoice.jpg");
+    width:55%;
+    margin:auto;
+}
+

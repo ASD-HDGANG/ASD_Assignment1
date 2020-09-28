@@ -31,10 +31,19 @@ public class BillingDao {
 		this.collection = database.getCollection("Billing");
 	}
     
-        public Document get(int orderID){
+        public Billing get(int orderID){
            for (Document doc : collection.find()){
                if ((doc.get("orderID")).equals(orderID)){
-                   return doc;
+                    
+                    int customerID = Integer.parseInt(doc.get("customerID").toString());
+                    String paymentMethod=doc.get("paymentMethod").toString();
+                    String paymentDate=doc.get("paymentDate").toString();
+                    String billDateGenerated=doc.get("billDateGenerated").toString();
+                    String tax=doc.get("tax").toString();
+                    String service=doc.get("service").toString();
+                    String location = doc.get("location").toString();
+                    String amount= doc.get("amount").toString();
+                    return new Billing(orderID,customerID,paymentMethod,paymentDate,billDateGenerated,tax,service,location,amount);
                }
            }
            return null;
@@ -77,7 +86,6 @@ public class BillingDao {
                 String service=doc.get("service").toString();
                 String location = doc.get("location").toString();
                 String amount= doc.get("amount").toString();
-                System.out.println(orderID);
                 
                 documents.add(new Billing(orderID,customerID,paymentMethod,paymentDate,billDateGenerated,tax,service,location,amount));
             }

@@ -62,7 +62,7 @@
                         <td><c:out value="${billing.paymentDate}"/></td>
                         <td><c:out value="${billing.orderID}"/></td>
                         <td><c:out value="${billing.location}"/></td>
-                        <td><a href="ViewBillServlet?orderID=<c:out value ="${shipment.orderID}"/>">Visit</a></td>
+                        <td><a href="ViewBillServlet?orderID=<c:out value ="${billing.orderID}"/>">Visit</a></td>
                     </tr>
                 </c:forEach>
 

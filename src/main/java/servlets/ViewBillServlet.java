@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import entity.Billing;
 import org.bson.Document;
 
 /**
@@ -30,7 +31,8 @@ public class ViewBillServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
         //get the orderID
-        int orderID = Integer.req.getParameter("orderID");
+        int orderID = Integer.parseInt(req.getParameter("orderID"));
+        Billing billing = null;
         //connection
         MongoDBConnector connector = new MongoDBConnector();
         MongoClient client = connector.openConnection();
@@ -39,8 +41,9 @@ public class ViewBillServlet extends HttpServlet {
         BillingDao BDao = new BillingDao(client);
         HttpSession session = req.getSession();
         
-        Document doc = BDao.get(orderID);
-       
+        billing = BDao.get(orderID);
+        session.setAttribute("billing", billing);
+        
         req.getRequestDispatcher("viewBill.jsp").include(req, resp);
     }
 
