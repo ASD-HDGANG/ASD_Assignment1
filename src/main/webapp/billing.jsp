@@ -41,7 +41,7 @@
         </div>
             <h1>Billing</h1>
             
-        <section>
+        <div class="billingSection">
             <div class="searchDiv">
                 <label for ="search" style="font-size: 40px;">Search</label><br><br>
                 <label for ="Date">Date</label><br>   
@@ -68,7 +68,7 @@
 
                 </table>
             </div>
-                <!-- <a href="ShipmentDeleteServlet?id=<c:out value ="${shipment.arriveDate}"/>">Delete</a> -->   
-    </section>
+                   
+        </div>
     </body>
 </html>

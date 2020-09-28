@@ -29,17 +29,17 @@ public class ViewBillServlet extends HttpServlet {
     
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
-         
+        //get the orderID
+        int orderID = Integer.req.getParameter("orderID");
+        //connection
         MongoDBConnector connector = new MongoDBConnector();
         MongoClient client = connector.openConnection();
-        
+
+        //get dao and session
         BillingDao BDao = new BillingDao(client);
         HttpSession session = req.getSession();
         
-        //Random r = new Random();
-        MongoDatabase database = Util.getConnect();
-        MongoCollection<Document> collection = database.getCollection("Billing");
-        
+        Document doc = BDao.get(orderID);
        
         req.getRequestDispatcher("viewBill.jsp").include(req, resp);
     }

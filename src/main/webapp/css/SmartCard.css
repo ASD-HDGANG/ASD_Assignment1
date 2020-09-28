@@ -286,6 +286,20 @@ img {
 
 
 .searchDiv{
+    height: 300px;
+    float:left;
+    width:20%;
+}
+
+.tableDiv{
+    width:70%;
+    float:right;
+    
+}
+
+.billingSection{
+    width:55%;
+    margin: auto;
     
 }
 
