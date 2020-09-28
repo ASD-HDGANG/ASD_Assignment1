@@ -5,6 +5,7 @@
  */
 package uts.asd.controller;
 
+import JavaMailUtil.EmailService;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,10 +29,9 @@ public class RegisterServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         request.getRequestDispatcher("/registration.jsp").forward(request, response);
-        
+
 //        RequestDispatcher  dispatcher = request.getRequestDispatcher("/registration.jsp");
 //        dispatcher.forward(request, response);
-        
     }
 
     @Override
@@ -49,6 +49,10 @@ public class RegisterServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        EmailService email = new EmailService();
+        //call the send email method
+        boolean test = email.sendMail(user);
 
         //response.sendRedirect("");
         request.getRequestDispatcher("/welcome.jsp").forward(request, response);
@@ -86,15 +90,5 @@ public class RegisterServlet extends HttpServlet {
 //            collection.deleteOne(document);
 //            req.getRequestDispatcher("/reportManage.jsp").forward(req, resp);
 //        }
-
-
-
-
-
-
-
-
-
-
 
 

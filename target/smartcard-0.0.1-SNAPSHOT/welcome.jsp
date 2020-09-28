@@ -22,7 +22,8 @@
 
         <h1 class="form_title">Registration success, thank you.</h1>
 
-        <p class="p"> Hi, <%= fname %> : email : <%= email %>, please click <a href="index.jsp" class="link" target="_parent"> here </a> to go to main page.</p>
+        <p class="p"> Hi, <%= fname %> : email : <%= email %>. We have sent you a email to confirm you have signed up.
+            <br/><br/>please click <a href="index.jsp" class="link" target="_parent"> here </a> to go to main page.</p>
     </body>
 
 

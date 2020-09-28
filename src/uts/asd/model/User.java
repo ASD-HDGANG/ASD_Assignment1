@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class User implements Serializable {
 
     private Long id;
-    private String email;    
+    private String email;
     private String firstName;
     private String lastName;
     private String addressLine1;
@@ -14,7 +14,7 @@ public class User implements Serializable {
     private String state;
     private String zipcode;
     private String password;
-    
+    private String verifyCode;
     //private String role;
     //private boolean isEnable;
 
@@ -27,9 +27,8 @@ public class User implements Serializable {
         this.firstName = firstName;
         this.password = password;
     }
-    
 
-    public User(String email, String firstName, String lastName, String addressLine1, String addressLine2, String city, String state, String zipcode, String password) {
+    public User(String email, String firstName, String lastName, String addressLine1, String addressLine2, String city, String state, String zipcode, String password, String verifyCode) {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -39,12 +38,8 @@ public class User implements Serializable {
         this.state = state;
         this.zipcode = zipcode;
         this.password = password;
+        this.verifyCode = verifyCode;
     }
-
-
-
-
-
 
     public Long getId() {
         return id;
@@ -126,26 +121,16 @@ public class User implements Serializable {
         this.zipcode = zipcode;
     }
 
+    public String getVerifyCode() {
+        return verifyCode;
+    }
 
-
-
-
-
+    public void setVerifyCode(String verifyCode) {
+        this.verifyCode = verifyCode;
+    }
 
     public boolean match(String email) {
         return this.email.equalsIgnoreCase(email.trim());
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
 

@@ -9,6 +9,7 @@ uts\asd\enumType\SmartCardType.class
 uts\asd\model\dao\OrderDAO.class
 uts\asd\service\UserService.class
 uts\asd\model\dao\PrettyJson.class
+JavaMailUtil\EmailService.class
 uts\asd\model\dao\dBUtils.class
 uts\asd\controller\UserServlet.class
 uts\asd\controller\RegisterServlet.class

@@ -8,7 +8,7 @@
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/RegisterServlet</url-pattern>
-    </servlet-mapping>    
+    </servlet-mapping>
     <servlet>
         <servlet-name>UserServlet</servlet-name>
         <servlet-class>uts.asd.controller.UserServlet</servlet-class>
