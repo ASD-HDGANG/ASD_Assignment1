@@ -24,7 +24,12 @@
           <element id="library" level="project" name="Maven: org.json:json:20190722" />
           <element id="library" level="project" name="Maven: com.paypal.sdk:rest-api-sdk:1.14.0" />
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.21" />
+          <element id="library" level="project" name="Maven: com.paypal.sdk:checkout-sdk:1.0.2" />
+          <element id="library" level="project" name="Maven: com.paypal:paypalhttp:1.0.0" />
           <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.8.5" />
+          <element id="library" level="project" name="Maven: com.sun.mail:javax.mail:1.6.2" />
+          <element id="library" level="project" name="Maven: javax.activation:activation:1.1" />
+          <element id="library" level="project" name="Maven: javax.mail:mail:1.4.7" />
         </element>
       </element>
       <element id="directory" name="META-INF">
