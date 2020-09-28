@@ -29,7 +29,7 @@
             <a href="home.jsp" style="float: left;"> Home </a>
             <a href="tripPlanner.jsp" style="float: left;"> Trip_Planner </a>
             <a href="orderManagement.jsp" style="float: left;">Order </a>
-            <a href="billing.jsp" style="float: left;">Bill </a>
+            <a href="BillingServlet" style="float: left;">Bill </a>
             <a href="shipmentNew.jsp" style="float: left;">Shipment </a>
             <a href="reporting.jsp" style="float: right;">Report </a>
             <a href="userProfile.jsp" style="float: right;">Profile</a>

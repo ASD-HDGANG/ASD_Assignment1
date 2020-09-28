@@ -34,15 +34,19 @@ public class BillingServlet extends HttpServlet{
     
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        
+        //Create the connection
         MongoDBConnector connector = new MongoDBConnector();
         MongoClient client = connector.openConnection();
         
+        //Get the Dao and the session
         BillingDao BDao = new BillingDao(client);
         HttpSession session = req.getSession();
         
+
+        //Retrieve all of the billing entries
         ArrayList<Billing> billings = BDao.readAll();
         
+        //Set Billing entries into session
         session.setAttribute("billings", billings);
         req.getRequestDispatcher("billing.jsp").include(req, resp);
        
