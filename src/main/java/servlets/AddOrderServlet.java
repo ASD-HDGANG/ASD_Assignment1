@@ -27,7 +27,7 @@ public class AddOrderServlet extends HttpServlet {
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     
         String  smartCardNumber=req.getParameter("smartCardNumber");
-       String  fromLocation=req.getParameter("fromLocation");
+        String  fromLocation=req.getParameter("fromLocation");
         String  toLocation=req.getParameter("toLocation");
         String  orderType=req.getParameter("orderType");
         String  orderDate=req.getParameter("orderDate");

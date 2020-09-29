@@ -62,12 +62,23 @@
                         <td><c:out value="${billing.paymentDate}"/></td>
                         <td><c:out value="${billing.orderID}"/></td>
                         <td><c:out value="${billing.location}"/></td>
-                        <td><a href="ViewBillServlet?orderID=<c:out value ="${billing.orderID}"/>">Visit</a></td>
+                        <td><a href="ViewBillServlet?orderID=<c:out value ="${billing.orderID}"/>">Visit</a>&nbsp;
+                        <a href="ViewBillServlet?orderID=<c:out value ="${billing.orderID}"/>">Visit</a></td>
                     </tr>
                 </c:forEach>
 
                 </table>
             </div>
+            <form role="form" action="AddBillingServlet" method="post">
+            <label for="customer ID">Customer ID:</label><input type="text" name="customerID"  maxlength="16" placeholder="cusomter ID" required>
+            <label for="payment Date">Payment Due:</label><input type="date" name="paymentDate"> 
+            <label for="Service">Service</label><input type="text" name="service" placeholder="service" required> 
+            <label for="location">Location</label><input type="text" name="location"  placeholder="location" required>            
+            <label for="amount">Amount</label><input type="text" name="amount" required>
+            <a class="button"  href="home.jsp"> Cancel </a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input class="button" type ="submit" value="Create">    
+    </form>
                    
         </div>
     </body>

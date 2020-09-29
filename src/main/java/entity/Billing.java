@@ -13,19 +13,19 @@ public class Billing {
     private int CustomerID;
     private String paymentMethod;
     private String paymentDate;
-    private String BillDateGenerated;
+    private String billDateGenerated;
     private String tax;
     private String service;
     private String location;
     private String amount;
     
 
-    public Billing(int orderID, int CustomerID, String paymentMethod, String paymentDate, String BillDateGenerated, String tax, String service,String location, String amount) {
+    public Billing(int orderID, int CustomerID, String paymentMethod, String paymentDate, String billDateGenerated, String tax, String service,String location, String amount) {
         this.orderID = orderID;
         this.CustomerID = CustomerID;
         this.paymentMethod = paymentMethod;
         this.paymentDate = paymentDate;
-        this.BillDateGenerated = BillDateGenerated;
+        this.billDateGenerated = billDateGenerated;
         this.tax = tax;
         this.service = service;
         this.location = location;
@@ -81,11 +81,11 @@ public class Billing {
     }
 
     public String getBillDateGenerated() {
-        return BillDateGenerated;
+        return billDateGenerated;
     }
 
-    public void setBillDateGenerated(String BillDateGenerated) {
-        this.BillDateGenerated = BillDateGenerated;
+    public void setBillDateGenerated(String billDateGenerated) {
+        this.billDateGenerated = billDateGenerated;
     }
 
     public String getTax() {
