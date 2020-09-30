@@ -4,16 +4,15 @@
     Author     : Patty
 --%>
 
-<%@page contentType="text/html" pageEncoding="windows-1252"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <%@ include file = "common/meta.jsp" %>        
+        <%@ include file = "/fragment/meta.jsp" %>        
         <title>Main</title>
     </head>
 
     <body>
-        <%@ include file = "common/header.jsp" %>
+        <%@ include file = "/fragment/header.jsp" %>
 
         <div class="container-fluid text-center">    
             <div class="row content">
@@ -44,6 +43,6 @@
             </div>
         </div>
 
-        <%@ include file = "common/footer.jsp" %>
+        <%@ include file = "/fragment/footer.jsp" %>
     </body>
 </html>

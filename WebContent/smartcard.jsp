@@ -1,40 +1,54 @@
-<%-- 
-    Document   : smartcard
-    Created on : 27 Sep. 2020, 4:58:10 pm
-    Author     : Patty
---%>
-
-<%@ page contentType="text/html" pageEncoding="windows-1252"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"  %>
-<%@ page import="uts.asd.enumType.SmartCardType" %>
-
 
 <!DOCTYPE html>
 <html>
+<head>
+<meta charset="ISO-8859-1">
+<%@ include file="/fragment/meta.jsp"%>
+<title>Smartcard</title>
+</head>
+<body>
 
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Choose your card</h1>
+	<%@ include file="/fragment/header.jsp"%>
 
+	<div class="container">
+		<div align="center">
+			<form role="form" action="AddSmartCardServlet" method="post">
+				<h3 align="center">Please choose the type of card</h3>
 
+				<div class="row">
+					<div class="col-sm-6 col-md-4">
+						<div class="thumbnail">
+							<img id="adult" src="img/adult.jpg" alt="adult smart card">
+							<div class="caption">
+								<span><input name="smartCardType" value="Adult"
+									class="btn btn-primary" type="submit" role="Add"></span>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-4">
+						<div class="thumbnail">
+							<img id="adult" src="img/child.jpg" alt="child smart card">
+							<div class="caption">
+								<span><input name="smartCardType" name="smartCardType"
+									value="Child" class="btn btn-primary" type="submit" role="Add"></span>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-4">
+						<div class="thumbnail">
+							<img id="senior" src="img/senior.jpg" alt="senior smart card">
+							<div class="caption">
+								<span><input name="smartCardType" name="smartCardType"
+									value="Senior" class="btn btn-primary" type="submit" role="Add"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
 
-        <form action="addValue" method="POST">
-            <!--            <c:forEach var="type" items="<%= uts.asd.enumType.SmartCardType.values() %>">
-                            <input type="checkbox" name="smartcard" value="ON">
-                            <span>${type}</span>
-                            </input>
-                            <br/>
-            </c:forEach>                -->
+	<%@ include file="/fragment/footer.jsp"%>
 
-            <table>
-                <tr>
-                    <td><input type="checkbox" name="youth" value="youth"/>Youth</td>
-                </tr>
-            </table>            
-        </form>
-
-    </body>
+</body>
 </html>

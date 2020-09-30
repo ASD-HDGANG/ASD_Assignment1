@@ -1,30 +1,39 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 
-<%@page import="uts.asd.model.dao.*"%>
-<%@page import="uts.asd.service.UserService"%>
-<%@page contentType="text/html" pageEncoding="UTF-8" import="uts.asd.model.*"%>
+<%@page import="smartcardDemo.model.*"%>
+<%@page import="smartcardDemo.service.UserService"%>
+
 <!DOCTYPE html>
+
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <script src="animation.js"></script>
-        <link rel="stylesheet" type="text/css" href="css/demo.css">
-        <title>Welcome Page</title>
-    </head>   
-    <%
-        String fname = request.getParameter("fname");
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="animation.js"></script>
+<link rel="stylesheet" type="text/css" href="css/demo.css">
+<title>Welcome Page</title>
+</head>
+<%
+	String firstName = request.getParameter("firstname");
+String email = request.getParameter("email");
+String password = request.getParameter("password");
 
-        User user = new User(fname, email, password);
-        session.setAttribute("user", user); 
-    %>
-    <body style="background:none transparent;"> 
+User user = new User(firstName, email, password);
+session.setAttribute("user", user);
+%>
+<body style="background: none transparent;">
 
-        <h1 class="form_title">Registration success, thank you.</h1>
+	<h1 class="form_title">Registration success, thank you.</h1>
 
-        <p class="p"> Hi, <%= fname %> : email : <%= email %>. We have sent you a email to confirm you have signed up.
-            <br/><br/>please click <a href="index.jsp" class="link" target="_parent"> here </a> to go to main page.</p>
-    </body>
+	<p class="p">
+		Hi,
+		<%=firstName%>
+		: email :
+		<%=email%>. We have sent you a email to confirm you have signed up. <br />
+		<br />please click <a href="index.jsp" class="link" target="_parent">
+			here </a> to go to main page.
+	</p>
+</body>
 
 
 </html>
