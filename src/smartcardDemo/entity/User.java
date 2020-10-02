@@ -1,10 +1,10 @@
-package smartcardDemo.model;
+package smartcardDemo.entity;
 
 import java.io.Serializable;
 
 public class User implements Serializable {
 
-	private int id;
+	private Long id;
 	private String email;
 	private String firstName;
 	private String lastName;
@@ -12,7 +12,7 @@ public class User implements Serializable {
 	private String addressLine2;
 	private String city;
 	private String state;
-	private String zipcode;
+	private String postcode;
 	private String password;
 	private String verifyCode;
 	// private String role;
@@ -29,7 +29,7 @@ public class User implements Serializable {
 	}
 
 	public User(String email, String firstName, String lastName, String addressLine1, String addressLine2, String city,
-			String state, String zipcode, String password, String verifyCode) {
+			String state, String postcode, String password, String verifyCode) {
 		this.email = email;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -37,17 +37,17 @@ public class User implements Serializable {
 		this.addressLine2 = addressLine2;
 		this.city = city;
 		this.state = state;
-		this.zipcode = zipcode;
+		this.postcode = postcode;
 		this.password = password;
 		this.verifyCode = verifyCode;
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setId(Long string) {
+		this.id = string;
 	}
 
 	public String getEmail() {
@@ -114,12 +114,12 @@ public class User implements Serializable {
 		this.state = state;
 	}
 
-	public String getZipcode() {
-		return zipcode;
+	public String getPostcode() {
+		return postcode;
 	}
 
-	public void setZipcode(String zipcode) {
-		this.zipcode = zipcode;
+	public void setZipcode(String postcode) {
+		this.postcode = postcode;
 	}
 
 	public String getVerifyCode() {

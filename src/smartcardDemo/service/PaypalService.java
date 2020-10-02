@@ -16,7 +16,7 @@ import com.paypal.api.payments.Transaction;
 import com.paypal.base.rest.APIContext;
 import com.paypal.base.rest.PayPalRESTException;
 
-import smartcardDemo.model.dao.OrderDAO;
+import smartcardDemo.entity.OrderDetail;
 
 public class PaypalService {
 
@@ -24,11 +24,12 @@ public class PaypalService {
 
 	}
 
-	private static final String CLIENT_ID = "TOKEN_ID"; // TODO need to change both to work, find way to hide sensitive data
+	private static final String CLIENT_ID = "TOKEN_ID"; // TODO need to change both to work, find way to hide sensitive
+														// data
 	private static final String CLIENT_SECRET = "TOKEN_SECRET";
 	private static final String MODE = "sandbox";
 
-	public String authorizePayment(OrderDAO orderDetail) throws PayPalRESTException {
+	public String authorizePayment(OrderDetail orderDetail) throws PayPalRESTException {
 
 		Payer payer = getPayerInfo();
 		RedirectUrls redirectUrls = getRedirectURLs();
@@ -65,7 +66,7 @@ public class PaypalService {
 		return approvalLink;
 	}
 
-	private List<Transaction> getTransactionInfo(OrderDAO orderDetail) {
+	private List<Transaction> getTransactionInfo(OrderDetail orderDetail) {
 		// Set payment details
 		Details details = new Details();
 		details.setShipping(orderDetail.getShipping());

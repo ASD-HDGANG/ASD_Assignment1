@@ -1,6 +1,6 @@
-package smartcardDemo.model.dao;
+package smartcardDemo.entity;
 
-public class OrderDAO {
+public class OrderDetail {
 
 	private long orderId;
 	private String productName; // smartcard name
@@ -10,10 +10,11 @@ public class OrderDAO {
 	private float tax;
 	private float total;
 
-	public OrderDAO() {
+	public OrderDetail() {
+
 	}
 
-	public OrderDAO(String productName, String subtotal, String shipping, String tax, String total) {
+	public OrderDetail(String productName, String subtotal, String shipping, String tax, String total) {
 		this.productName = productName;
 		this.subtotal = Float.parseFloat(subtotal);
 		this.shipping = Float.parseFloat(shipping);
@@ -48,5 +49,4 @@ public class OrderDAO {
 	public String getTotal() {
 		return String.format("%.2f", tax + shipping + subtotal);
 	}
-
 }

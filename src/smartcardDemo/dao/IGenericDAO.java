@@ -1,4 +1,4 @@
-package smartcardDemo.model.dao;
+package smartcardDemo.dao;
 
 import java.util.List;
 
@@ -11,7 +11,8 @@ public interface IGenericDAO<T> {
 
 	public void delete(Object id);
 
-	public List<T> listAll();
+	public List<T> getAll();
 
 	public Long count();
+
 }

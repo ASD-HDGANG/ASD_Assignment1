@@ -3,11 +3,12 @@ package smartcardDemo.service;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
-import smartcardDemo.model.User;
-import smartcardDemo.model.dao.UserDAO;
-import smartcardDemo.model.dao.dBUtils;
+import smartcardDemo.dao.UserDAO;
+import smartcardDemo.dao.dBUtils;
+import smartcardDemo.entity.User;
 
 import java.io.IOException;
+import java.net.UnknownServiceException;
 import java.util.ArrayList;
 import static java.util.Arrays.asList;
 import java.util.List;
@@ -16,11 +17,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.bson.Document;
 
-
 public class UserService {
 
 	private UserDAO userDAO;
-	private List<Document> users = new ArrayList<Document>();
+	//private List<Document> users = new ArrayList<Document>();
 
 	public UserService() {
 	}
@@ -32,30 +32,40 @@ public class UserService {
 	public void listUsers(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		userDAO.listAll();
+		// need to test
+		userDAO.getAll();
 
 	}
 
-	public void create(User user) throws ServletException, IOException {
+	public void create(User user) throws UnknownServiceException, ServletException, IOException {
 
 		// this what I want to see. user is saved to db here
 		try {
 			MongoDatabase mdb = dBUtils.getMongoDB();
 			assert mdb != null;
 
-			if (user == null) {
-				System.out.println("not working!!!!!!!");
-			} else {
-				// create or get collection
-				MongoCollection<Document> userlist = mdb.getCollection("Users");
+			// create or get collection
+			MongoCollection<Document> users = mdb.getCollection("Users");
 
-				users.add(new Document("Email", user.getEmail()).append("Password", user.getPassword())
-						.append("First Name", user.getFirstName())
-						.append("Address", asList(user.getAddressLine1(), user.getAddressLine2())));
+			// User newUser = new User(email, password, firstname);
+			// userDAO.create(newUser);
 
-				userlist.insertMany(users);
+//			users.add(new Document("id", user.getId()).append("Email", user.getEmail())
+//					.append("Password", user.getPassword()).append("First Name", user.getFirstName())
+//					.append("Address", asList(user.getAddressLine1(), user.getAddressLine2())));
+//			userlist.insertMany(users);
 
-			}
+			Document userDoc = new Document("Email", user.getEmail()).append("Password", user.getPassword())
+					.append("First Name", user.getFirstName());
+
+			Document addressDoc = new Document("Address1", user.getAddressLine1())
+					.append("Address2", user.getAddressLine2()).append("Postcode", user.getPostcode())
+					.append("State", user.getState());
+
+			userDoc.put("Address", addressDoc);
+
+			users.insertOne(userDoc);
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

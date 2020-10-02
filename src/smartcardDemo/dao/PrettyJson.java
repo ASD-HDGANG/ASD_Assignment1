@@ -1,4 +1,4 @@
-package smartcardDemo.model.dao;
+package smartcardDemo.dao;
 
 import org.bson.Document;
 import org.json.JSONObject;

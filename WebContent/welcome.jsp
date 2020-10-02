@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
-<%@page import="smartcardDemo.model.*"%>
+<%@page import="smartcardDemo.entity.*"%>
 <%@page import="smartcardDemo.service.UserService"%>
 
 <!DOCTYPE html>
@@ -14,12 +14,13 @@
 <title>Welcome Page</title>
 </head>
 <%
-	String firstName = request.getParameter("firstname");
+String firstName = request.getParameter("firstname");
 String email = request.getParameter("email");
 String password = request.getParameter("password");
 
 User user = new User(firstName, email, password);
-session.setAttribute("user", user);
+session.setAttribute("email", email);
+session.setAttribute("password", password);
 %>
 <body style="background: none transparent;">
 

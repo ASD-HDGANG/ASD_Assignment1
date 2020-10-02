@@ -58,6 +58,13 @@ footer {
 <link href="/login.css" rel="stylesheet">
 </head>
 <body>
+
+	<%
+		String email = (String) session.getAttribute("email");
+	String password = (String) session.getAttribute("password");
+	%>
+
+
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -70,14 +77,21 @@ footer {
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">Home</a></li>
+					<li class="active"><a href="index.jsp">Home</a></li>
 					<li><a href="#">About</a></li>
 					<li><a href="#">Contact</a></li>
 				</ul>
 
 
 				<ul class="nav navbar-nav navbar-right">
-					<%-- 					<%
+					<form class="navbar-form navbar-left" role="search">
+
+						<div class="form-group">
+
+							<a href="registration.jsp">Sign up</a> <span
+								style="color: #fff;">&nbsp;&nbsp;or&nbsp;&nbsp;</span>
+
+							<%-- 					<%
 						//String email = (String) session.getAttribute("email");
 					if (true) {
 
@@ -85,8 +99,6 @@ footer {
 
 					}
 					%> --%>
-					<form class="navbar-form navbar-left" role="search">
-						<div class="form-group">
 							<input type="text" class="form-control" placeholder="Email">
 							<input type="text" class="form-control" placeholder="Password">
 						</div>

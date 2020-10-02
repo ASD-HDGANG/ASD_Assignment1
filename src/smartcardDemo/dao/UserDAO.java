@@ -1,22 +1,21 @@
-package smartcardDemo.model.dao;
+package smartcardDemo.dao;
 
-import com.mongodb.BasicDBObject;
 import java.util.List;
+
+import org.bson.Document;
 
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
-import smartcardDemo.model.User;
-
-import org.bson.Document;
+import smartcardDemo.entity.User;
 
 public class UserDAO implements IGenericDAO<User> {
+
+	MongoDatabase mdb = dBUtils.getMongoDB();
 
 	public UserDAO() {
 
 	}
-
-	MongoDatabase mdb = dBUtils.getMongoDB();
 
 	@Override
 	public User create(User user) {
@@ -37,12 +36,9 @@ public class UserDAO implements IGenericDAO<User> {
 	public void findByEmail(String email) {
 
 		// findbyEmail
+		MongoCollection<Document> userTbl = mdb.getCollection("Users");
 
-		MongoCollection<Document> table = mdb.getCollection("Users");
-		BasicDBObject emailQuery = new BasicDBObject();
-		emailQuery.put("email", table);
-		// DBCursor result = table.find(searchQuery);
-
+		userTbl.find(new Document("email", email));
 	}
 
 	@Override
@@ -52,7 +48,14 @@ public class UserDAO implements IGenericDAO<User> {
 	}
 
 	@Override
-	public List<User> listAll() {
+	public List<User> getAll() {
+		
+//		MongoCollection<Document> userTbl = mdb.getCollection("Users");
+
+		
+//		for (T t : this)
+//	         action.accept(t);
+
 
 //                SmartCard sc = new SmartCard(smartCardNumber,null,null,null,null,null);
 //             for (Document doc : collection.find()) {

@@ -1,4 +1,4 @@
-package smartcardDemo.controller;
+package smartcardDemo.controller.frontend.customer;
 
 import java.io.IOException;
 
@@ -9,21 +9,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import smartcardDemo.entity.Customer;
 import smartcardDemo.entity.User;
-import smartcardDemo.service.UserService;
+import smartcardDemo.service.CustomerService;
 
 /**
  * Servlet implementation class RegisterServlet
  */
-@WebServlet(description = "register a user", urlPatterns = { "/admin_register" })
-public class RegisterServlet extends HttpServlet {
+@WebServlet(description = "register a user", urlPatterns = { "/register" })
+public class CustomerRegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	UserService userService = new UserService();
+	CustomerService customerService = new CustomerService();
 
 	@Override
 	public void init() {
-		userService = new UserService();
+		customerService = new CustomerService();
 	}
 
 	@Override
@@ -41,8 +42,8 @@ public class RegisterServlet extends HttpServlet {
 			throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
 
-		User newUser = new User();
-		UserService userService = new UserService();
+		Customer newCustomer = new Customer();
+		CustomerService customerService = new CustomerService();
 		HttpSession session = request.getSession();
 
 		String email = (String) request.getParameter("email");
@@ -53,13 +54,13 @@ public class RegisterServlet extends HttpServlet {
 		session.setAttribute("password", password);
 
 		// Store input to db, but how to use session for below?
-		newUser.setFirstName(request.getParameter("firstname"));
-		newUser.setEmail(request.getParameter("email"));
-		newUser.setPassword(request.getParameter("password"));
+		newCustomer.setFirstname(request.getParameter("firstname"));
+		newCustomer.setEmail(request.getParameter("email"));
+		newCustomer.setPassword(request.getParameter("password"));
 
 		try {
 
-			userService.create(newUser);
+			customerService.create(newCustomer);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -67,7 +68,7 @@ public class RegisterServlet extends HttpServlet {
 		// Send email notification
 //        EmailService sendMail = new EmailService();
 //        //call the send email method
-//        boolean test = sendMail.sendMail(newUser);
+//        boolean test = sendMail.sendMail(newCustomer);
 
 		request.getRequestDispatcher("/welcome.jsp").forward(request, response);
 	}

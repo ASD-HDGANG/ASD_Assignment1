@@ -9,7 +9,7 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-import smartcardDemo.model.User;
+import smartcardDemo.entity.User;
 
 public class MailService {
 

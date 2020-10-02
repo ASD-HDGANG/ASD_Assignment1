@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.paypal.base.rest.PayPalRESTException;
 
-import smartcardDemo.model.dao.OrderDAO;
+import smartcardDemo.entity.OrderDetail;
 import smartcardDemo.service.PaypalService;
 
 /**
@@ -31,7 +31,7 @@ public class PaypalServlet extends HttpServlet {
         String tax = request.getParameter("tax");
         String total = request.getParameter("total");
 
-        OrderDAO orderDetail = new OrderDAO(product, subtotal, shipping, tax, total);
+        OrderDetail orderDetail = new OrderDetail(product, subtotal, shipping, tax, total);
 
         try {
             PaypalService paymentServices = new PaypalService();
