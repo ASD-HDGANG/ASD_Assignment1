@@ -1,6 +1,6 @@
 package smartcardDemo.dao;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import org.junit.Test;
 
@@ -20,7 +20,7 @@ public class CustomerDAOTest {
 		CustomerDAO customerDAO = new CustomerDAO();
 		customer1 = customerDAO.create(customer1);
 		
-		assertTrue(customer1.getCustomerId() > 0);
+		assertTrue(customer1.getEmail() == "abc@gmail.com");
 
 	}
 

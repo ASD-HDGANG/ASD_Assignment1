@@ -1,26 +1,29 @@
 package smartcardDemo.service;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.UnknownServiceException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.bson.Document;
+
+import com.mongodb.DB;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.gridfs.GridFS;
+import com.mongodb.gridfs.GridFSInputFile;
 
 import smartcardDemo.dao.UserDAO;
 import smartcardDemo.dao.dBUtils;
 import smartcardDemo.entity.User;
 
-import java.io.IOException;
-import java.net.UnknownServiceException;
-import java.util.ArrayList;
-import static java.util.Arrays.asList;
-import java.util.List;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import org.bson.Document;
-
 public class UserService {
 
 	private UserDAO userDAO;
-	//private List<Document> users = new ArrayList<Document>();
+	// private List<Document> users = new ArrayList<Document>();
 
 	public UserService() {
 	}
@@ -45,7 +48,7 @@ public class UserService {
 			assert mdb != null;
 
 			// create or get collection
-			MongoCollection<Document> users = mdb.getCollection("Users");
+			MongoCollection<Document> userTbl = mdb.getCollection("Users");
 
 			// User newUser = new User(email, password, firstname);
 			// userDAO.create(newUser);
@@ -64,7 +67,7 @@ public class UserService {
 
 			userDoc.put("Address", addressDoc);
 
-			users.insertOne(userDoc);
+			userTbl.insertOne(userDoc);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -82,4 +85,5 @@ public class UserService {
 		// mdb.getCollection("Users").updateOne(eq("firstName",
 		// "Lucy"),Updates.addToSet("Address", Address));
 	}
+
 }

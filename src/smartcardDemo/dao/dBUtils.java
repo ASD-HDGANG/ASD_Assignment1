@@ -32,6 +32,8 @@ public class dBUtils {
 
 			MongoDatabase database = mongoClient.getDatabase("heroku_lcjwqk0m");
 
+			System.out.println("############ IT IS WORKING, RIGHT?");
+
 			return database;
 
 		} catch (Exception e) {

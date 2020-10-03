@@ -12,7 +12,7 @@
 
 	<div class="container">
 		<div align="center">
-			<form role="form" action="AddSmartCardServlet" method="post">
+			<form role="form" action="/Add_SmartCard" method="post">
 				<h3 align="center">Please choose the type of card</h3>
 
 				<div class="row">
@@ -20,8 +20,9 @@
 						<div class="thumbnail">
 							<img id="adult" src="img/adult.jpg" alt="adult smart card">
 							<div class="caption">
-								<span><input name="smartCardType" value="Adult"
+								<span><input name="adult" value="adult"
 									class="btn btn-primary" type="submit" role="Add"></span>
+									<%-- <a href="view_smartcard?cardType=${smartcard.cardType}" ></a> --%>
 							</div>
 						</div>
 					</div>
@@ -30,7 +31,7 @@
 							<img id="adult" src="img/child.jpg" alt="child smart card">
 							<div class="caption">
 								<span><input name="smartCardType" name="smartCardType"
-									value="Child" class="btn btn-primary" type="submit" role="Add"></span>
+									value="child" class="btn btn-primary" type="submit" role="Add"></span>
 							</div>
 						</div>
 					</div>
@@ -38,8 +39,8 @@
 						<div class="thumbnail">
 							<img id="senior" src="img/senior.jpg" alt="senior smart card">
 							<div class="caption">
-								<span><input name="smartCardType" name="smartCardType"
-									value="Senior" class="btn btn-primary" type="submit" role="Add"></span>
+								<span><input name="senior" value="senior"
+									class="btn btn-primary" type="submit" role="Add"></span>
 							</div>
 						</div>
 					</div>

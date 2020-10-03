@@ -65,7 +65,7 @@ public class CustomerRegisterServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		// Send email notification
+		// Send email notification - uncomment it to add your email to test
 //        EmailService sendMail = new EmailService();
 //        //call the send email method
 //        boolean test = sendMail.sendMail(newCustomer);
@@ -73,8 +73,3 @@ public class CustomerRegisterServlet extends HttpServlet {
 		request.getRequestDispatcher("/welcome.jsp").forward(request, response);
 	}
 }
-
-// For login controller on index login/out icon?
-//HttpSession session=request.getSession(false);
-//String myName=(String)session.getAttribute("uname");
-//String myPass=(String)session.getAttribute("upass");

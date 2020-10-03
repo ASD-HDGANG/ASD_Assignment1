@@ -2,34 +2,35 @@ package smartcardDemo.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Random;
 
 public class SmartCard implements Serializable {
 
 	private String cardNumber;
 	private String securityCode;
 	private String userId; // TODO customerid from db?
-	private String cardType; // asList [youth] [adult] [senior] can also use enum class with image
+	private String cardType; // TODO asList to specific card type
 	private float cardBalance;
 	private String cardStatus;
 	private boolean isActive;
 	private Date timeCreated;
 	// private Set<OrderDetail> orderDetails = new HashSet<OrderDetail>(0);
+	private byte[] image;
 
 	public SmartCard() {
 	}
 
-	public SmartCard(String cardNumber, String securityCode, String userId, String cardType, float cardBalance,
-			String cardStatus, boolean isActive, Date timeCreated) {
+	public SmartCard(String cardNumber, String securityCode, String cardType, float cardBalance, String cardStatus,
+			boolean isActive, Date timeCreated, byte[] image) {
 		super();
 		this.cardNumber = cardNumber;
 		this.securityCode = securityCode;
-		this.userId = userId;
 		this.cardType = cardType;
 		this.cardBalance = cardBalance;
 		this.cardStatus = cardStatus;
-		this.image = image;
 		this.isActive = isActive;
 		this.timeCreated = timeCreated;
+		this.image = image;
 	}
 
 	public String getCardNumber() {
@@ -94,6 +95,14 @@ public class SmartCard implements Serializable {
 
 	public void setTimeCreated(Date timeCreated) {
 		this.timeCreated = timeCreated;
+	}
+
+	public byte[] getImage() {
+		return image;
+	}
+
+	public void setImage(byte[] image) {
+		this.image = image;
 	}
 
 }
