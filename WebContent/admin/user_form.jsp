@@ -9,22 +9,58 @@
 <body>
 	<jsp:directive.include file="header.jsp" />
 
-	<div align="center">
-		<hr width="60%" />
-		<h3 class="pageheading">Create a admin user</h3>
-		<b> <a href="staff_form.jsp">New Staff</a> &nbsp; | <a
-			href="new_customer">New Customer</a>
-		</b>
-	</div>
 
+<%-- 	<div align="center">
+		<h2 class="pageheading">
+			<c:if test="${user != null}">
+				Edit User
+			</c:if>
+			<c:if test="${user == null}">
+				Create New User
+			</c:if>
+		</h2>
+	</div> --%>
+	
+	
 	<div align="center">
-		<hr width="60%" />
-		<h3>Recent orders</h3>
-	</div>
+<!-- ================================== -->
+<%-- 		<c:if test="${user != null}">
+			<form action="update_user" method="post" id="userForm">
+				<input type="hidden" name="userId" value="${user.userId}">
+		</c:if>
+		<c:if test="${user == null}">
+			<form action="create_user" method="post" id="userForm">
+		</c:if> --%>
+<!-- ==================================== -->
 
-	<div align="center">
-		<hr width="60%" />
-		<h3>Recent Reports</h3>
+<form action="create_user" method="post" id="userForm">
+		<table class="form" >
+			<tr>
+				<td align="right">Email:</td>
+				<td align="left"><input type="text" id="email" name="email"
+					size="20" value="" /></td>
+			</tr>
+			<tr>
+				<td align="right">Full name:</td>
+				<td align="left"><input type="text" id="fullname"
+					name="fullname" size="20" value="" /></td>
+			</tr>
+			<tr>
+				<td align="right">Password:</td>
+				<td align="left"><input type="password" id="password"
+					name="password" size="20" value="" /></td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+					<button type="submit">Save</button>&nbsp;&nbsp;&nbsp;
+					<button id="buttonCancel">Cancel</button>
+				</td>
+			</tr>
+		</table>
+		</form>
 	</div>
 
 

@@ -3,8 +3,6 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,27 +14,25 @@
 	<jsp:directive.include file="header.jsp" />
 
 	<div align="center">
-		<h2 class="pageheading">
-			Users Management
-			</h1>
-			<h3>
-				<a href="user_form.jsp">Create New User</a>
-			</h3>
+		<h2 class="pageheading">Users Management</h2>
+		<h3>
+			<a href="user_form.jsp">Create New User</a>
+		</h3>
 	</div>
 
 	<div align="center">
 		<table border="1" cellpadding="5">
 			<tr>
-				<th>Index</th>
+				<!-- <th>Index</th> -->
 				<th>ID</th>
 				<th>Email</th>
-				<th>First Name</th>
+				<th>Full Name</th>
 				<th>Actions</th>
 			</tr>
-			
-			<c:forEach var="user" items="${userList}" varStatus="status">
+
+			<c:forEach var="user" items="${userList}">
 				<tr>
-					<td>${status.index + 1}</td>
+					<%-- <td>${status.index + 1}</td> --%>
 					<td>${user.userId}</td>
 					<td>${user.email}</td>
 					<td>${user.fullName}</td>
@@ -45,7 +41,7 @@
 					</td>
 				</tr>
 			</c:forEach>
-			
+
 		</table>
 	</div>
 

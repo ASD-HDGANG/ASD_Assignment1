@@ -12,7 +12,6 @@ import com.mongodb.client.MongoDatabase;
 import com.smartcard.dao.CustomerDAO;
 import com.smartcard.dao.dBUtils;
 import com.smartcard.entity.Customer;
-import com.smartcard.entity.User;
 
 public class CustomerService {
 

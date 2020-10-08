@@ -1,6 +1,12 @@
 package com.smartcard.service;
 
+import java.io.IOException;
 import java.util.List;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.bson.Document;
 
@@ -13,53 +19,44 @@ import com.smartcard.entity.User;
 public class UserService {
 
 	private UserDAO userDAO;
-	MongoDatabase mdb = dBUtils.getMongoDB();
+	private HttpServletRequest request;
+	private HttpServletResponse response;
 
-//	private MongoCollection<Document> col;
+	MongoDatabase db = dBUtils.getMongoDB();
 
-//	public UserService() {
-//
-//		this.col =  mdb.getCollection("User");
-//	}
-
-	public List<User> listUser() {
-
-		UserDAO userDAO = new UserDAO();
-		
-		List<User> listUsers = userDAO.listAll();	
-		return listUsers;
-
-//		List<User> userList = new ArrayList<User>();
-//		FindIterable<Document> cursor = col.find();
-//		while (cursor.hasNext()) {
-//			DBObject doc = cursor.next();
-//			User u = UserConverter.toUser(doc);
-//			userList.add(u);
-// 		}
-//		return userList;
+	public UserService(HttpServletRequest request, HttpServletResponse response) {
+		super();
+		userDAO = new UserDAO();
+		this.request = request;
+		this.response = response;
 	}
 
-	public void create(User user) {
+	public void createUser() throws ServletException, IOException {
 
-		// this what I want to see. user is saved to db here
-		try {
-			MongoDatabase mdb = dBUtils.getMongoDB();
-			assert mdb != null;
+		String email = request.getParameter("email");
+		String fullName = request.getParameter("fullname");
+		String password = request.getParameter("password");
 
-			// create or get collection
-			MongoCollection<Document> userTbl = mdb.getCollection("User");
+		User newUser = new User(email, fullName, password);
+		userDAO.create(newUser);
 
-			// User newUser = new User(email, password, fullname);
-			// userDAO.create(newUser);
+	}
 
-			Document userDoc = new Document("Email", user.getEmail()).append("Password", user.getPassword())
-					.append("Full Name", user.getFullName());
+//	public void listUser()
+//			throws ServletException, IOException {
+//		listUser(null);
+//	}
 
-			userTbl.insertOne(userDoc);
+	public void listUser() throws ServletException, IOException {
 
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		List<User> userList = userDAO.listAll();
+
+		request.setAttribute("userList", userList); // for jsp to get Attribute
+		
+		String list_user_page = "user_list.jsp";
+		RequestDispatcher rd = request.getRequestDispatcher(list_user_page);
+		rd.forward(request, response);
+
 	}
 
 	public void update(User user) {

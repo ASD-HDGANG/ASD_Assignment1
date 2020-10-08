@@ -37,9 +37,9 @@ public class dBUtils {
 
 			MongoClient mongoClient = MongoClients.create(clientSettings);
 
-			MongoDatabase database = mongoClient.getDatabase("heroku_lcjwqk0m");
+			MongoDatabase database = mongoClient.getDatabase("heroku_lcjwqk0m").withCodecRegistry(pojoCodecRegistry);
 
-			mongoClient.close();
+			//mongoClient.close(); // this causing the state should open error
 
 			return database;
 

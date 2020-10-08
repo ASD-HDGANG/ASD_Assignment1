@@ -1,11 +1,11 @@
 package com.smartcard.dao;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import org.bson.Document;
 
+import com.mongodb.Block;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
@@ -24,8 +24,30 @@ public class UserDAO implements IGenericDAO<User> {
 
 	@Override
 	public User create(User user) {
-		return user;
 
+		try {
+
+			// create or get collection (tbl)
+//			MongoCollection<Document> userTbl = database.getCollection("User");
+//			assert database != null;
+
+			// put user input to user tbl
+//			Document userDoc = new Document("Email", user.getEmail()).append("Password", user.getPassword())
+//					.append("First Name", user.getFirstName());
+//			userTbl.insertOne(userDoc);
+
+			MongoCollection<User> userTbl = database.getCollection("User", User.class);
+			assert database != null;
+
+			User newUser = new User(user.getUserId(), user.getEmail(), user.getFullName(), user.getPassword());
+
+			userTbl.insertOne(newUser);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return user;
 	}
 
 	@Override
@@ -57,39 +79,35 @@ public class UserDAO implements IGenericDAO<User> {
 	public List<User> listAll() {
 
 		List<User> userList = new ArrayList<User>();
-		
 
-		// 1. get the table dB
-		MongoCollection<Document> userTbl = database.getCollection("User");
+		// 1. get the table from dB
+//		MongoCollection<User> userTbl = database.getCollection("Users", User.class);		
+//		userTbl.find().into(userList); 
 
-		// loop through the table to find, then add
-		for (Document doc : userTbl.find()) {
-			User user = new User((String) doc.get("fullname"), (String) doc.get("email"),
-					(String) doc.getString("password"));
+		database.getCollection("Users", User.class).find().into(userList);
 
-			userList.add(user);
-		}
-		
 		return userList;
 
-//		userList.find().forEach((Consumer<? super Document>) userDoc -> userDoc.toJson());
-//		return List<User>;
+//		// 2. find all documents from a collection?
+//		FindIterable<Document> result = userTbl.find();
+//		result.forEach((Block<Document>) doc -> System.out.println(doc.toJson()));
 
-//        for (Document doc : collection.find()){
-//            
-//            int orderID = Integer.parseInt(doc.get("orderID").toString());
-//            int customerID = Integer.parseInt(doc.get("customerID").toString());
-//            String paymentMethod=doc.get("paymentMethod").toString();
-//            String paymentDate=doc.get("paymentDate").toString();
-//            String billDateGenerated=doc.get("billDateGenerated").toString();
-//            String tax=doc.get("tax").toString();
-//            String service=doc.get("service").toString();
-//            String location = doc.get("location").toString();
-//            String amount= doc.get("amount").toString();
-//            
-//            documents.add(new Billing(orderID,customerID,paymentMethod,paymentDate,billDateGenerated,tax,service,location,amount));
-//        }
-//        return documents;
+		// loop through the table to find, then add
+//		for (Document doc : userTbl.find()) {
+//			User user1 = new User( doc.getObjectId("useId"), (String) doc.get("fullname"), (String) doc.get("email"), (String) doc.get("password"));
+//			userList.add(user1);			
+//		}
+
+//		for (Document doc : userTbl.find()) {
+//			if (doc != null) {
+//				User user = new User();
+//				
+//				user.setUserId(doc.getObjectId("userId"));
+//				user.setFullName((String) doc.get("fullName"));
+//				user.setEmail((String) doc.get("email"));
+//				userList.add(user);
+//			}
+//		}
 
 	}
 
@@ -98,14 +116,5 @@ public class UserDAO implements IGenericDAO<User> {
 		throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
 																		// Tools | Templates.
 	}
-
-//	List<User> data = new ArrayList<User>();
-//	FindIterable<Document> cursor = userTbl.find();
-//	while (cursor.hasNext()) {
-//		DBObject doc = cursor.next();
-//		Person p = PersonConverter.toPerson(doc);
-//		data.add(p);
-//	}
-//	return data;
 
 }

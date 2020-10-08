@@ -1,38 +1,54 @@
 package com.smartcard.entity;
 
-import java.io.Serializable;
-
+import org.bson.codecs.pojo.annotations.BsonProperty;
 import org.bson.types.ObjectId;
 
 public class User {
 
-	private static final long serialVersionUID = 1L;
-
 	private ObjectId id;
+
+	@BsonProperty(value = "user_id")
+	private Long userId;
 	private String email;
-	private String firstName;
-	private String lastName;
+	private String fullName;
+	// private String lastName;
 	private String password;
 
 	// private String role;
 	// private boolean isEnable;
 
 	public User() {
+		super();
+	}
 
+	public User(Long userId, String email, String fullName, String password) {
+		this.userId = userId;
+		this.email = email;
+		this.fullName = fullName;
+		this.password = password;
 	}
 
 	public User(String email, String fullName, String password) {
 		super();
 		this.email = email;
+		this.fullName = fullName;
 		this.password = password;
 	}
 
-	public ObjectId getId() {
-		return id;
+	public String getFullName() {
+		return fullName;
 	}
 
-	public void setId(ObjectId id) {
-		this.id = id;
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
+
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
 	}
 
 	public String getEmail() {
@@ -43,28 +59,6 @@ public class User {
 		this.email = email;
 	}
 
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getFullName() {
-		return firstName + lastName;
-	}
-
-	
-	
 	public String getPassword() {
 		return password;
 	}
