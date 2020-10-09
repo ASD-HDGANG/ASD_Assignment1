@@ -27,6 +27,8 @@ public class ListUsersServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		UserService userService = new UserService(request, response);
+		
+		userService.listUser();
 
 		//List<User> userList = userService.listUser();
 		//request.setAttribute("userList", userList); // for jsp to get Attribute

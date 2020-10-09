@@ -1,6 +1,7 @@
 package com.smartcard.dao;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.bson.Document;
@@ -79,36 +80,14 @@ public class UserDAO implements IGenericDAO<User> {
 	public List<User> listAll() {
 
 		List<User> userList = new ArrayList<User>();
-
-		// 1. get the table from dB
-//		MongoCollection<User> userTbl = database.getCollection("Users", User.class);		
-//		userTbl.find().into(userList); 
-
 		database.getCollection("Users", User.class).find().into(userList);
+		
+		for(User u : userList)
+		{
+			// show user list to browser???
+		}
 
 		return userList;
-
-//		// 2. find all documents from a collection?
-//		FindIterable<Document> result = userTbl.find();
-//		result.forEach((Block<Document>) doc -> System.out.println(doc.toJson()));
-
-		// loop through the table to find, then add
-//		for (Document doc : userTbl.find()) {
-//			User user1 = new User( doc.getObjectId("useId"), (String) doc.get("fullname"), (String) doc.get("email"), (String) doc.get("password"));
-//			userList.add(user1);			
-//		}
-
-//		for (Document doc : userTbl.find()) {
-//			if (doc != null) {
-//				User user = new User();
-//				
-//				user.setUserId(doc.getObjectId("userId"));
-//				user.setFullName((String) doc.get("fullName"));
-//				user.setEmail((String) doc.get("email"));
-//				userList.add(user);
-//			}
-//		}
-
 	}
 
 	@Override

@@ -30,17 +30,17 @@
 				<th>Actions</th>
 			</tr>
 
-			<c:forEach var="user" items="${userList}">
-				<tr>
-					<%-- <td>${status.index + 1}</td> --%>
-					<td>${user.userId}</td>
-					<td>${user.email}</td>
-					<td>${user.fullName}</td>
-					<td><a href="edit_user?id=${user.userId}">Edit</a> &nbsp; <a
-						href="javascript:void(0);" class="deleteLink" id="${user.userId}">Delete</a>
-					</td>
-				</tr>
-			</c:forEach>
+<c:forEach var="user" items="${userList}">
+	<tr>
+		<%-- <td>${status.index + 1}</td> --%>
+		<td>${user.userId}</td>
+		<td>${user.email}</td>
+		<td>${user.fullName}</td>
+		<td><a href="edit_user?id=${user.userId}">Edit</a> &nbsp; <a
+			href="javascript:void(0);" class="deleteLink" id="${user.userId}">Delete</a>
+		</td>
+	</tr>
+</c:forEach>
 
 		</table>
 	</div>
