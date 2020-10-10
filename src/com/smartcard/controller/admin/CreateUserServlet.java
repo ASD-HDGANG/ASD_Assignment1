@@ -20,6 +20,7 @@ public class CreateUserServlet extends HttpServlet {
 		UserService userService = new UserService(request, response);
 		userService.createUser();
 
+
 	}
 
 }

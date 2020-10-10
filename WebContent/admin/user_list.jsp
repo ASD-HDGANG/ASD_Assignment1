@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
 <html>
@@ -23,24 +23,26 @@
 	<div align="center">
 		<table border="1" cellpadding="5">
 			<tr>
-				<!-- <th>Index</th> -->
+				<th>Index</th>
 				<th>ID</th>
 				<th>Email</th>
 				<th>Full Name</th>
 				<th>Actions</th>
 			</tr>
 
-<c:forEach var="user" items="${userList}">
-	<tr>
-		<%-- <td>${status.index + 1}</td> --%>
-		<td>${user.userId}</td>
-		<td>${user.email}</td>
-		<td>${user.fullName}</td>
-		<td><a href="edit_user?id=${user.userId}">Edit</a> &nbsp; <a
-			href="javascript:void(0);" class="deleteLink" id="${user.userId}">Delete</a>
-		</td>
-	</tr>
-</c:forEach>
+			<c:forEach items="${userList}" var="user" varStatus="status">
+				<tr>
+					<td>${status.index + 1}</td>
+					<td>${user.id}</td>
+					<td>${user.email}</td>
+					<td>${user.fullName}</td>
+
+
+					<td><a href="edit_user?id=${user.id}">Edit</a> &nbsp; <a
+						href="javascript:void(0);" class="deleteLink" id="${userid}">Delete</a>
+					</td>
+				</tr>
+			</c:forEach>
 
 		</table>
 	</div>

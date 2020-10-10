@@ -24,8 +24,9 @@ public class dBUtils {
 
 	public static MongoDatabase getMongoDB() {
 
+
 		CodecRegistry pojoCodecRegistry = fromRegistries(MongoClientSettings.getDefaultCodecRegistry(),
-				fromProviders(PojoCodecProvider.builder().automatic(true).build()));
+                fromProviders(PojoCodecProvider.builder().automatic(true).build()));
 
 		try {
 			ConnectionString connectiontring = new ConnectionString(

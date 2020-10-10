@@ -37,8 +37,19 @@ public class UserService {
 		String fullName = request.getParameter("fullname");
 		String password = request.getParameter("password");
 
-		User newUser = new User(email, fullName, password);
-		userDAO.create(newUser);
+		User existUser = userDAO.findByEmail(email);
+
+		if (existUser != null) {
+
+			String message = "email " + email + " already registered!";
+			request.setAttribute("message", message);
+			RequestDispatcher rd = request.getRequestDispatcher("message.jsp");
+			rd.forward(request, response);
+
+		} else {
+			User newUser = new User(email, fullName, password);
+			userDAO.create(newUser);
+		}
 
 	}
 
@@ -47,28 +58,21 @@ public class UserService {
 //		listUser(null);
 //	}
 
-	public void listUser() throws ServletException, IOException {
+	public List<User> listUser() throws ServletException, IOException {
 
 		List<User> userList = userDAO.listAll();
+		return userList;
 
-		request.setAttribute("userList", userList); // for jsp to get Attribute
-		
-		String list_user_page = "user_list.jsp";
-		RequestDispatcher rd = request.getRequestDispatcher(list_user_page);
-		rd.forward(request, response);
+//		request.setAttribute("userList", userList); // for jsp to get Attribute
+//
+//		String list_user_page = "user_list2.jsp";
+//		RequestDispatcher rd = request.getRequestDispatcher(list_user_page);
+//		rd.forward(request, response);
 
 	}
 
 	public void update(User user) {
 
-		// Should be in Edit user field...
-//                Document Address = new Document()
-//                        .append("Address1", user.getAddressLine1())
-//                        .append("City", user.getCity())
-//                        .append("State", user.getState())
-//                        .append("postcode", user.getZipcode());
-		// mdb.getCollection("Users").updateOne(eq("firstName",
-		// "Lucy"),Updates.addToSet("Address", Address));
 	}
 
 }
