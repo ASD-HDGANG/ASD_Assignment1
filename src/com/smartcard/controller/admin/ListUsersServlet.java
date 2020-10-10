@@ -17,7 +17,6 @@ import com.smartcard.service.UserService;
 @WebServlet("/admin/list_users")
 public class ListUsersServlet extends HttpServlet {
 
-	
 	private static final long serialVersionUID = 1L;
 
 	public ListUsersServlet() {
@@ -29,18 +28,19 @@ public class ListUsersServlet extends HttpServlet {
 		response.setContentType("text/html");
 
 		dBUtils.getMongoDB();
+
 		UserService userService = new UserService(request, response);
-		
-		List<User> userList = userService.listUser();
 
-		request.setAttribute("userList", userList); // for jsp to get Attribute
+		userService.listUser();
 
-		System.out.println("All user?" + userList);
-		
-		String list_user_page = "user_list.jsp";
-		
-		RequestDispatcher rd = request.getRequestDispatcher(list_user_page);
-		rd.forward(request, response);
+//		request.setAttribute("userList", userList); // for jsp to get Attribute
+//
+//		System.out.println("All user?" + userList);
+//		
+//		String list_user_page = "user_list.jsp";
+//		
+//		RequestDispatcher rd = request.getRequestDispatcher(list_user_page);
+//		rd.forward(request, response);
 
 	}
 

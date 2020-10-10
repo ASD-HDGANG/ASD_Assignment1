@@ -10,7 +10,7 @@
 	<jsp:directive.include file="header.jsp" />
 
 
-<%-- 	<div align="center">
+	<%-- 	<div align="center">
 		<h2 class="pageheading">
 			<c:if test="${user != null}">
 				Edit User
@@ -20,49 +20,64 @@
 			</c:if>
 		</h2>
 	</div> --%>
-	
-	
+
+
 	<div align="center">
-<!-- ================================== -->
-<%-- 		<c:if test="${user != null}">
+		<!-- ================================== -->
+		<%-- 		<c:if test="${user != null}">
 			<form action="update_user" method="post" id="userForm">
 				<input type="hidden" name="userId" value="${user.userId}">
 		</c:if>
 		<c:if test="${user == null}">
 			<form action="create_user" method="post" id="userForm">
 		</c:if> --%>
-<!-- ==================================== -->
+		<!-- ==================================== -->
 
-<form action="create_user" method="post" id="userForm">
-		<table class="form" >
-			<tr>
-				<td align="right">Email:</td>
-				<td align="left"><input type="text" id="email" name="email"
-					size="20" value="" /></td>
-			</tr>
-			<tr>
-				<td align="right">Full name:</td>
-				<td align="left"><input type="text" id="fullname"
-					name="fullname" size="20" value="" /></td>
-			</tr>
-			<tr>
-				<td align="right">Password:</td>
-				<td align="left"><input type="password" id="password"
-					name="password" size="20" value="" /></td>
-			</tr>
-			<tr>
-				<td>&nbsp;</td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center">
-					<button type="submit">Save</button>&nbsp;&nbsp;&nbsp;
-					<button id="buttonCancel">Cancel</button>
-				</td>
-			</tr>
-		</table>
+		<form action="create_user" method="post" id="userForm"
+			onsubmit="return validateForm();">
+			<table class="form">
+				<tr>
+					<td align="right">Email:</td>
+					<td align="left"><input type="text" id="email" name="email"
+						size="20" value="" /></td>
+				</tr>
+				<tr>
+					<td align="right">Full name:</td>
+					<td align="left"><input type="text" id="fullname"
+						name="fullname" size="20" value="" /></td>
+				</tr>
+				<tr>
+					<td align="right">Password:</td>
+					<td align="left"><input type="password" id="password"
+						name="password" size="20" value="" /></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+						<button type="submit">Save</button>&nbsp;&nbsp;&nbsp;
+						<input type="button" id="buttonCancel" value="Cancel" onclick="javascript:history.go(-1);" />
+					</td>
+				</tr>
+			</table>
 		</form>
 	</div>
 
+	<script type="text/javascript">
+		function validateForm() {
+			// TODO validate form
+			var emailInput = document.getElementById("email");
+
+			if (emailInput.value.length == 0) {
+				alert("Require email!");
+				emailInput.focus();
+				return false;
+			}
+
+			return true;
+		}
+	</script>
 
 	<%@ include file="/fragment/footer.jsp"%>
 </body>
