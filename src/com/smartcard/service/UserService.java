@@ -72,6 +72,11 @@ public class UserService {
 		String list_user_page = "user_list.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(list_user_page);
 		rd.forward(request, response);
+<<<<<<< HEAD
+=======
+
+		return userList;
+>>>>>>> 6e665d3c881e5f9fb3ccc21eedd35084bb32351f
 
 		return userList;
 
