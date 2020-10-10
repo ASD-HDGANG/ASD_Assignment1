@@ -36,8 +36,6 @@ public class UserDAO implements IGenericDAO<User> {
 			MongoCollection<User> userTbl = database.getCollection("User", User.class);
 			assert database != null;
 
-			userTbl.createIndex(Indexes.ascending("userId"));
-
 			User newUser = new User(user.getId(), user.getEmail(), user.getFullName(), user.getPassword());
 
 			System.out.println("Email: " + newUser.getEmail() + " Name: " + newUser.getFullName() + " "

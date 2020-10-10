@@ -20,6 +20,12 @@
 		</h3>
 	</div>
 
+	<c:if test="${msg != null}">
+		<div align="center">
+			<h4 class="msg">${msg}</h4>
+		</div>
+	</c:if>
+
 	<div align="center">
 		<table border="1" cellpadding="5">
 			<tr>

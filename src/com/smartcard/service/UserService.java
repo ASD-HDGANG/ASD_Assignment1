@@ -37,6 +37,7 @@ public class UserService {
 		String fullName = request.getParameter("fullname");
 		String password = request.getParameter("password");
 
+		// Check email exist condition
 		User existUser = userDAO.findByEmail(email);
 
 		if (existUser != null) {
@@ -53,22 +54,31 @@ public class UserService {
 
 	}
 
-//	public void listUser()
-//			throws ServletException, IOException {
-//		listUser(null);
-//	}
+	public void listUser()
+			throws ServletException, IOException {
+		listUser(null);
+	}
 
-	public List<User> listUser() throws ServletException, IOException {
+	public List<User> listUser(String msg)
+			throws ServletException, IOException {
 
 		List<User> userList = userDAO.listAll();
+
+		if (msg != null) {
+			request.setAttribute("msg", msg);
+		}
+
+		request.setAttribute("userList", userList); // for jsp to get Attribute
+		String list_user_page = "user_list.jsp";
+		RequestDispatcher rd = request.getRequestDispatcher(list_user_page);
+		rd.forward(request, response);
+
 		return userList;
 
-//		request.setAttribute("userList", userList); // for jsp to get Attribute
-//
-//		String list_user_page = "user_list2.jsp";
-//		RequestDispatcher rd = request.getRequestDispatcher(list_user_page);
-//		rd.forward(request, response);
-
+	}
+	
+	public void editUser() {
+		
 	}
 
 	public void update(User user) {
