@@ -10,7 +10,7 @@
 	<jsp:directive.include file="header.jsp" />
 
 
-	<%-- 	<div align="center">
+	<div align="center">
 		<h2 class="pageheading">
 			<c:if test="${user != null}">
 				Edit User
@@ -19,18 +19,18 @@
 				Create New User
 			</c:if>
 		</h2>
-	</div> --%>
+	</div>
 
 
 	<div align="center">
 		<!-- ================================== -->
-		<%-- 		<c:if test="${user != null}">
-			<form action="update_user" method="post" id="userForm">
-				<input type="hidden" name="userId" value="${user.userId}">
+ 		<c:if test="${user != null}">
+			<form action="update_user" method="post" id="userForm" onsubmit="return validateForm();">
+				<input type="hidden" name="userId" value="${user.id}">
 		</c:if>
 		<c:if test="${user == null}">
-			<form action="create_user" method="post" id="userForm">
-		</c:if> --%>
+			<form action="create_user" method="post" id="userForm" onsubmit="return validateForm();">
+		</c:if> 
 		<!-- ==================================== -->
 
 		<form action="create_user" method="post" id="userForm"

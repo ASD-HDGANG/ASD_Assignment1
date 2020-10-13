@@ -81,11 +81,17 @@ public class UserService {
 		RequestDispatcher rd = request.getRequestDispatcher(editPage);
 		rd.forward(request, response);
 
-		System.out.println("User full name is? " + user.getFullName());
+		// System.out.println("User full name is? " + user.getFullName());
 
 	}
 
-	public void update(User user) {
+	public void updateUser() {
+		Object userId = (String) request.getParameter("userId");
+		String email = request.getParameter("email"); // attr is name = "email" from the input field
+		String fullName = request.getParameter("fullname");
+		String password = request.getParameter("password");
+
+		System.out.println(userId + ", " + email + ", " + fullName + ", " + password);
 
 	}
 
