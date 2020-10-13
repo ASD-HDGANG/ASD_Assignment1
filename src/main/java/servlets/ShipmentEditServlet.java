@@ -12,7 +12,7 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import dao.MongoDBConnector;
 import dao.ShipmentDao;
-import entity.shipment;
+import entity.Shipment;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.servlet.ServletException;
@@ -33,7 +33,7 @@ public class ShipmentEditServlet extends HttpServlet {
         
     //para
         String email = req.getParameter("email");
-        shipment shipment = null;
+        Shipment shipment = null;
         
     //connection
          MongoDBConnector connector = new MongoDBConnector();

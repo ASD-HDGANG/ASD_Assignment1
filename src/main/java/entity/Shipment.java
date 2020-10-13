@@ -6,7 +6,7 @@
 package entity;
 
 
-public class shipment {
+public class Shipment {
    String name;
    String email;
    String phone_number;
@@ -19,7 +19,7 @@ public class shipment {
    String currentStatus;
 
 
-    public shipment( String name, String email, String phone_number, String address, String city, String territory, String post_code, String arriveDate, String shipmentMethod, String currentStatus) {
+    public Shipment( String name, String email, String phone_number, String address, String city, String territory, String post_code, String arriveDate, String shipmentMethod, String currentStatus) {
         this.name = name;
         this.email = email;
         this.phone_number = phone_number;

@@ -16,16 +16,18 @@ import org.bson.Document;
 public class Test {
      public static void main(String[] args) {
 
+
+
         MongoDatabase database = Util.getConnect();
 
-        MongoCollection<Document> collection = database.getCollection("Reporting");
-
-
+        MongoCollection<Document> collection = database.getCollection("Admin");
+       
+        
+        //3.insert into database        
         Document document = new Document();
-
-        document.put("description","this is a testing report description");
-
-        collection.insertOne(document);
+        document.put("userID", "321");
+            
+        collection.deleteOne(document);
 
     }
     

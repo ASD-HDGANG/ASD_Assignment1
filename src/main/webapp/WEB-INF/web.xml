@@ -7,7 +7,15 @@
            <servlet>
         <servlet-name>AddBillingServlet</servlet-name>
         <servlet-class>servlets.AddBillingServlet</servlet-class>
-    </servlet>    
+    </servlet>   
+          <servlet>
+        <servlet-name>NewAdminServlet</servlet-name>
+        <servlet-class>servlets.NewAdminServlet</servlet-class>
+    </servlet>     
+    <servlet>
+        <servlet-name>AllAdminsServlet</servlet-name>
+        <servlet-class>servlets.AllAdminsServlet</servlet-class>
+    </servlet>   
            <servlet>
         <servlet-name>ViewBillServlet</servlet-name>
         <servlet-class>servlets.ViewBillServlet</servlet-class>
@@ -23,7 +31,7 @@
            <servlet>
         <servlet-name>ShipmentDeleteServlet</servlet-name>
         <servlet-class>servlets.ShipmentDeleteServlet</servlet-class>
-    </servlet>    
+    </servlet>
  <servlet>
         <servlet-name>ShipmentEditServlet</servlet-name>
         <servlet-class>servlets.ShipmentEditServlet</servlet-class>
@@ -103,6 +111,14 @@
         <servlet-name>NewShipmentServlet</servlet-name>
         <url-pattern>/NewShipmentServlet</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NewAdminServlet</servlet-name>
+        <url-pattern>/NewAdminServlet</url-pattern>
+    </servlet-mapping>
+        <servlet-mapping>
+        <servlet-name>AllAdminsServlet</servlet-name>
+        <url-pattern>/AllAdminsServlet</url-pattern>
+    </servlet-mapping>
           <servlet-mapping>
         <servlet-name>AllShipmentsServlet</servlet-name>
         <url-pattern>/AllShipmentsServlet</url-pattern>
@@ -110,7 +126,7 @@
           <servlet-mapping>
         <servlet-name>ShipmentDeleteServlet</servlet-name>
         <url-pattern>/ShipmentDeleteServlet</url-pattern>
-    </servlet-mapping>    
+    </servlet-mapping>   
          <servlet-mapping>
         <servlet-name>ShipmentEditServlet</servlet-name>
         <url-pattern>/ShipmentEditServlet</url-pattern>

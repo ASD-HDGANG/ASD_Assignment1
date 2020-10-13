@@ -9,7 +9,7 @@ import Utils.Util;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import entity.shipment;
+import entity.Shipment;
 import java.util.ArrayList;
 import org.bson.Document;
 
@@ -55,8 +55,8 @@ public class ShipmentDao {
         }
         
         
-        public ArrayList<shipment> allShipment(){
-            ArrayList<shipment> temp = new ArrayList();
+        public ArrayList<Shipment> allShipment(){
+            ArrayList<Shipment> temp = new ArrayList();
             for(Document doc:collection.find()){
                 String preferName = doc.get("name").toString();
                 String email=doc.get("email").toString();
@@ -68,12 +68,12 @@ public class ShipmentDao {
                 String arriveDate=doc.get("arriveDate").toString();
                 String shipmentMethod=doc.get("shipmentMethod").toString();
                 String currentStatus=doc.get("currentStatus").toString();
-                temp.add(new shipment(preferName,email,phone_number,address,city,territory,post_code,arriveDate,shipmentMethod,currentStatus));
+                temp.add(new Shipment(preferName,email,phone_number,address,city,territory,post_code,arriveDate,shipmentMethod,currentStatus));
             }
             return temp;
         }
         
-        public shipment searchShipment(String email){
+        public Shipment searchShipment(String email){
             for(Document doc: collection.find()){
             if(doc.get("email").equals(email)){
                 String preferName = doc.get("name").toString();
@@ -85,7 +85,7 @@ public class ShipmentDao {
                 String post_code=doc.get("post_code").toString();
                 String shipmentMethod=doc.get("shipmentMethod").toString();
                 String currentStatus=doc.get("currentStatus").toString();
-                return new shipment(preferName,email,phone_number,address,city,territory,post_code,date,shipmentMethod,currentStatus);
+                return new Shipment(preferName,email,phone_number,address,city,territory,post_code,date,shipmentMethod,currentStatus);
             }
         }
             return null;

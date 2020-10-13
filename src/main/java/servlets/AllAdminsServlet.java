@@ -11,8 +11,8 @@ import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import dao.MongoDBConnector;
-import dao.ShipmentDao;
-import entity.Shipment;
+import dao.AdminDao;
+import entity.Admin;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.servlet.ServletException;
@@ -26,7 +26,7 @@ import org.bson.Document;
  * @author daohuxia
  */
 
-public class AllShipmentsServlet extends HttpServlet {
+public class AllAdminsServlet extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -36,13 +36,13 @@ public class AllShipmentsServlet extends HttpServlet {
          MongoClient client = connector.openConnection();
          
     //using dao
-         ShipmentDao smd = new ShipmentDao(client);
+         AdminDao amd = new AdminDao(client);
          HttpSession session = req.getSession();
          
          //return arraylist
-        ArrayList<Shipment> shipments = smd.allShipment();
-         session.setAttribute("shipments", shipments);
-         req.getRequestDispatcher("shipments.jsp").include(req, resp);
+        ArrayList<Admin> admins = amd.allAdmin();
+         session.setAttribute("admins", admins);
+         req.getRequestDispatcher("admins.jsp").include(req, resp);
          
 
        

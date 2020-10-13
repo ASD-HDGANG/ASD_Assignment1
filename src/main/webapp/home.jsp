@@ -33,7 +33,7 @@
             <a href="shipmentNew.jsp" style="float: left;">Shipment </a>
             <a href="reporting.jsp" style="float: right;">Report </a>
             <a href="userProfile.jsp" style="float: right;">Profile</a>
-            <a href="AllAdminServlet" style="float: right;">Admin</a>
+            <a href="AllAdminsServlet" style="float: right;">Admin</a>
             
             
         </div>
