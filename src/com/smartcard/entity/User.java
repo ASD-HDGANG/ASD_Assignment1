@@ -7,8 +7,8 @@ public class User {
 
 	private ObjectId id;
 
-	@BsonProperty(value = "userId")
-	private Long userId;
+	@BsonProperty(value = "user_id")
+	private String userId;
 	private String email;
 	private String fullName;
 	// private String lastName;
@@ -48,11 +48,11 @@ public class User {
 		this.id = id;
 	}
 
-	public Long getUserId() {
+	public String getUserId() {
 		return userId;
 	}
 
-	public void setUserId(Long userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 
@@ -88,5 +88,7 @@ public class User {
 	public String toString() {
 		return "User [email=" + email + ", fullName=" + fullName + ", password=" + password + "]";
 	}
+
+
 
 }

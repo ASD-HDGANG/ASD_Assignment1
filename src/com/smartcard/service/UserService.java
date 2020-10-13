@@ -8,9 +8,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.bson.Document;
-
-import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.smartcard.dao.UserDAO;
 import com.smartcard.dao.dBUtils;
@@ -39,9 +36,7 @@ public class UserService {
 
 		// Check email exist condition
 		User existUser = userDAO.findByEmail(email);
-
 		if (existUser != null) {
-
 			String message = "email " + email + " already registered!";
 			request.setAttribute("message", message);
 			RequestDispatcher rd = request.getRequestDispatcher("message.jsp");
@@ -75,7 +70,18 @@ public class UserService {
 
 	}
 
-	public void editUser() {
+	public void editUser() throws ServletException, IOException {
+
+		Object userId = (String) request.getParameter("id"); // get query string from the jsp
+
+		User user = userDAO.get(userId);
+
+		String editPage = "user_form.jsp";
+		request.setAttribute("user", user);
+		RequestDispatcher rd = request.getRequestDispatcher(editPage);
+		rd.forward(request, response);
+
+		System.out.println("User full name is? " + user.getFullName());
 
 	}
 

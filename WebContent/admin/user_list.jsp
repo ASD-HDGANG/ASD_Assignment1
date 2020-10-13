@@ -45,7 +45,7 @@
 
 
 					<td><a href="edit_user?id=${user.id}">Edit</a> &nbsp; <a
-						href="javascript:void(0);" class="deleteLink" id="${userid}">Delete</a>
+						href="javascript:void(0);" class="deleteLink" id="${user.id}">Delete</a>
 					</td>
 				</tr>
 			</c:forEach>

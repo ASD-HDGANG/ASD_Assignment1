@@ -39,25 +39,26 @@
 				<tr>
 					<td align="right">Email:</td>
 					<td align="left"><input type="text" id="email" name="email"
-						size="20" value="" /></td>
+						size="20" value="${user.email}" /></td>
 				</tr>
 				<tr>
 					<td align="right">Full name:</td>
 					<td align="left"><input type="text" id="fullname"
-						name="fullname" size="20" value="" /></td>
+						name="fullname" size="20" value="${user.fullName} " /></td>
 				</tr>
 				<tr>
 					<td align="right">Password:</td>
 					<td align="left"><input type="password" id="password"
-						name="password" size="20" value="" /></td>
+						name="password" size="20" value="${user.password }" /></td>
 				</tr>
 				<tr>
 					<td>&nbsp;</td>
 				</tr>
 				<tr>
 					<td colspan="2" align="center">
-						<button type="submit">Save</button>&nbsp;&nbsp;&nbsp;
-						<input type="button" id="buttonCancel" value="Cancel" onclick="javascript:history.go(-1);" />
+						<button type="submit">Save</button>&nbsp;&nbsp;&nbsp; <input
+						type="button" id="buttonCancel" value="Cancel"
+						onclick="javascript:history.go(-1);" />
 					</td>
 				</tr>
 			</table>

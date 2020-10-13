@@ -1,28 +1,25 @@
 package com.smartcard.dao;
 
+import static com.mongodb.client.model.Filters.eq;
+import static com.mongodb.client.model.Projections.include;
+
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import org.bson.Document;
-import org.bson.types.ObjectId;
 
-import com.mongodb.BasicDBObject;
 import com.mongodb.Block;
-import com.mongodb.DBObject;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
-import com.mongodb.client.model.Indexes;
 import com.mongodb.client.model.Updates;
 import com.smartcard.entity.User;
 
 public class UserDAO implements IGenericDAO<User> {
 
 	MongoDatabase database = dBUtils.getMongoDB();
-	MongoCollection<Document> userTbl = database.getCollection("User");
+	MongoCollection<User> userTbl = database.getCollection("User", User.class);
 
 	public UserDAO() {
 		super();
@@ -60,12 +57,18 @@ public class UserDAO implements IGenericDAO<User> {
 
 	@Override
 	public User get(Object userId) {
-		return null;
-	}
 
-	public User findByEmail(String email) {
 
-		database.getCollection("User", User.class).find().equals(email);
+		FindIterable<User> userTbl = database.getCollection("User", User.class).find();
+		for (User doc : userTbl) {
+
+			String id = doc.getId().toHexString();
+			System.out.println("_id = " + id);
+
+			if (id.equals(userId)) {
+				return doc;
+			}
+		}
 
 		return null;
 	}
@@ -80,11 +83,7 @@ public class UserDAO implements IGenericDAO<User> {
 	@Override
 	public List<User> listAll() {
 		List<User> userList = new ArrayList<User>();
-		// 1st option
-		database.getCollection("User", User.class).find().into(userList);
-
-		return userList;
-
+		return database.getCollection("User", User.class).find().into(userList);
 	}
 
 	@Override
@@ -93,28 +92,48 @@ public class UserDAO implements IGenericDAO<User> {
 																		// Tools | Templates.
 	}
 
-	public FindIterable<Document> findDocumentById(String id) {
-		BasicDBObject query = new BasicDBObject();
-
-		query.put("_id", new ObjectId(id));
-		FindIterable<Document> dbObj = userTbl.find(query);
-		return dbObj;
-	}
+	/*
+	 * public FindIterable<User> findDocumentById(String id) { BasicDBObject query =
+	 * new BasicDBObject();
+	 * 
+	 * query.put("_id", new ObjectId(id)); FindIterable<User> dbObj =
+	 * userTbl.find(query); return dbObj; }
+	 */
 
 	// FOR TEST PURPOSE
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		List<User> users = new ArrayList<User>();
-
 		MongoDatabase database = dBUtils.getMongoDB();
 
-		database.getCollection("User", User.class).find().into(users);
+		// get a handle to the "user" collection
+		// MongoCollection<User> coll = database.getCollection("User", User.class);
 
-		for (User u : users) {
-			System.out.println(u.toString());
-		}
+		/*
+		 * FindIterable<User> userTbl = database.getCollection("User",
+		 * User.class).find();
+		 * 
+		 * for (User doc : userTbl) {
+		 * 
+		 * String oid = doc.getId().toString();
+		 * 
+		 * System.out.println("_id = " + oid);
+		 * 
+		 * }
+		 */
 
 	}
+
+	public User findByEmail(String email) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	Block<User> printBlock = new Block<User>() {
+		@Override
+		public void apply(final User user) {
+			System.out.println(user.toString());
+		}
+	};
 
 }

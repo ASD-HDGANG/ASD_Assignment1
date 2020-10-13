@@ -2,6 +2,8 @@ package com.smartcard.dao;
 
 import java.util.List;
 
+import com.smartcard.entity.User;
+
 public interface IGenericDAO<T> {
 	public T create(T t);
 
