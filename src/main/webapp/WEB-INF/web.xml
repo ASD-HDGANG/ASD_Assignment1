@@ -15,7 +15,11 @@
     <servlet>
         <servlet-name>AllAdminsServlet</servlet-name>
         <servlet-class>servlets.AllAdminsServlet</servlet-class>
-    </servlet>   
+    </servlet>
+    <servlet>
+        <servlet-name>AdminDeleteServlet</servlet-name>
+        <servlet-class>servlets.AdminDeleteServlet</servlet-class>
+    </servlet>       
            <servlet>
         <servlet-name>ViewBillServlet</servlet-name>
         <servlet-class>servlets.ViewBillServlet</servlet-class>
@@ -118,6 +122,10 @@
         <servlet-mapping>
         <servlet-name>AllAdminsServlet</servlet-name>
         <url-pattern>/AllAdminsServlet</url-pattern>
+    </servlet-mapping>
+        <servlet-mapping>
+        <servlet-name>AdminDeleteServlet</servlet-name>
+        <url-pattern>/AdminDeleteServlet</url-pattern>
     </servlet-mapping>
           <servlet-mapping>
         <servlet-name>AllShipmentsServlet</servlet-name>
