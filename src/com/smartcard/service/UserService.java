@@ -86,12 +86,14 @@ public class UserService {
 	}
 
 	public void updateUser() {
-		Object userId = (String) request.getParameter("userId");
+		Object id = (String) request.getParameter("userId");
 		String email = request.getParameter("email"); // attr is name = "email" from the input field
 		String fullName = request.getParameter("fullname");
 		String password = request.getParameter("password");
 
-		System.out.println(userId + ", " + email + ", " + fullName + ", " + password);
+		System.out.println(id + ", " + email + ", " + fullName + ", " + password);
+		
+		//User user = new User(id, email, fullName, password);
 
 	}
 

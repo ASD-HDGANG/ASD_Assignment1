@@ -1,18 +1,26 @@
 package com.smartcard.dao;
 
 import static com.mongodb.client.model.Filters.eq;
+import static com.mongodb.client.model.Filters.exists;
 import static com.mongodb.client.model.Projections.include;
+import static com.mongodb.client.model.Updates.combine;
+import static com.mongodb.client.model.Updates.set;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.bson.Document;
 
+import com.mongodb.BasicDBObject;
 import com.mongodb.Block;
+import com.mongodb.DBCursor;
+import com.mongodb.DBObject;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Projections;
 import com.mongodb.client.model.Updates;
 import com.smartcard.entity.User;
 
@@ -50,7 +58,10 @@ public class UserDAO implements IGenericDAO<User> {
 	@Override
 	public User update(User user) {
 
-		userTbl.updateOne(Filters.eq("email", user.getEmail()), Updates.set("email", user.getEmail()));
+//		userTbl.updateOne(eq("email", user.getEmail()), Updates.set("email", user.getEmail()));
+
+		userTbl.updateOne(eq("email", user.getEmail()), combine(set("email", user.getEmail()),
+				set("FullName", user.getFullName()), set("password", user.getPassword())));
 
 		return user;
 	}
@@ -58,11 +69,10 @@ public class UserDAO implements IGenericDAO<User> {
 	@Override
 	public User get(Object userId) {
 
-
 		FindIterable<User> userTbl = database.getCollection("User", User.class).find();
 		for (User doc : userTbl) {
 
-			String id = doc.getId().toHexString();
+			String id = doc.getId().toString();
 			System.out.println("_id = " + id);
 
 			if (id.equals(userId)) {
@@ -71,6 +81,15 @@ public class UserDAO implements IGenericDAO<User> {
 		}
 
 		return null;
+
+	}
+
+	public User findByEmail(String email) {
+
+		// Document doc = (Document) mongoCollection.find(exists("otherInfo")).first();
+
+		User userTbl = database.getCollection("User", User.class).find(eq("email", email)).first();
+		return userTbl;
 	}
 
 	@Override
@@ -107,7 +126,7 @@ public class UserDAO implements IGenericDAO<User> {
 		MongoDatabase database = dBUtils.getMongoDB();
 
 		// get a handle to the "user" collection
-		// MongoCollection<User> coll = database.getCollection("User", User.class);
+		MongoCollection<User> coll = database.getCollection("User", User.class);
 
 		/*
 		 * FindIterable<User> userTbl = database.getCollection("User",
@@ -122,11 +141,6 @@ public class UserDAO implements IGenericDAO<User> {
 		 * }
 		 */
 
-	}
-
-	public User findByEmail(String email) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	Block<User> printBlock = new Block<User>() {
