@@ -86,11 +86,11 @@ public class UserDAO implements IGenericDAO<User> {
 
 	@Override
 	public void delete(Object userId) {
-		
+
 		MongoCollection<Document> coll = database.getCollection("User");
-		 
+
 		coll.deleteOne(eq("_id", userId));
-		
+
 		System.out.println("User Id " + userId + " deleted!");
 	}
 

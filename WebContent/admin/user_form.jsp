@@ -26,7 +26,7 @@
 		<!-- ================================== -->
  		<c:if test="${user != null}">
 			<form action="update_user" method="post" id="userForm" onsubmit="return validateForm();">
-				<input type="hidden" name="userId" value="${user.id}">
+				<input type="hidden" name="id" value="${user.id}">
 		</c:if>
 		<c:if test="${user == null}">
 			<form action="create_user" method="post" id="userForm" onsubmit="return validateForm();">

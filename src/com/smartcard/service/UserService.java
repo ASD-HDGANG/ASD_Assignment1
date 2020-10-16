@@ -25,6 +25,13 @@ public class UserService {
 	private HttpServletResponse response;
 
 	MongoDatabase db = dBUtils.getMongoDB();
+	
+	
+
+	public UserService() {
+		super();
+		userDAO = new UserDAO();
+	}
 
 	public UserService(HttpServletRequest request, HttpServletResponse response) {
 		super();
@@ -96,10 +103,10 @@ public class UserService {
 
 	public void updateUser() throws ServletException, IOException {
 
-		String idStr = (String) request.getParameter("id");//
+		String idStr = (String) request.getParameter("id");
 		ObjectId objId = new ObjectId(idStr.toString());
 
-		// Object objId = (String) request.getParameter("id");
+		//Object objId = (String) request.getParameter("id");
 
 		String email = request.getParameter("email"); // attr is name = "email" from the input field
 		String fullName = request.getParameter("fullname");
@@ -108,8 +115,8 @@ public class UserService {
 		System.out.println("NEW ID  = " + objId + ", or NEW EMAIL = " + email + ", or NEW NAME = " + fullName
 				+ ", NEW PASSWORD =  " + password);
 
-		User user = new User(objId, email, fullName, password);
-		userDAO.update(user).toString();
+		User user1 = new User((ObjectId) objId, email, fullName, password);
+		userDAO.update(user1);
 
 		String updateMsg = "User update done!";
 		listUser(updateMsg);
