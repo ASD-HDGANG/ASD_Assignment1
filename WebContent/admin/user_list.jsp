@@ -9,6 +9,7 @@
 <meta charset="ISO-8859-1">
 
 <title>User Management</title>
+<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
 </head>
 <body>
 	<jsp:directive.include file="header.jsp" />
@@ -44,9 +45,8 @@
 					<td>${user.fullName}</td>
 
 
-					<td><a href="edit_user?id=${user.id}">Edit</a> &nbsp; <a
-						href="javascript:void(0);" class="deleteLink" id="${user.id}">Delete</a>
-					</td>
+					<td><a href="edit_user?id=${user.id}">Edit</a> &nbsp;
+					<a href="javascript:void(0);" class="deleteLink" id="${user.id}">Delete</a></td>
 				</tr>
 			</c:forEach>
 
@@ -54,6 +54,22 @@
 	</div>
 
 
+	
 	<%@ include file="/fragment/footer.jsp"%>
+
+	<script>
+		$(document).ready(function() {
+			$(".deleteLink").each(function() {
+				$(this).on("click", function() {
+					userId = $(this).attr("id");
+					if (confirm('Delete the user with ID ' +  userId + '?')) {
+						window.location = 'delete_user?id=' + userId;
+					}					
+				});
+			});
+		});
+	</script>
+
+	
 </body>
 </html>

@@ -17,16 +17,14 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 
-
 public class dBUtils {
 
 	private MongoCollection<Document> collection;
 
 	public static MongoDatabase getMongoDB() {
 
-
 		CodecRegistry pojoCodecRegistry = fromRegistries(MongoClientSettings.getDefaultCodecRegistry(),
-                fromProviders(PojoCodecProvider.builder().automatic(true).build()));
+				fromProviders(PojoCodecProvider.builder().automatic(true).build()));
 
 		try {
 			ConnectionString connectiontring = new ConnectionString(
@@ -40,7 +38,7 @@ public class dBUtils {
 
 			MongoDatabase database = mongoClient.getDatabase("heroku_lcjwqk0m").withCodecRegistry(pojoCodecRegistry);
 
-			//mongoClient.close(); // this causing the state should open error
+// mongoClient.close(); // this causing the state should open error
 
 			return database;
 

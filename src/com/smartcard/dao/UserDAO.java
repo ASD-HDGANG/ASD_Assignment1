@@ -1,27 +1,20 @@
 package com.smartcard.dao;
 
 import static com.mongodb.client.model.Filters.eq;
-import static com.mongodb.client.model.Filters.exists;
-import static com.mongodb.client.model.Projections.include;
 import static com.mongodb.client.model.Updates.combine;
 import static com.mongodb.client.model.Updates.set;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import org.bson.Document;
+import org.bson.types.ObjectId;
 
-import com.mongodb.BasicDBObject;
 import com.mongodb.Block;
-import com.mongodb.DBCursor;
-import com.mongodb.DBObject;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.model.Filters;
-import com.mongodb.client.model.Projections;
-import com.mongodb.client.model.Updates;
+import com.mongodb.client.result.UpdateResult;
 import com.smartcard.entity.User;
 
 public class UserDAO implements IGenericDAO<User> {
@@ -58,10 +51,9 @@ public class UserDAO implements IGenericDAO<User> {
 	@Override
 	public User update(User user) {
 
-//		userTbl.updateOne(eq("email", user.getEmail()), Updates.set("email", user.getEmail()));
+		MongoCollection<User> userTbl = database.getCollection("User", User.class);
 
-		userTbl.updateOne(eq("email", user.getEmail()), combine(set("email", user.getEmail()),
-				set("FullName", user.getFullName()), set("password", user.getPassword())));
+		userTbl.updateOne(eq("_id", user.getId()), set("email", user.getEmail()));
 
 		return user;
 	}
@@ -93,10 +85,13 @@ public class UserDAO implements IGenericDAO<User> {
 	}
 
 	@Override
-	public void delete(Object id) {
-//        Document document = new Document();
-//        document.put("orderID", orderID);
-//        collection.deleteMany(document);
+	public void delete(Object userId) {
+		
+		MongoCollection<Document> coll = database.getCollection("User");
+		 
+		coll.deleteOne(eq("_id", userId));
+		
+		System.out.println("User Id " + userId + " deleted!");
 	}
 
 	@Override
@@ -149,5 +144,4 @@ public class UserDAO implements IGenericDAO<User> {
 			System.out.println(user.toString());
 		}
 	};
-
 }

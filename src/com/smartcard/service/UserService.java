@@ -8,10 +8,15 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.bson.types.ObjectId;
+import org.json.JSONObject;
+
 import com.mongodb.client.MongoDatabase;
 import com.smartcard.dao.UserDAO;
 import com.smartcard.dao.dBUtils;
 import com.smartcard.entity.User;
+
+import lombok.var;
 
 public class UserService {
 
@@ -72,28 +77,54 @@ public class UserService {
 
 	public void editUser() throws ServletException, IOException {
 
-		Object userId = (String) request.getParameter("id"); // get query string from the jsp
+		String idStr = (String) request.getParameter("id");
+		ObjectId objId = new ObjectId(idStr);
 
-		User user = userDAO.get(userId);
+		// Object userId = (String) request.getParameter("id"); // get query string from
+		// the jsp
+
+		User user = userDAO.get(objId.toHexString());
 
 		String editPage = "user_form.jsp";
 		request.setAttribute("user", user);
 		RequestDispatcher rd = request.getRequestDispatcher(editPage);
 		rd.forward(request, response);
 
-		// System.out.println("User full name is? " + user.getFullName());
+		System.out.println("User full name is? " + user.getId());
 
 	}
 
-	public void updateUser() {
-		Object id = (String) request.getParameter("userId");
+	public void updateUser() throws ServletException, IOException {
+
+		String idStr = (String) request.getParameter("id");//
+		ObjectId objId = new ObjectId(idStr.toString());
+
+		// Object objId = (String) request.getParameter("id");
+
 		String email = request.getParameter("email"); // attr is name = "email" from the input field
 		String fullName = request.getParameter("fullname");
 		String password = request.getParameter("password");
 
-		System.out.println(id + ", " + email + ", " + fullName + ", " + password);
-		
-		//User user = new User(id, email, fullName, password);
+		System.out.println("NEW ID  = " + objId + ", or NEW EMAIL = " + email + ", or NEW NAME = " + fullName
+				+ ", NEW PASSWORD =  " + password);
+
+		User user = new User(objId, email, fullName, password);
+		userDAO.update(user).toString();
+
+		String updateMsg = "User update done!";
+		listUser(updateMsg);
+
+	}
+
+	public void deleteUser() throws ServletException, IOException {
+		String idStr = (String) request.getParameter("id");
+		ObjectId objId = new ObjectId(idStr.toString());
+
+		userDAO.delete(objId);
+
+		String msg = "User deleted!";
+
+		listUser(msg);
 
 	}
 

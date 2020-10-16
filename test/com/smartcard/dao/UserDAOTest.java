@@ -22,7 +22,7 @@ public class UserDAOTest {
 		user1 = userDAO.create(user1);
 
 		assertTrue(user1.getEmail().equals("lucy@abc.com"));
-		// assertTrue(user1.getUserId()> 0);
+		 //assertTrue(user1.getId() > 0 );
 	}
 
 	@Test

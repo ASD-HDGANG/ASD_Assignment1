@@ -7,24 +7,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.smartcard.dao.dBUtils;
 import com.smartcard.service.UserService;
 
-@WebServlet("/admin/update_user")
-public class UpdateUserServlet extends HttpServlet {
+@WebServlet("/admin/delete_user")
+public class DeleteUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	public DeleteUserServlet() {
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		response.setContentType("text/html");
-
-		dBUtils.getMongoDB();
-
 		UserService userService = new UserService(request, response);
-
-		userService.updateUser();
-
+		userService.deleteUser();
 	}
 
 }
