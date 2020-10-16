@@ -46,7 +46,7 @@
 
 
 					<td><a href="edit_user?id=${user.id}">Edit</a> &nbsp;
-					<a href="javascript:void(0);" class="deleteLink" id="${user.id}">Delete</a></td>
+					<a href="delete_user?id=${user.id}" class="deleteLink" id="${user.id}">Delete</a></td>
 				</tr>
 			</c:forEach>
 
@@ -57,7 +57,7 @@
 	
 	<%@ include file="/fragment/footer.jsp"%>
 
-	<script>
+<!-- 	<script>
 		$(document).ready(function() {
 			$(".deleteLink").each(function() {
 				$(this).on("click", function() {
@@ -68,7 +68,7 @@
 				});
 			});
 		});
-	</script>
+	</script> -->
 
 	
 </body>
