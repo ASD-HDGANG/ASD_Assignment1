@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.smartcard.dao.dBUtils;
+import com.smartcard.dao.MongoUtils;
 import com.smartcard.service.CustomerService;
 
 @WebServlet("/admin/list_customer")
@@ -22,7 +22,7 @@ public class ListCustomerServlet extends HttpServlet {
 			throws ServletException, IOException {
 		response.setContentType("text/html");
 
-		dBUtils.getMongoDB();
+		MongoUtils.getMongoDB();
 
 		CustomerService customerService = new CustomerService(request, response);
 

@@ -10,12 +10,12 @@ import org.bson.Document;
 
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import com.smartcard.dao.dBUtils;
+import com.smartcard.dao.MongoUtils;
 import com.smartcard.entity.SmartCard;
 
 public class SmartCardService {
 
-	MongoDatabase database = dBUtils.getMongoDB();
+	MongoDatabase database = MongoUtils.getMongoDB();
 
 	public SmartCardService() {
 	}

@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.smartcard.dao.dBUtils;
+import com.smartcard.dao.MongoUtils;
 import com.smartcard.service.UserService;
 
 @WebServlet("/admin/create_user")
@@ -20,7 +20,7 @@ public class CreateUserServlet extends HttpServlet {
 
 		response.setContentType("text/html");
 
-		dBUtils.getMongoDB();
+		MongoUtils.getMongoDB();
 
 		UserService userService = new UserService(request, response);
 		userService.createUser();

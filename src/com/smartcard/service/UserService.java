@@ -13,7 +13,7 @@ import org.json.JSONObject;
 
 import com.mongodb.client.MongoDatabase;
 import com.smartcard.dao.UserDAO;
-import com.smartcard.dao.dBUtils;
+import com.smartcard.dao.MongoUtils;
 import com.smartcard.entity.User;
 
 import lombok.var;
@@ -24,7 +24,7 @@ public class UserService {
 	private HttpServletRequest request;
 	private HttpServletResponse response;
 
-	MongoDatabase db = dBUtils.getMongoDB();
+	MongoDatabase db = MongoUtils.getMongoDB();
 
 	public UserService() {
 		super();
@@ -52,7 +52,11 @@ public class UserService {
 			rd.forward(request, response);
 
 		} else {
-			User newUser = new User(email, fullName, password);
+			// User newUser = new User(email, fullName, password);
+			User newUser = new User();
+			newUser.setEmail(email);
+			newUser.setFullName(fullName);
+			newUser.setPassword(password);
 			userDAO.create(newUser);
 		}
 

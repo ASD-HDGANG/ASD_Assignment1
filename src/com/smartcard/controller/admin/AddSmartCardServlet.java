@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.mongodb.client.MongoDatabase;
-import com.smartcard.dao.dBUtils;
+import com.smartcard.dao.MongoUtils;
 import com.smartcard.entity.SmartCard;
 import com.smartcard.service.SmartCardService;
 
@@ -18,7 +18,7 @@ public class AddSmartCardServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	SmartCardService scService = new SmartCardService();
-	MongoDatabase database = dBUtils.getMongoDB();
+	MongoDatabase database = MongoUtils.getMongoDB();
 
 	public AddSmartCardServlet() {
 		super();

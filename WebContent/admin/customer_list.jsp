@@ -35,7 +35,7 @@
 				<th>ID</th>
 				<th>Email</th>
 				<th>Full Name</th>
-				<th>City</th>
+
 				<th>State</th>
 				<th>Post Code</th>
 				<th>Registered Date</th>
@@ -48,13 +48,14 @@
 					<td>${customer.customerId}</td>
 					<td>${customer.email}</td>
 					<td>${customer.fullName}</td>
+
 					<td>${customer.state}</td>
 					<td>${customer.postCode}</td>
 					<td>${customer.registerDate}</td>
 
 					<td><a href="edit_customer?id=${customer.customerId}">Edit</a>
-						&nbsp; <a href="javascript:void(0);" class="deleteLink"
-						id="${customer.customerId}">Delete</a></td>
+						&nbsp; <a href="delete_customer?id=${customer.customerId}"
+						class="deleteLink" id="${customer.customerId}">Delete</a></td>
 				</tr>
 			</c:forEach>
 		</table>

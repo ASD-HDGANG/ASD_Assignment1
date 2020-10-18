@@ -14,7 +14,7 @@ import com.smartcard.entity.User;
 
 public class SmartCardDAO implements IGenericDAO<SmartCard> {
 
-	MongoDatabase database = dBUtils.getMongoDB();
+	MongoDatabase database = MongoUtils.getMongoDB();
 	MongoCollection<SmartCard> scTbl = database.getCollection("SmartCard", SmartCard.class);
 
 	@Override
@@ -127,7 +127,7 @@ public class SmartCardDAO implements IGenericDAO<SmartCard> {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		MongoDatabase database = dBUtils.getMongoDB();
+		MongoDatabase database = MongoUtils.getMongoDB();
 
 		// get a handle to the collection (table)
 		MongoCollection<User> coll = database.getCollection("User", User.class);

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.smartcard.dao.dBUtils;
+import com.smartcard.dao.MongoUtils;
 import com.smartcard.entity.User;
 import com.smartcard.service.UserService;
 
@@ -27,7 +27,7 @@ public class ListUsersServlet extends HttpServlet {
 			throws ServletException, IOException {
 		response.setContentType("text/html");
 
-		dBUtils.getMongoDB();
+		MongoUtils.getMongoDB();
 
 		UserService userService = new UserService(request, response);
 

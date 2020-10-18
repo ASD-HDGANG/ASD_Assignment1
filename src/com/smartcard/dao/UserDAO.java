@@ -16,7 +16,7 @@ import com.smartcard.entity.User;
 
 public class UserDAO implements IGenericDAO<User> {
 
-	MongoDatabase database = dBUtils.getMongoDB();
+	MongoDatabase database = MongoUtils.getMongoDB();
 	MongoCollection<User> userTbl = database.getCollection("User", User.class);
 
 	public UserDAO() {
@@ -115,7 +115,7 @@ public class UserDAO implements IGenericDAO<User> {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		MongoDatabase database = dBUtils.getMongoDB();
+		MongoDatabase database = MongoUtils.getMongoDB();
 
 		// get a handle to the "user" collection
 		MongoCollection<User> coll = database.getCollection("User", User.class);

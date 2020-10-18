@@ -14,9 +14,9 @@ public class Customer {
 	private ObjectId customerId;
 	private String email;
 	private String password;
+//	private String firstName;
+//	private String lastName;
 	private String fullName;
-	private String firstName;
-	private String lastName;
 	private String address;
 	// private String addressLine2;
 	private String city;
@@ -29,30 +29,18 @@ public class Customer {
 		super();
 	}
 
-	public Customer(String email, String password, String fullName) {
+	public Customer(String email, String password, String fullName, String address, String city, String state,
+			String postCode, String phone, Date registerDate) {
 		super();
 		this.email = email;
 		this.password = password;
 		this.fullName = fullName;
-	}
-
-	public Customer(ObjectId customerId, String email, String password, String firstName, String lastName,
-			String address, String city, String state, String postCode, String phone, Date registerDate,
-			String fullName) {
-		super();
-		this.customerId = customerId;
-		this.email = email;
-		this.password = password;
-		this.firstName = firstName;
-		this.lastName = lastName;
 		this.address = address;
-		// this.addressLine2 = addressLine2;
 		this.city = city;
 		this.state = state;
 		this.postCode = postCode;
 		this.phone = phone;
 		this.registerDate = registerDate;
-		this.fullName = fullName;
 	}
 
 	public ObjectId getCustomerId() {
@@ -79,20 +67,28 @@ public class Customer {
 		this.password = password;
 	}
 
-	public String getFirstName() {
-		return firstName;
+//	public String getFirstName() {
+//		return firstName;
+//	}
+//
+//	public void setFirstName(String firstName) {
+//		this.firstName = firstName;
+//	}
+//
+//	public String getLastName() {
+//		return lastName;
+//	}
+//
+//	public void setLastName(String lastName) {
+//		this.lastName = lastName;
+//	}
+
+	public String getFullName() {
+		return fullName;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
 	}
 
 	public String getAddress() {
@@ -143,20 +139,11 @@ public class Customer {
 		this.registerDate = registerDate;
 	}
 
-	public String getFullName() {
-		return firstName + " " + lastName;
-	}
-
-	public void setFullName(String fullName) {
-		this.fullName = fullName;
-	}
-
 	@Override
 	public String toString() {
 		return "Customer [customerId=" + customerId + ", email=" + email + ", password=" + password + ", fullName="
-				+ fullName + ", firstName=" + firstName + ", lastName=" + lastName + ", address=" + address + ", city="
-				+ city + ", state=" + state + ", postCode=" + postCode + ", phone=" + phone + ", registerDate="
-				+ registerDate + "]";
+				+ fullName + ", address=" + address + ", city=" + city + ", state=" + state + ", postCode=" + postCode
+				+ ", phone=" + phone + ", registerDate=" + registerDate + "]";
 	}
 
 }

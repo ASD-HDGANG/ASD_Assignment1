@@ -1,7 +1,6 @@
 package com.smartcard.service;
 
 import java.io.IOException;
-import java.net.UnknownServiceException;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -9,15 +8,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.bson.Document;
+import org.bson.types.ObjectId;
 
-import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.smartcard.dao.CustomerDAO;
-import com.smartcard.dao.UserDAO;
-import com.smartcard.dao.dBUtils;
+import com.smartcard.dao.MongoUtils;
 import com.smartcard.entity.Customer;
-import com.smartcard.entity.User;
 
 public class CustomerService {
 
@@ -25,7 +21,7 @@ public class CustomerService {
 	private HttpServletRequest request;
 	private HttpServletResponse response;
 
-	MongoDatabase mdb = dBUtils.getMongoDB();
+	MongoDatabase mdb = MongoUtils.getMongoDB();
 
 	public CustomerService(HttpServletRequest request, HttpServletResponse response) {
 		super();
@@ -35,8 +31,6 @@ public class CustomerService {
 	}
 
 	public List<Customer> listCustomers(String message) throws ServletException, IOException {
-
-		// CustomerDAO customerDAO = new CustomerDAO();
 
 		List<Customer> listCustomer = customerDAO.listAll();
 
@@ -74,6 +68,8 @@ public class CustomerService {
 
 		} else {
 
+			Customer newCustomer = new Customer();
+
 			String fullName = request.getParameter("fullName");
 			String password = request.getParameter("password");
 			String phone = request.getParameter("phone");
@@ -81,8 +77,6 @@ public class CustomerService {
 			String city = request.getParameter("city");
 			String state = request.getParameter("state");
 			String postCode = request.getParameter("postCode");
-
-			Customer newCustomer = new Customer();
 
 			newCustomer.setEmail(email);
 			newCustomer.setFullName(fullName);
@@ -102,6 +96,18 @@ public class CustomerService {
 //      //call the send email method
 //      boolean test = sendMail.sendMail(newCustomer);
 
+	}
+
+	public void deleteCustomer() throws ServletException, IOException {
+
+		String idStr = (String) request.getParameter("id");
+		ObjectId objId = new ObjectId(idStr);
+
+		customerDAO.delete(objId);
+
+		String msg = "Customer deleted!";
+
+		listCustomers(msg);
 	}
 
 //	public void saveImg(MongoDatabase mdb2) throws IOException {
