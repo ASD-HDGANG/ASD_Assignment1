@@ -1,35 +1,53 @@
 package com.smartcard.entity;
 
-import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
-public class SmartCard implements Serializable {
+import org.bson.codecs.pojo.annotations.BsonId;
+import org.bson.codecs.pojo.annotations.BsonProperty;
+import org.bson.types.ObjectId;
 
+public class SmartCard {
+
+	@BsonProperty("_id")
+	@BsonId
+	private ObjectId cardId;
 	private String cardNumber;
 	private String securityCode;
-	private String userId; // TODO customerid from db?
 	private String cardType; // TODO asList to specific card type
 	private float cardBalance;
-	private String cardStatus;
+	// private String cardStatus;
 	private boolean isActive;
-	private Date timeCreated;
-	// private Set<OrderDetail> orderDetails = new HashSet<OrderDetail>(0);
+	private Date lastUpdateTime;
+	private Set<OrderDetail> orderDetails = new HashSet<OrderDetail>(0);
 	private byte[] image;
+
+	private Customer customerId;
 
 	public SmartCard() {
 	}
 
-	public SmartCard(String cardNumber, String securityCode, String cardType, float cardBalance, String cardStatus,
-			boolean isActive, Date timeCreated, byte[] image) {
+	public SmartCard(String cardNumber, String securityCode, String cardType, float cardBalance, boolean isActive,
+			Date lastUpdateTime, Set<OrderDetail> orderDetails, byte[] image) {
 		super();
 		this.cardNumber = cardNumber;
 		this.securityCode = securityCode;
 		this.cardType = cardType;
 		this.cardBalance = cardBalance;
-		this.cardStatus = cardStatus;
 		this.isActive = isActive;
-		this.timeCreated = timeCreated;
+		this.lastUpdateTime = lastUpdateTime;
+		this.orderDetails = orderDetails;
 		this.image = image;
+	}
+
+	public ObjectId getCardId() {
+		return cardId;
+	}
+
+	public void setCardId(ObjectId cardId) {
+		this.cardId = cardId;
 	}
 
 	public String getCardNumber() {
@@ -48,14 +66,6 @@ public class SmartCard implements Serializable {
 		this.securityCode = securityCode;
 	}
 
-	public String getUserId() {
-		return userId;
-	}
-
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
-
 	public String getCardType() {
 		return cardType;
 	}
@@ -72,14 +82,6 @@ public class SmartCard implements Serializable {
 		this.cardBalance = cardBalance;
 	}
 
-	public String getCardStatus() {
-		return cardStatus;
-	}
-
-	public void setCardStatus(String cardStatus) {
-		this.cardStatus = cardStatus;
-	}
-
 	public boolean isActive() {
 		return isActive;
 	}
@@ -88,12 +90,20 @@ public class SmartCard implements Serializable {
 		this.isActive = isActive;
 	}
 
-	public Date getTimeCreated() {
-		return timeCreated;
+	public Date getLastUpdateTime() {
+		return lastUpdateTime;
 	}
 
-	public void setTimeCreated(Date timeCreated) {
-		this.timeCreated = timeCreated;
+	public void setLastUpdateTime(Date lastUpdateTime) {
+		this.lastUpdateTime = lastUpdateTime;
+	}
+
+	public Set<OrderDetail> getOrderDetails() {
+		return orderDetails;
+	}
+
+	public void setOrderDetails(Set<OrderDetail> orderDetails) {
+		this.orderDetails = orderDetails;
 	}
 
 	public byte[] getImage() {
@@ -102,6 +112,22 @@ public class SmartCard implements Serializable {
 
 	public void setImage(byte[] image) {
 		this.image = image;
+	}
+
+	public Customer getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(Customer customerId) {
+		this.customerId = customerId;
+	}
+
+	@Override
+	public String toString() {
+		return "SmartCard [cardId=" + cardId + ", cardNumber=" + cardNumber + ", securityCode=" + securityCode
+				+ ", cardType=" + cardType + ", cardBalance=" + cardBalance + ", isActive=" + isActive
+				+ ", lastUpdateTime=" + lastUpdateTime + ", orderDetails=" + orderDetails + ", image="
+				+ Arrays.toString(image) + ", customerId=" + customerId + "]";
 	}
 
 }

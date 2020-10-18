@@ -1,5 +1,8 @@
 package com.smartcard.dao;
 
+import static com.mongodb.client.model.Filters.eq;
+
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -8,23 +11,66 @@ import org.bson.Document;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.smartcard.entity.Customer;
+import com.smartcard.entity.User;
 
 public class CustomerDAO implements IGenericDAO<Customer> {
 
 	MongoDatabase database = dBUtils.getMongoDB();
-	
+	MongoCollection<Customer> customerTbl = database.getCollection("Customer", Customer.class);
+
 	public CustomerDAO() {
-		// TODO Auto-generated constructor stub
+		super();
 	}
 
 	@Override
 	public Customer create(Customer customer) {
-		customer.setRegisterDate(new Date());
+
+		try {
+
+			MongoCollection<Document> customerTbl = database.getCollection("Customer");
+			assert database != null;
+
+//			Customer newCustomer = new Customer(customer.getEmail(), customer.getFullName(), customer.getPassword());
+//
+
+//
+//			customerTbl.insertOne(newCustomer);
+
+			Document customerDoc = new Document("Email", customer.getEmail()).append("Password", customer.getPassword())
+					.append("First Name", customer.getFullName());
+
+			Document addressDoc = new Document("Address", customer.getAddress())
+					.append("Postcode", customer.getPostCode()).append("State", customer.getState());
+
+			System.out.println("Customer Name = " + customer.getFullName() + ", Email = " + customer.getEmail()
+					+ ", Password = " + customer.getPassword() + ", Phone = " + customer.getPhone() + ", Address = "
+					+ customer.getAddress());
+
+			customerDoc.put("Address", addressDoc);
+
+			customerTbl.insertOne(customerDoc);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 		return customer;
+
+//		Document customerDoc = new Document("Email", customer.getEmail()).append("Password", customer.getPassword())
+//				.append("First Name", customer.getFullName());
+//
+//		Document addressDoc = new Document("Address1", customer.getAddressLine1())
+//				.append("Address2", customer.getAddressLine2()).append("Postcode", customer.getPostcode())
+//				.append("State", customer.getState());
+//
+//		customerDoc.put("Address", addressDoc);
+//
+//		customerTbl.insertOne(customerDoc);
+
 	}
 
 	@Override
-	public Customer update(Customer t) {
+	public Customer update(Customer customer) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -35,12 +81,12 @@ public class CustomerDAO implements IGenericDAO<Customer> {
 		return null;
 	}
 
-	public void findByEmail(String email) {
+	public Customer findByEmail(String email) {
 
 		// findbyEmail
-		MongoCollection<Document> customerTbl = database.getCollection("Customer");
+		Customer customerTbl = database.getCollection("Customer", Customer.class).find(eq("email", email)).first();
 
-		customerTbl.find(new Document("email", email));
+		return customerTbl;
 	}
 
 	@Override
@@ -51,9 +97,8 @@ public class CustomerDAO implements IGenericDAO<Customer> {
 
 	@Override
 	public List<Customer> listAll() {
-		// TODO Auto-generated method stub
-		// collection.find(new Document("email", "youremail"))
-		return null;
+		List<Customer> customerList = new ArrayList<Customer>();
+		return database.getCollection("Customer", Customer.class).find().into(customerList);
 	}
 
 	@Override

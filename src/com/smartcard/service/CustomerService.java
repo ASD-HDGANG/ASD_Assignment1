@@ -2,55 +2,105 @@ package com.smartcard.service;
 
 import java.io.IOException;
 import java.net.UnknownServiceException;
+import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.bson.Document;
 
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.smartcard.dao.CustomerDAO;
+import com.smartcard.dao.UserDAO;
 import com.smartcard.dao.dBUtils;
 import com.smartcard.entity.Customer;
+import com.smartcard.entity.User;
 
 public class CustomerService {
 
-	CustomerDAO customerDAO = new CustomerDAO();
+	private CustomerDAO customerDAO;
+	private HttpServletRequest request;
+	private HttpServletResponse response;
+
 	MongoDatabase mdb = dBUtils.getMongoDB();
 
-	public CustomerService() {
-
+	public CustomerService(HttpServletRequest request, HttpServletResponse response) {
+		super();
+		this.request = request;
+		this.response = response;
+		this.customerDAO = new CustomerDAO();
 	}
 
-	public void create(Customer customer) throws UnknownServiceException, ServletException, IOException {
+	public List<Customer> listCustomers(String message) throws ServletException, IOException {
 
-		try {
+		// CustomerDAO customerDAO = new CustomerDAO();
 
-			// User newUser = new User(email, password, firstname);
-			// userDAO.create(newUser);
+		List<Customer> listCustomer = customerDAO.listAll();
 
-			// create or get collection
-			MongoCollection<Document> customerTbl = mdb.getCollection("Customer");
-			assert mdb != null;
-
-			// customerTbl.createIndex(Indexes.ascending("CustomerId"), {CustomerId: 1},
-			// {unique:true});
-
-			Document customerDoc = new Document("Email", customer.getEmail()).append("Password", customer.getPassword())
-					.append("First Name", customer.getFirstname());
-
-			Document addressDoc = new Document("Address1", customer.getAddressLine1())
-					.append("Address2", customer.getAddressLine2()).append("Postcode", customer.getPostcode())
-					.append("State", customer.getState());
-
-			customerDoc.put("Address", addressDoc);
-
-			customerTbl.insertOne(customerDoc);
-
-		} catch (Exception e) {
-			e.printStackTrace();
+		if (message != null) {
+			request.setAttribute("message", message);
 		}
 
+		request.setAttribute("listCustomer", listCustomer);
+
+		String listPage = ("customer_list.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher(listPage);
+		rd.forward(request, response);
+
+		return listCustomer;
+	}
+
+	public void listCustomers() throws ServletException, IOException {
+		listCustomers(null);
+	}
+
+	public void createCustomer() throws ServletException, IOException {
+
+		String email = request.getParameter("email");
+
+		Customer existCustomer = customerDAO.findByEmail(email);
+
+		if (existCustomer != null) {
+			String message = "customer email " + email + " already registered!";
+
+			listCustomers(message);
+
+			request.setAttribute("message", message);
+			RequestDispatcher rd = request.getRequestDispatcher("message.jsp");
+			rd.forward(request, response);
+
+		} else {
+
+			String fullName = request.getParameter("fullName");
+			String password = request.getParameter("password");
+			String phone = request.getParameter("phone");
+			String address = request.getParameter("address");
+			String city = request.getParameter("city");
+			String state = request.getParameter("state");
+			String postCode = request.getParameter("postCode");
+
+			Customer newCustomer = new Customer();
+
+			newCustomer.setEmail(email);
+			newCustomer.setFullName(fullName);
+			newCustomer.setPassword(password);
+			newCustomer.setPhone(phone);
+			newCustomer.setAddress(address);
+			newCustomer.setCity(city);
+			newCustomer.setState(state);
+			newCustomer.setPostCode(postCode);
+
+			customerDAO.create(newCustomer);
+
+		}
+
+		// Send email notification
+//      EmailService sendMail = new EmailService();
+//      //call the send email method
+//      boolean test = sendMail.sendMail(newCustomer);
 
 	}
 

@@ -57,7 +57,7 @@
 
 
 
-				<%-- 				<div class="row">
+				 				<div class="row">
 					<div class="col-sm-6 col-md-4">
 						<div class="thumbnail">
 							<img id="adult" src="img/adult.jpg" alt="adult smart card">
@@ -86,7 +86,7 @@
 							</div>
 						</div>
 					</div>
-				</div> --%>
+				</div> 
 
 			</form>
 		</div>

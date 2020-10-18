@@ -6,7 +6,7 @@
 
 <div align="center">
 	<div>
-		<p>this is ADMIN header</p>
+		<p>this is the header</p>
 	</div>
 	<div>
 		Welcome,
@@ -14,10 +14,10 @@
 		| <a href="logout">Logout</a> <br /> <br />
 	</div>
 
-	<h2>Admin dashboard</h2>
+	<h2>Dashboard</h2>
 
 	<b> <a href="list_users">staff</a> | <a href="smartcards">smartcards</a>
-		| <a href="customer">customers</a> | <a href="reports">reports</a> | <a
+		| <a href="list_customer">customers</a> | <a href="reports">reports</a> | <a
 		href="orders">orders</a> |
 	</b>
 

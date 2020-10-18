@@ -1,45 +1,59 @@
 package com.smartcard.entity;
 
-import java.io.Serializable;
 import java.util.Date;
+import java.util.stream.Stream;
 
+import org.bson.codecs.pojo.annotations.BsonId;
+import org.bson.codecs.pojo.annotations.BsonProperty;
 import org.bson.types.ObjectId;
 
-public class Customer implements Serializable {
+public class Customer {
 
+	@BsonProperty("_id")
+	@BsonId
 	private ObjectId customerId;
 	private String email;
 	private String password;
-	private String firstname;
-	private String lastname;
-	private String addressLine1;
-	private String addressLine2;
+	private String fullName;
+	private String firstName;
+	private String lastName;
+	private String address;
+	// private String addressLine2;
 	private String city;
 	private String state;
-	private String postcode;
+	private String postCode;
 	private String phone;
 	private Date registerDate;
 
 	public Customer() {
-
+		super();
 	}
 
-	public Customer(String email, String password, String firstname, String lastname, String addressLine1,
-			String addressLine2, String city, String state, String postcode, String phone, Date registerDate) {
+	public Customer(String email, String password, String fullName) {
 		super();
 		this.email = email;
 		this.password = password;
-		this.firstname = firstname;
-		this.lastname = lastname;
-		this.addressLine1 = addressLine1;
-		this.addressLine2 = addressLine2;
-		this.city = city;
-		this.state = state;
-		this.postcode = postcode;
-		this.phone = phone;
-		this.registerDate = registerDate;
+		this.fullName = fullName;
 	}
 
+	public Customer(ObjectId customerId, String email, String password, String firstName, String lastName,
+			String address, String city, String state, String postCode, String phone, Date registerDate,
+			String fullName) {
+		super();
+		this.customerId = customerId;
+		this.email = email;
+		this.password = password;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.address = address;
+		// this.addressLine2 = addressLine2;
+		this.city = city;
+		this.state = state;
+		this.postCode = postCode;
+		this.phone = phone;
+		this.registerDate = registerDate;
+		this.fullName = fullName;
+	}
 
 	public ObjectId getCustomerId() {
 		return customerId;
@@ -65,36 +79,28 @@ public class Customer implements Serializable {
 		this.password = password;
 	}
 
-	public String getFirstname() {
-		return firstname;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public String getLastname() {
-		return lastname;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
-	public String getAddressLine1() {
-		return addressLine1;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setAddressLine1(String addressLine1) {
-		this.addressLine1 = addressLine1;
-	}
-
-	public String getAddressLine2() {
-		return addressLine2;
-	}
-
-	public void setAddressLine2(String addressLine2) {
-		this.addressLine2 = addressLine2;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public String getCity() {
@@ -113,12 +119,12 @@ public class Customer implements Serializable {
 		this.state = state;
 	}
 
-	public String getPostcode() {
-		return postcode;
+	public String getPostCode() {
+		return postCode;
 	}
 
-	public void setPostcode(String postcode) {
-		this.postcode = postcode;
+	public void setPostCode(String postCode) {
+		this.postCode = postCode;
 	}
 
 	public String getPhone() {
@@ -135,6 +141,22 @@ public class Customer implements Serializable {
 
 	public void setRegisterDate(Date registerDate) {
 		this.registerDate = registerDate;
+	}
+
+	public String getFullName() {
+		return firstName + " " + lastName;
+	}
+
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
+
+	@Override
+	public String toString() {
+		return "Customer [customerId=" + customerId + ", email=" + email + ", password=" + password + ", fullName="
+				+ fullName + ", firstName=" + firstName + ", lastName=" + lastName + ", address=" + address + ", city="
+				+ city + ", state=" + state + ", postCode=" + postCode + ", phone=" + phone + ", registerDate="
+				+ registerDate + "]";
 	}
 
 }

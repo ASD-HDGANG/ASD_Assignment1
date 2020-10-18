@@ -6,12 +6,11 @@ import org.bson.types.ObjectId;
 
 public class User {
 
-	@BsonProperty("_id")
-	// @JsonProperty("_id")
+	@BsonProperty("_id")	
 	@BsonId
 	private ObjectId id;
 
-	// @BsonProperty(value = "user_id")
+	@BsonProperty(value = "user_id")
 	private String userId;
 	private String email;
 	private String fullName;
