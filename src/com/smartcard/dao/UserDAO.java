@@ -103,14 +103,6 @@ public class UserDAO implements IGenericDAO<User> {
 																		// Tools | Templates.
 	}
 
-	/*
-	 * public FindIterable<User> findDocumentById(String id) { BasicDBObject query =
-	 * new BasicDBObject();
-	 * 
-	 * query.put("_id", new ObjectId(id)); FindIterable<User> dbObj =
-	 * userTbl.find(query); return dbObj; }
-	 */
-
 	// FOR TEST PURPOSE
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

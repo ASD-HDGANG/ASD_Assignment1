@@ -14,6 +14,7 @@ import com.mongodb.client.MongoDatabase;
 import com.smartcard.dao.CustomerDAO;
 import com.smartcard.dao.MongoUtils;
 import com.smartcard.entity.Customer;
+import com.smartcard.entity.User;
 
 public class CustomerService {
 
@@ -60,7 +61,7 @@ public class CustomerService {
 		if (existCustomer != null) {
 			String message = "customer email " + email + " already registered!";
 
-			listCustomers(message);
+			// listCustomers(message);
 
 			request.setAttribute("message", message);
 			RequestDispatcher rd = request.getRequestDispatcher("message.jsp");

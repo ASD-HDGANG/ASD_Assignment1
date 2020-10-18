@@ -24,6 +24,7 @@ public class Customer {
 	private String postCode;
 	private String phone;
 	private Date registerDate;
+	
 
 	public Customer() {
 		super();

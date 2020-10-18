@@ -24,7 +24,7 @@ public class SmartCard {
 	private Set<OrderDetail> orderDetails = new HashSet<OrderDetail>(0);
 	private byte[] image;
 
-	private Customer customerId;
+	private Customer customer;
 
 	public SmartCard() {
 	}
@@ -114,12 +114,12 @@ public class SmartCard {
 		this.image = image;
 	}
 
-	public Customer getCustomerId() {
-		return customerId;
+	public Customer getCustomer() {
+		return customer;
 	}
 
-	public void setCustomerId(Customer customerId) {
-		this.customerId = customerId;
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
 
 	@Override
@@ -127,7 +127,7 @@ public class SmartCard {
 		return "SmartCard [cardId=" + cardId + ", cardNumber=" + cardNumber + ", securityCode=" + securityCode
 				+ ", cardType=" + cardType + ", cardBalance=" + cardBalance + ", isActive=" + isActive
 				+ ", lastUpdateTime=" + lastUpdateTime + ", orderDetails=" + orderDetails + ", image="
-				+ Arrays.toString(image) + ", customerId=" + customerId + "]";
+				+ Arrays.toString(image) + ", customer=" + customer + "]";
 	}
 
 }

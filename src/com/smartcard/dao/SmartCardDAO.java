@@ -1,5 +1,10 @@
 package com.smartcard.dao;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -7,10 +12,17 @@ import java.util.Random;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 
+import com.mongodb.DB;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.gridfs.GridFSBucket;
+import com.mongodb.client.gridfs.GridFSBuckets;
+import com.mongodb.client.gridfs.GridFSUploadStream;
+import com.mongodb.client.gridfs.model.GridFSUploadOptions;
+import com.mongodb.gridfs.GridFS;
+import com.mongodb.gridfs.GridFSInputFile;
+import com.smartcard.entity.Customer;
 import com.smartcard.entity.SmartCard;
-import com.smartcard.entity.User;
 
 public class SmartCardDAO implements IGenericDAO<SmartCard> {
 
@@ -18,38 +30,41 @@ public class SmartCardDAO implements IGenericDAO<SmartCard> {
 	MongoCollection<SmartCard> scTbl = database.getCollection("SmartCard", SmartCard.class);
 
 	@Override
-	public SmartCard create(SmartCard smartcard) {
-		smartcard.setLastUpdateTime(new Date());
+	public SmartCard create(SmartCard smartCard) {
+		smartCard.setLastUpdateTime(new Date());
 
 		try {
 
-			MongoCollection<SmartCard> scTbl = database.getCollection("SmartCard", SmartCard.class);
+			MongoCollection<Document> scTbl = database.getCollection("SmartCard_Tbl");
 
-			Document scDoc = new Document("_id", new ObjectId());
+			Customer customer = new Customer();
 
-			// scDoc.append("smartCardId", )
+			Document scDoc = new Document("_id", new ObjectId()).append("securityCode", getSecurityCode())
+					.append("customerId", customer).append("smartCardNumber", getCardNumber());
+
+			scTbl.insertOne(scDoc);
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		return smartcard;
+		return smartCard;
 	}
 
 	@Override
-	public SmartCard update(SmartCard t) {
+	public SmartCard update(SmartCard smartCard) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public SmartCard get(Object id) {
+	public SmartCard get(Object smartCardId) {
 		// TODO get balance
 		return null;
 	}
 
 	@Override
-	public void delete(Object id) {
+	public void delete(Object smartCardId) {
 		// TODO Auto-generated method stub
 
 	}
@@ -59,23 +74,6 @@ public class SmartCardDAO implements IGenericDAO<SmartCard> {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-// In Order DAO
-//	public List<Order> listOrder(String smartCardNumber) {
-//		List<Order> list = new ArrayList<>();
-//		for (Document doc : collection.find()) {
-//			if (((String) doc.get("smartCardNumber")).equals(smartCardNumber)) {
-//				Order order = new Order(null, smartCardNumber, null, null, null, null);
-//				order.setOrderId((String) doc.get("orderId"));
-//				order.setFromLocation((String) doc.get("fromLocation"));
-//				order.setToLoaction((String) doc.get("toLocation"));
-//				order.setOrderType((String) doc.get("orderType"));
-//				order.setOrderDate((String) doc.get("orderDate"));
-//				list.add(order);
-//			}
-//		}
-//		return list;
-//	}
 
 	public SmartCard findByCardType(String cardType) {
 		return null;
@@ -91,7 +89,7 @@ public class SmartCardDAO implements IGenericDAO<SmartCard> {
 		return null;
 	}
 
-	public String getCardRandom() {
+	public String getCardNumber() {
 
 		Random rand = new Random();
 
@@ -104,7 +102,7 @@ public class SmartCardDAO implements IGenericDAO<SmartCard> {
 
 		System.out.println("Card number: " + smartCardNumber);
 
-		return String.format("%16d", smartCardNumber);
+		return String.format(smartCardNumber);
 	}
 
 	public String getSecurityCode() {
@@ -120,7 +118,7 @@ public class SmartCardDAO implements IGenericDAO<SmartCard> {
 
 		System.out.println("Card number: " + securityCode);
 
-		return String.format("%4d", securityCode);
+		return String.format(securityCode);
 	}
 
 	// FOR TEST PURPOSE
@@ -129,28 +127,33 @@ public class SmartCardDAO implements IGenericDAO<SmartCard> {
 
 		MongoDatabase database = MongoUtils.getMongoDB();
 
+		SmartCardDAO scDAO = new SmartCardDAO();
+
 		// get a handle to the collection (table)
-		MongoCollection<User> coll = database.getCollection("User", User.class);
+		MongoCollection<Document> scTbl = database.getCollection("SmartCard_Tbl");
 
-		Random rand = new Random();
+		// Customer customer = new Customer();
 
-		StringBuilder sb = new StringBuilder();
-		for (int i = 0; i < 16; i++) {
-			sb.append(rand.nextInt(9));
-		}
+		Document scDoc = new Document("_id", new ObjectId()).append("security code", scDAO.getSecurityCode())
+				.append("smart card number", scDAO.getCardNumber())
+				.append("card type", Arrays.asList("adult", "child/youth", "concession", "senior"))
+				.append("card balance", 10).append("card status", "");
 
-		String smartCardNumber = sb.toString();
+		scTbl.insertOne(scDoc);
 
-		System.out.println("Card number: " + smartCardNumber);
+		// File("D:/Users/Patty/eclipse-workspace/SmartCardWebsite/WebContent/resources/images/adult.jpg");
 
-		StringBuilder sb1 = new StringBuilder();
-		for (int i = 0; i < 4; i++) {
-			sb1.append(rand.nextInt(9));
-		}
 
-		String securityCode = sb1.toString();
 
-		System.out.println("Card number: " + securityCode);
+//		private String cardNumber;
+//		private String securityCode;
+//		private String cardType; // TODO asList to specific card type
+//		private float cardBalance;
+//		// private String cardStatus;
+//		private boolean isActive;
+//		private Date lastUpdateTime;
+//		private Set<OrderDetail> orderDetails = new HashSet<OrderDetail>(0);
+//		private byte[] image;
 
 	}
 
