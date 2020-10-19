@@ -24,9 +24,16 @@ public class SmartCard {
 	private Set<OrderDetail> orderDetails = new HashSet<OrderDetail>(0);
 	private byte[] image;
 
+	private Integer qty;
+
 	private Customer customer;
 
 	public SmartCard() {
+	}
+
+	public SmartCard(Integer qty) {
+		super();
+		this.qty = qty;
 	}
 
 	public SmartCard(String cardNumber, String securityCode, String cardType, float cardBalance, boolean isActive,
@@ -122,12 +129,20 @@ public class SmartCard {
 		this.customer = customer;
 	}
 
+	public Integer getQty() {
+		return qty;
+	}
+
+	public void setQty(Integer qty) {
+		this.qty = qty;
+	}
+
 	@Override
 	public String toString() {
 		return "SmartCard [cardId=" + cardId + ", cardNumber=" + cardNumber + ", securityCode=" + securityCode
 				+ ", cardType=" + cardType + ", cardBalance=" + cardBalance + ", isActive=" + isActive
 				+ ", lastUpdateTime=" + lastUpdateTime + ", orderDetails=" + orderDetails + ", image="
-				+ Arrays.toString(image) + ", customer=" + customer + "]";
+				+ Arrays.toString(image) + ", qty=" + qty + ", customer=" + customer + "]";
 	}
 
 }

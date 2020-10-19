@@ -37,49 +37,40 @@
 			<h3 align="center">Please choose the type of card</h3>
 
 
-			<%-- 				<div class="row">
-					<div class="col-sm-6 col-md-4">
-						<div class="thumbnail">
-							<c:forEach items="${smartcard} var="smartcard">
-								<img
-									src="\resources\\images\\<c:out value="${smartcard}"/> alt="
-									smart card"/>
-							</c:forEach>
-							<!-- FileServlet?path=D:\Users\\Patty\\eclipse-workspace\\smartcardDemo/WebContent\\resources\\images\\ -->
-							<div class="caption">
-								<span><input name="adult" value="adult"
-									class="btn btn-primary" type="submit" role="Add"></span>
-								<a href="view_smartcard?cardType=${smartcard.cardType}" ></a>
-							</div>
-						</div>
-					</div>
-				</div> --%>
 
 
+
+			<form method="GET">
+				<a href="view_cart">test</a>
+			</form>
 
 			<div class="row">
-				<form role="form" action="/order_adult" method="GET">
-					<div class="col-sm-6 col-md-4">
-						<div class="thumbnail">
-							<img id="adult" src="../resources/images/adult.jpg"
-								alt="adult smart card">
-							<div class="caption">
-								<button class="btn btn-primary" name="adult" value="adult" type="submit" role="Add">
-									Order
-								</button>
-								<a href="view_smartcard?cardType=${smartcard.cardType.adult}"></a>
-							</div>
+
+				<div class="col-sm-6 col-md-4">
+					<div class="thumbnail">
+						<img id="adult" src="../resources/images/adult.jpg"
+							alt="adult smart card">
+						<div class="caption">
+
+							<a href="view_cart">
+								<button class="btn btn-primary" name="adult" value="adult"
+									type="submit">Order</button>
+							</a>
+
 						</div>
 					</div>
-				</form>
+				</div>
 
 				<div class="col-sm-6 col-md-4">
 					<div class="thumbnail">
 						<img id="adult" src="../resources/images/child.jpg"
 							alt="child smart card">
 						<div class="caption">
-							<span><input name="smartCardType" name="smartCardType"
-								value="order" class="btn btn-primary" type="submit" role="Add"></span>
+
+							<a href="view_smartcard?cardType=${smartcard.cardType.youth}"><button
+									class="btn btn-primary" name="youth" value="youth"
+									type="submit" role="Add">Order</button></a>
+
 						</div>
 					</div>
 				</div>

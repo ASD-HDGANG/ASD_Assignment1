@@ -5,19 +5,31 @@ import java.util.Arrays;
 import java.util.Random;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.bson.Document;
 
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.smartcard.dao.MongoUtils;
+import com.smartcard.dao.SmartCardDAO;
 import com.smartcard.entity.SmartCard;
 
 public class SmartCardService {
 
+	private SmartCardDAO smartCardDAO;
+	private HttpServletRequest request;
+	private HttpServletResponse response;
+
 	MongoDatabase database = MongoUtils.getMongoDB();
 
-	public SmartCardService() {
+	public SmartCardService(HttpServletRequest request, HttpServletResponse response) {
+
+		super();
+		smartCardDAO = new SmartCardDAO();
+		this.request = request;
+		this.response = response;
 	}
 
 	public void create(SmartCard sc) {
@@ -33,17 +45,6 @@ public class SmartCardService {
 
 		scTbl.insertOne(scDoc);
 
-//        SmartCard sc = new SmartCard(smartCardNumber,null,null,null,null,null);
-//             for (Document doc : collection.find()) {
-//	       if (((String) doc.get("smartCardNumber")).equals(smartCardNumber)) {
-//				sc.setCardNumber((String)doc.get("smartCardNumber"));
-//				sc.setSecurityCode((String)doc.get("securityCode"));
-//                                sc.setUserId("empty");
-//                                sc.setCardType((String)doc.get("smartCardType"));
-//				sc.setCardBalance((String)doc.get("smartCardBalance"));
-//                                sc.setCardStatus((String)doc.get("smartCardStatus"));    
-//                  }
-//		}  
 //           
 //          Bson update =  new Document("$set", new Document()
 //            .append("smartCardNumber",sc.getCardNumber())
@@ -84,7 +85,6 @@ public class SmartCardService {
 
 	}
 
-
 	public void getSmartCardNumber() {
 		Random rand = new Random();
 		StringBuilder sb = new StringBuilder();
@@ -102,21 +102,5 @@ public class SmartCardService {
 		}
 		String securityCode = rrs.toString();
 	}
-
-//	public void saveImg(DB db) throws IOException {
-//		MongoDatabase mdb = (MongoDatabase) dBUtils.getMongoDB();
-//
-//		String newFileName = "adult";
-//		File imagePath = new File("D:/Users/Patty/eclipse-workspace/smartcardDemo/WebContent/img/adult.jpg");
-//		GridFS gfsImg = new GridFS(db, "image");
-//		try {
-//			GridFSInputFile gfsFile = gfsImg.createFile(imagePath);
-//			gfsFile.setFilename(newFileName);
-//			gfsFile.save();
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//
-//	}
 
 }
