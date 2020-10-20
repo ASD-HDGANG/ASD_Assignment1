@@ -21,7 +21,7 @@ public class ViewCardServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		SmartCardService cardService = new SmartCardService(request, response);
-		cardService.viewSmartCardDetail();
+		//cardService.viewSmartCardDetail();
 		
 		
 

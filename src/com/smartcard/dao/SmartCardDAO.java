@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.nio.file.Files;
+import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -69,6 +70,15 @@ public class SmartCardDAO implements IGenericDAO<SmartCard> {
 
 	}
 
+//	public void deposit(double amount) {
+//		balance += amount;
+//	}
+//
+//	public void transferTo(double amount, Trip transport) {
+//		balance -= amount;
+//		transport.balance += amount;
+//	}
+
 	@Override
 	public List<SmartCard> listAll() {
 		// TODO Auto-generated method stub
@@ -121,6 +131,10 @@ public class SmartCardDAO implements IGenericDAO<SmartCard> {
 		return String.format(securityCode);
 	}
 
+	private String formatted(double balance) {
+		return new DecimalFormat("###,##0.00").format(balance);
+	}
+
 	// FOR TEST PURPOSE
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -142,8 +156,6 @@ public class SmartCardDAO implements IGenericDAO<SmartCard> {
 		scTbl.insertOne(scDoc);
 
 		// File("D:/Users/Patty/eclipse-workspace/SmartCardWebsite/WebContent/resources/images/adult.jpg");
-
-
 
 //		private String cardNumber;
 //		private String securityCode;

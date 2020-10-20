@@ -63,44 +63,14 @@ public class SmartCardService {
 //           req.getRequestDispatcher("/smartCardManagement.jsp").forward(req, resp);
 
 	}
-
-	public void viewSmartCardDetail() throws ServletException, IOException {
-
-//		public List<SmartCard> listLinkedSmartCard(String userId) {
-//		 List<SmartCard> list = new ArrayList<>();
-//              for (Document doc : collection.find()) {
-//	       if (((String) doc.get("userId")).equals(userId)) {
-//			       SmartCard smartCard = new SmartCard(null,null,userId,null,null,null);
-//				smartCard.setCardNumber((String)doc.get("smartCardNumber"));
-//				smartCard.setSecurityCode((String)doc.get("securityCode"));
-//                               smartCard.setCardType((String)doc.get("smartCardType"));
-//                               smartCard.setCardBalance((String)doc.get("smartCardBalance"));
-//                               smartCard.setCardStatus((String)doc.get("smartCardStatus"));
-//				list.add(smartCard); 
-//			}
-//		}  
-//		return list;
-//	}
-//
-
+	
+	public void listCard() {
+		// TODO call listAll() from the DAO
+		
 	}
 
-	public void getSmartCardNumber() {
-		Random rand = new Random();
-		StringBuilder sb = new StringBuilder();
-		for (int i = 0; i < 16; i++) {
-			sb.append(rand.nextInt(9));
-		}
-		String cardNumber = sb.toString();
-	}
 
-	public void getSecurityCode() {
-		Random rand = new Random();
-		StringBuilder rrs = new StringBuilder();
-		for (int i = 0; i < 4; i++) {
-			rrs.append(rand.nextInt(9));
-		}
-		String securityCode = rrs.toString();
-	}
+
+
 
 }

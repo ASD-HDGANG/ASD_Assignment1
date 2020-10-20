@@ -1,4 +1,4 @@
-package com.smartcard.controller.frontend.shoppingcart;
+package com.smartcard.controller.admin.customer;
 
 import java.io.IOException;
 
@@ -9,11 +9,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/view_cart")
-public class ViewCartServlet extends HttpServlet {
+import com.smartcard.dao.MongoUtils;
+import com.smartcard.service.SmartCardService;
+
+@WebServlet("/admin/list_cards")
+public class ListCardServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public ViewCartServlet() {
+	public ListCardServlet() {
 		super();
 	}
 
@@ -21,14 +24,16 @@ public class ViewCartServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		
-		
 		response.setContentType("text/html");
 
-		String viewCart = "frontend/shopping_cart.jsp";
-		RequestDispatcher rd = request.getRequestDispatcher(viewCart);
+		MongoUtils.getMongoDB();
+
+		String cardList = "card_list.jsp";
+		RequestDispatcher rd = request.getRequestDispatcher(cardList);
 		rd.forward(request, response);
 
+//		SmartCardService smartService = new SmartCardService(request, response);
+//		smartService.listCard();
 	}
 
 }

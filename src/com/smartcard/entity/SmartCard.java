@@ -1,5 +1,6 @@
 package com.smartcard.entity;
 
+import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashSet;
@@ -36,13 +37,13 @@ public class SmartCard {
 		this.qty = qty;
 	}
 
-	public SmartCard(String cardNumber, String securityCode, String cardType, float cardBalance, boolean isActive,
-			Date lastUpdateTime, Set<OrderDetail> orderDetails, byte[] image) {
+	public SmartCard(String cardNumber, String securityCode, String cardType, boolean isActive, Date lastUpdateTime,
+			Set<OrderDetail> orderDetails, byte[] image) {
 		super();
 		this.cardNumber = cardNumber;
 		this.securityCode = securityCode;
 		this.cardType = cardType;
-		this.cardBalance = cardBalance;
+		this.cardBalance = getCardBalance();
 		this.isActive = isActive;
 		this.lastUpdateTime = lastUpdateTime;
 		this.orderDetails = orderDetails;
@@ -82,6 +83,7 @@ public class SmartCard {
 	}
 
 	public float getCardBalance() {
+		System.out.println("Initial " + cardType + " balance: $");
 		return cardBalance;
 	}
 

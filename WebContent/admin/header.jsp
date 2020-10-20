@@ -16,9 +16,9 @@
 
 	<h2>Dashboard</h2>
 
-	<b> <a href="list_users">staff</a> | <a href="smartcards">smartcards</a>
-		| <a href="list_customer">customers</a> | <a href="reports">reports</a> | <a
-		href="orders">orders</a> |
+	<b> <a href="list_users">staff</a> | <a href="list_cards">smartcards</a>
+		| <a href="list_customer">customers</a> | <a href="reports">reports</a>
+		| <a href="orders">orders</a> |
 	</b>
 
 </div>
