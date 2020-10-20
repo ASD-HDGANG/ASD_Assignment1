@@ -90,12 +90,12 @@ public class CustomerService {
 
 			customerDAO.create(newCustomer);
 
-		}
+			// Send basic email notification
+			MailService sendMail = new MailService();
+			// call the send email method
+			sendMail.sendMail(newCustomer);
 
-		// Send email notification
-//      EmailService sendMail = new EmailService();
-//      //call the send email method
-//      boolean test = sendMail.sendMail(newCustomer);
+		}
 
 	}
 

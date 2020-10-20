@@ -42,7 +42,8 @@
 								alt="adult smart card">
 							<div class="caption">
 
-								<a href="view_cart2"> cart </a>
+								<a href="../view_cart">order </a>
+
 
 							</div>
 						</div>

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.bson.Document;
+import org.bson.types.ObjectId;
 
 import com.mongodb.Block;
 import com.mongodb.client.FindIterable;
@@ -55,6 +56,7 @@ public class UserDAO implements IGenericDAO<User> {
 		return user;
 	}
 
+	// For edit user
 	@Override
 	public User get(Object userId) {
 
@@ -68,10 +70,15 @@ public class UserDAO implements IGenericDAO<User> {
 				return doc;
 			}
 		}
-
 		return null;
-
 	}
+
+	// not working >.<
+//	private Document getUser(String id) {
+//		MongoCollection<Document> userTbl = database.getCollection("User");		
+//		System.out.println("_id = " + id);
+//		return userTbl.find(eq("_id", new ObjectId(id))).first();
+//	}
 
 	public User findByEmail(String email) {
 
