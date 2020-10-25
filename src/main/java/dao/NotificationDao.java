@@ -56,9 +56,28 @@ public class NotificationDao {
             collection.insertOne(document);
         }
     
-    public void update(int notificationID, String customerID, String createdDate, String notificationDate, String priority, String message){
-    Document document = new Document();
-    //document.
+    public void update(Notification notification, String notificationDate, String priority, String message){
+        
+        //find document that you want to update from database
+        Document document = new Document();
+	document.put("notificationID",notification.getNotificationID());
+        document.put("customerID",notification.getCustomerID());
+        document.put("createdDate",notification.getCreatedDate());
+        document.put("notificationDate",notification.getNotificationDate());
+        document.put("priority",notification.getPriority());
+        document.put("message",notification.getMessage());
+        
+        //updated document
+	Document updateDocument = new Document();
+	updateDocument.put("notificationID",notification.getNotificationID());
+        updateDocument.put("customerID",notification.getCustomerID());
+        updateDocument.put("createdDate",notification.getCreatedDate());
+        updateDocument.put("notificationDate",notificationDate);
+        updateDocument.put("priority",priority);
+        updateDocument.put("message",message);
+        
+        //update 
+	collection.updateOne(document, updateDocument);
     }
     
     public void delete(int notificationID){

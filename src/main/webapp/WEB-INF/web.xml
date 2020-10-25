@@ -12,6 +12,14 @@
         <servlet-name>UpdateNotificationServlet</servlet-name>
         <servlet-class>servlets.UpdateNotificationServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>NotificationEditServlet</servlet-name>
+        <servlet-class>servlets.NotificationEditServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteNotificationServlet</servlet-name>
+        <servlet-class>servlets.DeleteNotificationServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AddNotificationServlet</servlet-name>
         <url-pattern>/AddNotificationServlet</url-pattern>
@@ -23,6 +31,14 @@
     <servlet-mapping>
         <servlet-name>UpdateNotificationServlet</servlet-name>
         <url-pattern>/UpdateNotificationServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NotificationEditServlet</servlet-name>
+        <url-pattern>/NotificationEditServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteNotificationServlet</servlet-name>
+        <url-pattern>/DeleteNotificationServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

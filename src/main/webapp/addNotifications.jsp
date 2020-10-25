@@ -42,7 +42,7 @@
             </select></td></tr>
             <tr><td>Message</td><td><textarea rows="4" cols="30" name="message">Type your message here....</textarea></td></tr>
             <tr>
-            <td><a class ="button" href="notification.jsp">Back</a></td>
+            <td><a class ="button" href="notifications.jsp">Back</a></td>
             <td><input class ="button" type="submit" value="Add"></td>
             </tr>
         </table>

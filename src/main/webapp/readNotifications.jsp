@@ -31,9 +31,6 @@
         
         %>
         <table>
-        <h1>
-                  <a class="button"  href = "AllNotificationServlet">All shipments </a>
-        </h1>
                 <tr>
                     <td> Notification ID</td>
                     <td> Customer ID</td>
@@ -53,8 +50,8 @@
                         <td><c:out value="${notification.priority}"/></td>
                         <td><c:out value="${notification.message}"/></td>
                         <td>
-                            <a href="UpdateNotificationServlet?notificationID=<c:out value ="${notification.notificationID}"/>"/>Detail</a>
-                            <a href="ShipmentDeleteServlet?email=<c:out value ="there"/>&date=<c:out value="${shipment.arriveDate}"/>">Delete</a>            
+                            <a href="UpdateNotificationServlet?notificationID=<c:out value ="${notification.notificationID}"/>"/>Update</a>
+                            <a href="DeleteNotificationServlet?notificationID=<c:out value ="${notification.notificationID}"/>"/>Delete</a>            
                         </td>
                     </tr>
                 </c:forEach>

@@ -16,31 +16,39 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.bson.Document;
 
 /**
  *
  * @author Martin
  */
-public class UpdateNotificationServlet extends HttpServlet {
+public class DeleteNotificationServlet extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //get connection 
+        //connect to server 
         MongoDBConnector connector = new MongoDBConnector();
         MongoClient client = connector.openConnection();
         
-        int notificationID = Integer.parseInt(request.getParameter("notificationID"));
-        HttpSession session = request.getSession();
-        
-        //get notification DAO
+        //Retrieve Dao and session
         NotificationDao nd = new NotificationDao(client);
+        int notificationID = Integer.parseInt(request.getParameter("notificationID"));
+        
+        //Find the document
         Notification notification = nd.get(notificationID);
+        Document document = new Document();
+	document.put("notificationID",notification.getNotificationID());
+        document.put("customerID",notification.getCustomerID());
+        document.put("createdDate",notification.getCreatedDate());
+        document.put("notificationDate",notification.getNotificationDate());
+        document.put("priority",notification.getPriority());
+        document.put("message",notification.getMessage());
         
-        //set the notification into the session
-        session.setAttribute("notification", notification);
+        //Delete the document
+        nd.delete(notificationID);
         
-        request.getRequestDispatcher("updateNotification.jsp").include(request, response);
-        }
+        request.getRequestDispatcher("notifications.jsp").include(request, response);
     }
-
+    
+}

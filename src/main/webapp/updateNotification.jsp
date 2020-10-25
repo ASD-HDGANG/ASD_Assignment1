@@ -3,7 +3,7 @@
     Created on : 26/10/2020, 3:03:01 AM
     Author     : Martin
 --%>
-
+<%@page import="entity.Notification"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -22,18 +22,22 @@
         <div class="topnav">
             <a href="home.jsp" style="float: left;"> Home </a>
         </div>
-        <main class="main-content"></main>
+        <main class="main-content">
             <h1>Edit Notification</h1>
-            <form method="post" action="UpdateNotificationServlet">
-                <table>  
-                    <tr><td>Date</td><td><input type="date" name="notificationDate" ></td></tr>
-                    <tr><td>Priority</td><td><select name="priority" style="width: 260px; margin: auto;">
+            <%
+                Notification notification = (Notification)session.getAttribute("notification");
+            %>
+            <form method="post" action="NotificationEditServlet">
+                <table>
+                    <tr><td>Notification ID</td><td><input type="text" value="${notification.getNotificationID()}" name="notificationID" readonly></td></tr>
+                    <tr><td>Date</td><td><input type="date" value="${notification.getNotificationDate()} name="notificationDate" ></td></tr>
+                    <tr><td>Priority</td><td><select name="priority" value="${notification.getPriority()}" style="width: 260px; margin: auto;">
                         <option value="normal">Normal</option>
                         <option value="urgent">Urgent</option>
                     </select></td></tr>
-                    <tr><td>Message</td><td><textarea rows="4" cols="30" name="message">Type your message here....</textarea></td></tr>
+                    <tr><td>Message</td><td><textarea value="${notification.getMessage()}" rows="4" cols="30" name="message">Type your message here....</textarea></td></tr>
                     <tr>
-                    <td><a class ="button" href="notification.jsp">Back</a></td>
+                    <td><a class ="button" href="notifications.jsp">Back</a></td>
                     <td><input class ="button" type="submit" value="Update"></td>
                     </tr>
                 </table>

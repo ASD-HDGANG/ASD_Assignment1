@@ -22,10 +22,19 @@
         <div class="topnav">
             <a href="home.jsp" style="float: left;"> Home </a>
         </div>
-        <h1>Notifications</h1>
+        <main class="main-content">
+            <h1>Notifications</h1>
+
+            <a style=""class="button" href="addNotifications.jsp">Add Notifications</a>
+            <a class="button" href="AllNotificationServlet">Read Current Notifications</a>
+        </main>
         
-        <a class="button" href="addNotifications.jsp">Add Notifications</a>
-        <a class="button" href="AllNotificationServlet">Read Current Notifications</a>
+        
+        <script>
+            console.log(Notification.permission);
+            
+            
+        </script>
         
     </body>
 </html>
