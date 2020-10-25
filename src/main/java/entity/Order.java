@@ -18,14 +18,18 @@ public class Order implements Serializable{
 	private String orderDate;
 	private String fromLocation;
         private String toLoaction;
+        private String orderStatus;
+        private String orderAmount;
 
-    public Order(String orderId, String cardNumber, String orderType, String orderDate, String fromLocation, String toLoaction) {
+    public Order(String orderId, String cardNumber, String orderType, String orderDate, String fromLocation, String toLoaction, String orderStatus, String orderAmount) {
         this.orderId = orderId;
         this.cardNumber = cardNumber;
         this.orderType = orderType;
         this.orderDate = orderDate;
         this.fromLocation = fromLocation;
         this.toLoaction = toLoaction;
+        this.orderStatus = orderStatus;
+        this.orderAmount = orderAmount;
     }
 
     public String getOrderId() {
@@ -76,5 +80,19 @@ public class Order implements Serializable{
         this.toLoaction = toLoaction;
     }
 
-        
+     public String getOrderStatus() {
+        return orderStatus;
+    }
+
+    public void setOrderStatus(String orderStatus) {
+        this.orderStatus = orderStatus;
+    }   
+    
+    public String getOrderAmount() {
+        return orderAmount;
+    }
+
+    public void setOrderAmount(String orderAmount) {
+        this.orderAmount = orderAmount;
+    }   
 }

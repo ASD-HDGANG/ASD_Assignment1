@@ -33,12 +33,14 @@ public class OrderDao {
 		 List<Order> list = new ArrayList<>();
                for (Document doc : collection.find()) {
 	       if (((String) doc.get("smartCardNumber")).equals(smartCardNumber)) {
-			       Order order = new Order(null,smartCardNumber,null,null,null,null);
+			       Order order = new Order(null,smartCardNumber,null,null,null,null,null,null);
 				order.setOrderId((String)doc.get("orderId"));
 				order.setFromLocation((String)doc.get("fromLocation"));
                                 order.setToLoaction((String)doc.get("toLocation"));
                                 order.setOrderType((String)doc.get("orderType"));
                                 order.setOrderDate((String)doc.get("orderDate"));
+                                order.setOrderStatus((String)doc.get("orderStatus"));
+                                order.setOrderAmount((String)doc.get("orderAmount"));
 				list.add(order); 
 			}
 		}  

@@ -33,6 +33,14 @@
             <a href="StoreServlet" style="float: left;">All Products</a>
             <a href="AllShipmentsServlet" style="float: right;">Shipments</a>--%>
             <a href="home.jsp" style="float: left;"> Home </a>
+            <a href="tripPlanner.jsp" style="float: left;"> Trip_Planner </a>
+            <a href="orderManagement.jsp" style="float: left;">Order </a>
+            <a href="smartCardManagement.jsp" style="float: left;">Card </a>
+            <a href="bill.jsp" style="float: left;">Bill </a>
+            <a href="shipmentNew.jsp" style="float: left;">Shipment </a>
+            <a href="reporting.jsp" style="float: right;">Report </a>
+            <a href="userProfile.jsp" style="float: right;">Profile</a>
+            <a href="AllAdminServlet" style="float: right;">Admin</a>
 
         </div>
         
@@ -47,16 +55,22 @@
             <label for="name">Smart Card Number</label><input type="text" id="smartCardNumber" name="smartCardNumber"  maxlength="16" size="16" placeholder="16-digits card number" required>
             <label for="name">Security Code</label><input type="password" id="securityCode" name="securityCode" maxlength="4"size="4" placeholder="4-digit security code" required> 
             <label for="name">User Id</label><input type="text" id="userId" name="userId" maxlength="10" size="10" placeholder="Account number" required> 
-            <a class="button"  href="smartCardManagement.jsp"> Cancel </a>
+            <div align="center"><a class="button"  href="smartCardManagement.jsp"> Cancel </a>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input class="button" type ="submit" value="Link">
+                <input class="button" type ="submit" value="Link"></div>
             </form>
         </main>
         <script type="text/javascript">
              var msg="${requestScope.link}";
 	    if(msg=="linked"){
 		alert('Sorry! this card has already been linked to another card..');
-	}
+	   }
+       </script>
+       <script type="text/javascript">
+             var msg="${requestScope.link}";
+	    if(msg=="error"){
+		alert('Sorry! wrong card number or security code..');
+	   }
        </script>
     </body>
 </html>

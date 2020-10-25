@@ -76,6 +76,22 @@
         <servlet-name>SmartCardListServlet</servlet-name>
         <servlet-class>servlets.SmartCardListServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SmartCardBlockServlet</servlet-name>
+        <servlet-class>servlets.SmartCardBlockServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SmartCardDeleteServlet</servlet-name>
+        <servlet-class>servlets.SmartCardDeleteServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>OrderCompleteServlet</servlet-name>
+        <servlet-class>servlets.OrderCompleteServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>servlets.LoginServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AddReportServlet</servlet-name>
         <url-pattern>/AddReportServlet</url-pattern>
@@ -108,7 +124,22 @@
         <servlet-name>SmartCardListServlet</servlet-name>
         <url-pattern>/SmartCardListServlet</url-pattern>
     </servlet-mapping>
-
+ <servlet-mapping>
+        <servlet-name>SmartCardBlockServlet</servlet-name>
+        <url-pattern>/SmartCardBlockServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SmartCardDeleteServlet</servlet-name>
+        <url-pattern>/SmartCardDeleteServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrderCompleteServlet</servlet-name>
+        <url-pattern>/OrderCompleteServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
 
 
     <servlet-mapping>

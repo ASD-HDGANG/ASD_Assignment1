@@ -11,9 +11,11 @@
 
  <%List<SmartCard> smartCardList = (ArrayList) session.getAttribute("smartCardList");%>
  <%String userId = session.getAttribute("userId").toString();%>
- <%String pic = "";%>
- 
- 
+ <%String pic = "";
+  String type1 = "";
+  String type2 = "";
+  String type3 = "";%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -63,6 +65,14 @@
             <a href="StoreServlet" style="float: left;">All Products</a>
             <a href="AllShipmentsServlet" style="float: right;">Shipments</a>--%>
             <a href="home.jsp" style="float: left;"> Home </a>
+            <a href="tripPlanner.jsp" style="float: left;"> Trip_Planner </a>
+            <a href="orderManagement.jsp" style="float: left;">Order </a>
+            <a href="smartCardManagement.jsp" style="float: left;">Card </a>
+            <a href="bill.jsp" style="float: left;">Bill </a>
+            <a href="shipmentNew.jsp" style="float: left;">Shipment </a>
+            <a href="reporting.jsp" style="float: right;">Report </a>
+            <a href="userProfile.jsp" style="float: right;">Profile</a>
+            <a href="AllAdminServlet" style="float: right;">Admin</a>
         </div>
     <h1>Smart Cards Linked With </h1><h1 style = "color: blue"><%=userId%></h1>
     <table border = "0">
@@ -71,7 +81,7 @@
             <td><input type="text" name="userId"  maxlength="16" placeholder="Check another one" required></td>
             <td><input class="button" type ="submit" value="Search"></td>
             </form>
-            <td> <a class="button"href ="orderManagement.jsp">Go back</a></td>
+            <td> <a class="button"href ="smartCardManagement.jsp">Go back</a></td>
         </tr>   
     </table>
 <div>
@@ -104,9 +114,34 @@
                         <td><%=s.getCardStatus()%></td>   
                         <td> 
                              <form role="form" action="SmartCardListServlet" method="post">     
-                                <input type="hidden" name="smartCardNumber" value="<%=s.getCardNumber()%>"/><input type ="submit" value="unlink"/>
+                                <input type="hidden" name="userId" value="<%=s.getUserId()%>"/>
+                                <input type="hidden" name="smartCardNumber" value="<%=s.getCardNumber()%>"/>
+                                <input type ="submit" value="unlink"/>
                              </form>
-                         </td>
+                               <%
+                               if((s.getCardStatus()).equals("active")){
+                                   type1 = "submit";
+                                   type2 = "hidden";
+                                   type3 = "hidden";
+                               }
+                               else if((s.getCardStatus()).equals("blocked")){
+                                   type1 = "hidden";
+                                   type2 = "submit";
+                                   type3 = "submit";
+                               }
+                               %>
+                             <form role="form" action="SmartCardBlockServlet" method="post">     
+                                <input type="hidden" name="userId" value="<%=s.getUserId()%>"/>
+                                <input type="hidden" name="smartCardNumber" value="<%=s.getCardNumber()%>"/>
+                                <input type ="<%=type1%>" value="block"/>
+                                <input type ="<%=type2%>" value="activate"/>
+                              </form>
+                              <form role="form" action="SmartCardDeleteServlet" method="get">
+                                 <input type="hidden" name="userId" value="<%=s.getUserId()%>"/>
+                                <input type="hidden" name="smartCardNumber" value="<%=s.getCardNumber()%>"/>
+                                <input type ="<%=type3%>" value="delete"/>
+                              </form>
+                               </td>
                     </tr>
                     <%}%>
                 </tbody>

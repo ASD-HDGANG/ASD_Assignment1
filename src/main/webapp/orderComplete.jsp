@@ -1,17 +1,23 @@
 <%-- 
-    Document   : new Smart Card
-    Created on : Sep 24, 2020, 11:28:22 PM
+    Document   : searchOrder
+    Created on : Sep 26, 2020, 12:59:31 AM
     Author     : yike8
 --%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 
- <%String userId = session.getAttribute("userId").toString();%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<%@page import="entity.Order"%>
+
+ <%String orderId = session.getAttribute("orderId").toString();%>
+ <%String fromLocation = session.getAttribute("fromLocation").toString();%>
+ <%String smartCardNumber = session.getAttribute("smartCardNumber").toString();%>
 
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8"> 
-	<title>Smart Card Detail</title>
+	<title>Complete Order</title>
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
 	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -42,36 +48,31 @@
             <a href="AllAdminServlet" style="float: right;">Admin</a>
 
         </div>
-    <h1>Successfully Created!!</h1>
-    <h1><%=userId%></h1>
-<div align="center">
-            <h3 align="center">Smart Cart Information</h3>
-            <table>
-                <tr>
-                    <td>Smart Card Number: </td>
-                    <td>${requestScope.smartCardNumber}</td>
-                </tr>
-                <tr>
-                    <td>Security Code: </td>
-                    <td>${requestScope.securityCode}</td>
-                </tr>
-                <tr>
-                    <td>Card Type: </td>
-                    <td>${requestScope.smartCardType}</td>
-                </tr>
-            </table>
-            <div align="center">
-            <a class="button"  href="smartCardManagement.jsp"> Go back </a>
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-             <form role="form" action="SmartCardLinkingServlet" method="post">
-             <input type="hidden" name="userId" value="<%=userId%>"/>
-             <input type="hidden" name="smardCardNumber" value="${requestScope.smartCardNumber}"/>
-             <input type="hidden" name="securityCode" value="${requestScope.securityCode}"/>
-             <input class="button" type ="submit" value="Link with current account"/>
-             </form> 
-            </div>
-</div> 
-  
+    <h1>Complete Order</h1>
+    <h2 align="center">Please select the destination and enter your security code</h2>
+<table border="0">
+    <form role="form" action="OrderCompleteServlet" method="post">
+     <tr>
+         <td><h4 style="color:blue">Destination</h4></td>
+             <td><input type="text" name="toLocation" list="toLocationList" required> 
+            <datalist id="toLocationList">
+                <option value="Central">
+                <option value="Broadway">
+                <option value="Newtown">
+            </datalist></td>
+            </tr>
+            <tr>
+            <td><h4 style="color:blue">Security code</h4></td> 
+         <input type="hidden" name="orderId" value="<%=orderId%>"/>
+         <input type="hidden" name="fromLocation" value="<%=fromLocation%>"/>
+         <input type="hidden" name="smartCardNumber" value="<%=smartCardNumber%>"/>
+         <td><input type="text" name="securityCode"  maxlength="4" placeholder="4-digits security code" required></td>
+    </tr>
+      <tr>
+          <td><a class="button"  href="orderList.jsp"> Cancel </a></td>
+         <td><input class="button" type ="submit" value="Confirm"></td>
+    </tr>
+    </form> 
+</table> 
 </body>
 </html>

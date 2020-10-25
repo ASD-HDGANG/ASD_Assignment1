@@ -10,7 +10,9 @@
 <%@page import="entity.Order"%>
 
  <%List<Order> orderList = (ArrayList) session.getAttribute("orderList");
- String smartCardNumber = session.getAttribute("smartCardNumber").toString();%>
+ String smartCardNumber = session.getAttribute("smartCardNumber").toString();
+ String type1 = "";
+ String type2 = "";%>
  
 <!DOCTYPE html>
 <html>
@@ -61,6 +63,14 @@
             <a href="StoreServlet" style="float: left;">All Products</a>
             <a href="AllShipmentsServlet" style="float: right;">Shipments</a>--%>
             <a href="home.jsp" style="float: left;"> Home </a>
+            <a href="tripPlanner.jsp" style="float: left;"> Trip_Planner </a>
+            <a href="orderManagement.jsp" style="float: left;">Order </a>
+            <a href="smartCardManagement.jsp" style="float: left;">Card </a>
+            <a href="bill.jsp" style="float: left;">Bill </a>
+            <a href="shipmentNew.jsp" style="float: left;">Shipment </a>
+            <a href="reporting.jsp" style="float: right;">Report </a>
+            <a href="userProfile.jsp" style="float: right;">Profile</a>
+            <a href="AllAdminServlet" style="float: right;">Admin</a>
         </div>
     <h1>Order List of </h1><h1 style = "color: blue"><%=smartCardNumber%></h1>
     <table border = "0">
@@ -76,25 +86,40 @@
     <table class="gridtable">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>Date</th>
                         <th>From</th>
                         <th>To</th>
                         <th>Type</th>
-                        <th>Date</th>
+                        <th>Amount</th>
+                        <th>Status</th>
                         <th></th>>
                     </tr>
                 </thead>
                 <tbody>
                     <%for (Order o : orderList) {%>
                     <tr>
-                        <td><%=o.getOrderId()%></td>
+                        <td><%=o.getOrderDate()%></td> 
                         <td><%=o.getFromLocation()%></td>
                         <td><%=o.getToLoaction()%></td>
                         <td><%=o.getOrderType()%></td>
-                        <td><%=o.getOrderDate()%></td>          
+                        <td><%=o.getOrderAmount()%></td> 
+                        <td><%=o.getOrderStatus()%></td>
+                        <% if (o.getOrderStatus().equals("processing")) {
+                            type1 = "submit";
+                        }
+                        else{
+                            type1 = "hidden";
+                        }
+                        %>
                         <td> 
-                             <form role="form" action="OrderHistoryServlet" method="post">     
-                                <input type="hidden" name="orderId" value="<%=o.getOrderId()%>"/><input type ="submit" value="delete"/>
+                            <form role="form" action="OrderCompleteServlet" method="get">   
+                            <input type="hidden" name="orderId" value="<%=o.getOrderId()%>"/>
+                            <input type="hidden" name="fromLocation" value="<%=o.getFromLocation()%>"/>
+                            <input type="hidden" name="smartCardNumber" value="<%=smartCardNumber%>"/>
+                            <input type ="<%=type1%>" value="complete"/><br/>
+                            </form>
+                             <form role="form" action="OrderHistoryServlet" method="post">   
+                                <input type="hidden" name="orderId" value="<%=o.getOrderId()%>"/><input type ="<%=type1%>" value="cancel"/>
                                 <input type="hidden" name="smartCardNumber" value="<%=o.getCardNumber()%>"/>
                              </form>
                          </td>

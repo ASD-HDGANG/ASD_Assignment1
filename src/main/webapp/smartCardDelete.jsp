@@ -1,17 +1,22 @@
 <%-- 
-    Document   : new Smart Card
-    Created on : Sep 24, 2020, 11:28:22 PM
+    Document   : smartCardDelete
+    Created on : Oct 22, 2020, 2:52:31 PM
     Author     : yike8
 --%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<%@page import="entity.SmartCard"%>
 
- <%String userId = session.getAttribute("userId").toString();%>
-
+ <%List<SmartCard> smartCardList = (ArrayList) session.getAttribute("smartCardList");%>
+ <%String smartCardNumber = session.getAttribute("smartCardNumber").toString();%>
+  
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8"> 
-	<title>Smart Card Detail</title>
+	<title>Delete Smart Card</title>
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
 	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -42,36 +47,29 @@
             <a href="AllAdminServlet" style="float: right;">Admin</a>
 
         </div>
-    <h1>Successfully Created!!</h1>
-    <h1><%=userId%></h1>
-<div align="center">
-            <h3 align="center">Smart Cart Information</h3>
-            <table>
-                <tr>
-                    <td>Smart Card Number: </td>
-                    <td>${requestScope.smartCardNumber}</td>
-                </tr>
-                <tr>
-                    <td>Security Code: </td>
-                    <td>${requestScope.securityCode}</td>
-                </tr>
-                <tr>
-                    <td>Card Type: </td>
-                    <td>${requestScope.smartCardType}</td>
-                </tr>
-            </table>
-            <div align="center">
-            <a class="button"  href="smartCardManagement.jsp"> Go back </a>
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-             <form role="form" action="SmartCardLinkingServlet" method="post">
-             <input type="hidden" name="userId" value="<%=userId%>"/>
-             <input type="hidden" name="smardCardNumber" value="${requestScope.smartCardNumber}"/>
-             <input type="hidden" name="securityCode" value="${requestScope.securityCode}"/>
-             <input class="button" type ="submit" value="Link with current account"/>
-             </form> 
-            </div>
-</div> 
-  
+    <%for (SmartCard s : smartCardList) {
+        if (s.getCardNumber().equals(smartCardNumber) && Double.valueOf(s.getCardBalance()) > 0) {%>
+        <h1>The balance of this card is<h1>
+        <h1 style = "color:blue"><%=s.getCardBalance()%><h1>
+    <h2 align = "center">Please enter another card number to transfer the balance</h2>
+  <table border="0">
+    <form role="form" action="SmartCardDeleteServlet" method="post">
+     <tr>
+         <td><input type="text" name="smartCardNumber"  maxlength="16" required></td>
+         <td><input class="button" type ="submit" value="Transfer and Delete"></td>
+         <td><input type="hidden" name="balance" value="<%=s.getCardBalance()%>">
+          <input type="hidden" name="deleteSmartCardNumber" value="<%=s.getCardNumber()%>">
+             <a class="button" href ="smartCardList.jsp">Cancel</a></td>
+     </tr>   
+    </form> 
+   </table> 
+  <%}
+}%>
+<script type="text/javascript">
+             var delete="${requestScope.delete}";
+	    if(delete=="error"){
+		alert('Please enter a valid card number!!');
+	}
+ </script>
 </body>
 </html>

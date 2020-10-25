@@ -34,6 +34,14 @@
             <a href="StoreServlet" style="float: left;">All Products</a>
             <a href="AllShipmentsServlet" style="float: right;">Shipments</a>--%>
             <a href="home.jsp" style="float: left;"> Home </a>
+            <a href="tripPlanner.jsp" style="float: left;"> Trip_Planner </a>
+            <a href="orderManagement.jsp" style="float: left;">Order </a>
+            <a href="smartCardManagement.jsp" style="float: left;">Card </a>
+            <a href="bill.jsp" style="float: left;">Bill </a>
+            <a href="shipmentNew.jsp" style="float: left;">Shipment </a>
+            <a href="reporting.jsp" style="float: right;">Report </a>
+            <a href="userProfile.jsp" style="float: right;">Profile</a>
+            <a href="AllAdminServlet" style="float: right;">Admin</a>
 
         </div>
     <h1>Search by User ID</h1>
@@ -42,6 +50,7 @@
      <tr>
          <td><input type="text" name="userId"  maxlength="16" required></td>
          <td><input class="button" type ="submit" value="Search"></td>
+         <td><a href="smartCardManagement.jsp" class="button">Cancel </a></td>
     </tr>
     </form> 
 </table> 

@@ -28,7 +28,11 @@
             <a href="AllShipmentsServlet" style="float: right;">Shipments</a>--%>
             <a href="home.jsp" style="float: left;"> Home </a>
             <a href="tripPlanner.jsp" style="float: left;"> Trip_Planner </a>
-            <a href="orderManagement.jsp" style="float: left;"> Order Manage </a>
+            <a href="orderManagement.jsp" style="float: left;">Order </a>
+            <a href="smartCardManagement.jsp" style="float: left;">Card </a>
+            <a href="bill.jsp" style="float: left;">Bill </a>
+            <a href="shipmentNew.jsp" style="float: left;">Shipment </a>
+            <a href="reporting.jsp" style="float: right;">Report </a>
             <a href="userProfile.jsp" style="float: right;">Profile</a>
             <a href="AllAdminServlet" style="float: right;">Admin</a>
         </div>
@@ -69,6 +73,12 @@
              var unlink="${requestScope.unlink}";
 	    if(unlink=="success"){
 		alert('Unlink successfull!!');
+	}
+       </script>
+       <script type="text/javascript">
+             var delet="${requestScope.delet}";
+	    if(delet=="success"){
+		alert('The balance has been transfered and the card deleted successfully!!');
 	}
        </script>
     </body>
