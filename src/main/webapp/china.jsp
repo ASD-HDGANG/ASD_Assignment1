@@ -34,43 +34,35 @@
 </div>
 <body>
 
-<form class="form-horizontal" role="form" action="GoogleServlet" method="post">
+<form class="form-horizontal" role="form" action="tripResult.jsp" method="post" >
     <div class="form-group">
         <label for="departure" class="col-sm-2 control-label">Input your departure:</label>
         <div class="col-sm-10">
             <input type="text" class="form-control" id="departure" name="departure"
-                   placeholder="Input your departure:">
+                   placeholder="Input your departure:" required="required" >
         </div>
     </div>
     <div class="form-group">
         <label for="destination" class="col-sm-2 control-label">destination</label>
         <div class="col-sm-10">
             <input type="text" class="form-control" id="destination" name="destination"
-                   placeholder="Input your destination:">
+                   placeholder="Input your destination:" required="required">
         </div>
     </div>
 
-    <font color="red">
-        <%
-            if(request.getAttribute("message")!= null){
-                out.print(request.getAttribute("message"));
 
-            }
-        %>
-
-    </font>
-<%--    <div class="form-group">--%>
-<%--        <div class="col-sm-offset-2 col-sm-10">--%>
-<%--            <div class="checkbox">--%>
-<%--                <label>--%>
-<%--                    <input type="checkbox"> remember--%>
-<%--                </label>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--    </div>--%>
+    <%--    <div class="form-group">--%>
+    <%--        <div class="col-sm-offset-2 col-sm-10">--%>
+    <%--            <div class="checkbox">--%>
+    <%--                <label>--%>
+    <%--                    <input type="checkbox"> remember--%>
+    <%--                </label>--%>
+    <%--            </div>--%>
+    <%--        </div>--%>
+    <%--    </div>--%>
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-default">search</button>
+            <button type="submit"   id="addBtn"   class="btn btn-default">search</button>
         </div>
         <div class="col-sm-offset-2 col-sm-10">
 
@@ -78,9 +70,34 @@
         </div>
         <div class="col-sm-offset-2 col-sm-10">
 
-            <a class="button"  href ="china.jsp">China version</a>
+            <a class="button"  href ="tripPlanner.jsp">Australia version</a>
         </div>
     </div>
+
+    <!-- 弹框 -->
+    <script src="https://cdn.bootcss.com/layer/2.2/layer.js"></script>
+    <script src="https://cdn.bootcss.com/layer/2.2/extend/layer.ext.js"></script>
+    <script type="text/javascript">
+        $("#addBtn").on("click", function() {
+            //验证字段
+            if(validate()) {
+                layer.msg('PLZ INPUT AGAIN', { icon: 5, time: 100000000000000});
+                return;
+            }
+            //验证
+            function validate() {
+                if($("#departure").val() == '') {
+                    return true;
+                }
+                if($("#destination").val() == '') {
+                    return true;
+                }
+
+                return false;
+            }
+        })
+    </script>
+
 </form>
 
 

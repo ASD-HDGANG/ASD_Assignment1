@@ -92,6 +92,10 @@
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>servlets.LoginServlet</servlet-class>
     </servlet>
+     <servlet>
+        <servlet-name>GoogleServlet</servlet-name>
+        <servlet-class>servlets.GoogleServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AddReportServlet</servlet-name>
         <url-pattern>/AddReportServlet</url-pattern>
@@ -140,7 +144,10 @@
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
     </servlet-mapping>
-
+    <servlet-mapping>
+        <servlet-name>GoogleServlet</servlet-name>
+        <url-pattern>/GoogleServlet</url-pattern>
+    </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>NewShipmentServlet</servlet-name>
