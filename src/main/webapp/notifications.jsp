@@ -25,7 +25,7 @@
         <h1>Notifications</h1>
         
         <a class="button" href="addNotifications.jsp">Add Notifications</a>
-        <a class="button" href="readNotifications.jsp">Read Current Notifications</a>
+        <a class="button" href="AllNotificationServlet">Read Current Notifications</a>
         
     </body>
 </html>

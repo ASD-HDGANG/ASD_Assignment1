@@ -33,7 +33,7 @@
         <a class="button" href="addNotifications.jsp">Add Notifications</a>
         <a class="button" href="readNotifications.jsp">Read Current Notifications</a>
         
-        <form method="post" action="addNotificationServlet">
+        <form method="post" action="AddNotificationServlet">
         <table>  
             <tr><td>Date</td><td><input type="date" name="notificationDate" ></td></tr>
             <tr><td>Priority</td><td><select name="priority" style="width: 260px; margin: auto;">
@@ -42,8 +42,8 @@
             </select></td></tr>
             <tr><td>Message</td><td><textarea rows="4" cols="30" name="message">Type your message here....</textarea></td></tr>
             <tr>
-            <td><a class ="button" href="shipments.jsp">Back</a></td>
-            <td><input class ="button" type="submit" value="Update"></td>
+            <td><a class ="button" href="notification.jsp">Back</a></td>
+            <td><input class ="button" type="submit" value="Add"></td>
             </tr>
         </table>
        </form>

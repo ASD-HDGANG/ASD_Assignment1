@@ -4,9 +4,25 @@
         <servlet-name>AddNotificationServlet</servlet-name>
         <servlet-class>servlets.AddNotificationServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AllNotificationServlet</servlet-name>
+        <servlet-class>servlets.AllNotificationServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateNotificationServlet</servlet-name>
+        <servlet-class>servlets.UpdateNotificationServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AddNotificationServlet</servlet-name>
         <url-pattern>/AddNotificationServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AllNotificationServlet</servlet-name>
+        <url-pattern>/AllNotificationServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateNotificationServlet</servlet-name>
+        <url-pattern>/UpdateNotificationServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
