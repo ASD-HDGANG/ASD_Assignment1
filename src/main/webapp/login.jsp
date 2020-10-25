@@ -14,20 +14,30 @@
     </head>
     <body>
         <h1>SMARTCARD System</h1>
+        <h1>Login</h1>
         
-        <form style="text-align: center;" method="post" action="LoginServlet">
-            <h1>Login</h1>
-            <label for="email">Email address</label>
-            <input id="email" name="email" type="text" placeholder="email"/>
-            
+        <div>
+        <form method="get" action="LoginServlet">
+            <label for="userName">User Name</label>
+            <input id="userName" name="userName" type="text" placeholder="user name"/>
             <label for="password">Password</label>
             <input id="password" name="password" type="text" placeholder="password"/>
-            <br>
-            <a class="button" href="index.jsp"> Cancel </a>
-            <a class="button" href="home.jsp"> Login </a><br>
+            <br/>
+            <div align="center">
+            <a class="button" href="index.html"> Cancel </a>
+            <input class="button" type="submit" name="Login"/>
+            </div>
+            <br/>
           <%--  <input class="button" type="submit" value="Login"/> --%>
             <p class="instructions">New User? <a href= "register.jsp"> Sign Up Here</p>
         </form>
-        
+        </div>
+            
+         <script type="text/javascript">
+             var msg="${requestScope.login}";
+	    if(msg=="fail"){
+		alert('Incorrect user name or password...');
+	}
+       </script>
     </body>
 </html>

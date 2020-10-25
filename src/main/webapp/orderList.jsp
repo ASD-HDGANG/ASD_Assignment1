@@ -7,18 +7,18 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
-<%@page import="entity.SmartCard"%>
+<%@page import="entity.Order"%>
 
- <%List<SmartCard> smartCardList = (ArrayList) session.getAttribute("smartCardList");
- String userId = session.getAttribute("userId").toString();
- String pic = "";%>
- 
+ <%List<Order> orderList = (ArrayList) session.getAttribute("orderList");
+ String smartCardNumber = session.getAttribute("smartCardNumber").toString();
+ String type1 = "";
+ String type2 = "";%>
  
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8"> 
-	<title>Smart Card List</title>
+	<title>Order List</title>
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
 	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -63,12 +63,20 @@
             <a href="StoreServlet" style="float: left;">All Products</a>
             <a href="AllShipmentsServlet" style="float: right;">Shipments</a>--%>
             <a href="home.jsp" style="float: left;"> Home </a>
+            <a href="tripPlanner.jsp" style="float: left;"> Trip_Planner </a>
+            <a href="orderManagement.jsp" style="float: left;">Order </a>
+            <a href="smartCardManagement.jsp" style="float: left;">Card </a>
+            <a href="bill.jsp" style="float: left;">Bill </a>
+            <a href="shipmentNew.jsp" style="float: left;">Shipment </a>
+            <a href="reporting.jsp" style="float: right;">Report </a>
+            <a href="userProfile.jsp" style="float: right;">Profile</a>
+            <a href="AllAdminServlet" style="float: right;">Admin</a>
         </div>
-    <h1>Smart Cards Linked With </h1><h1 style = "color: blue"><%=userId%></h1>
+    <h1>Order List of </h1><h1 style = "color: blue"><%=smartCardNumber%></h1>
     <table border = "0">
         <tr>
-            <form role="form" action="smartCardListServlet" method="get">
-            <td><input type="text" name="userId"  maxlength="16" placeholder="Check another one" required></td>
+            <form role="form" action="OrderHistoryServlet" method="get">
+            <td><input type="text" name="smartCardNumber"  maxlength="16" placeholder="Check another one" required></td>
             <td><input class="button" type ="submit" value="Search"></td>
             </form>
             <td> <a class="button"href ="orderManagement.jsp">Go back</a></td>
@@ -78,33 +86,41 @@
     <table class="gridtable">
                 <thead>
                     <tr>
-                        <th>Card Type</th>
-                        <th>Card Number</th>
-                        <th>Balance</th>
+                        <th>Date</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Type</th>
+                        <th>Amount</th>
                         <th>Status</th>
                         <th></th>>
                     </tr>
                 </thead>
                 <tbody>
-                    <%for (SmartCard s : smartCardList) {%>
+                    <%for (Order o : orderList) {%>
                     <tr>
-                        <td><%
-                               if((s.getCardType()).equals("adult")){
-                                   pic = "css/adult.jpg";
-                               }
-                               else if((s.getCardType()).equals("child")){
-                                   pic = "css/child.jpg";
-                               }
-                               else if((s.getCardType()).equals("senior")){
-                                   pic = "css/senior.jpg";
-                               }
-                               %><img src="<%=pic%>" /></td>
-                        <td><%=s.getCardNumber()%></td>
-                        <td><%=s.getCardBalance()%></td>
-                        <td><%=s.getCardStatus()%></td>   
+                        <td><%=o.getOrderDate()%></td> 
+                        <td><%=o.getFromLocation()%></td>
+                        <td><%=o.getToLoaction()%></td>
+                        <td><%=o.getOrderType()%></td>
+                        <td><%=o.getOrderAmount()%></td> 
+                        <td><%=o.getOrderStatus()%></td>
+                        <% if (o.getOrderStatus().equals("processing")) {
+                            type1 = "submit";
+                        }
+                        else{
+                            type1 = "hidden";
+                        }
+                        %>
                         <td> 
-                             <form role="form" action="SmartCardListServlet" method="post">     
-                                <input type="hidden" name="smartCardNumber" value="<%=s.getCardNumber()%>"/><input type ="submit" value="unlink"/>
+                            <form role="form" action="OrderCompleteServlet" method="get">   
+                            <input type="hidden" name="orderId" value="<%=o.getOrderId()%>"/>
+                            <input type="hidden" name="fromLocation" value="<%=o.getFromLocation()%>"/>
+                            <input type="hidden" name="smartCardNumber" value="<%=smartCardNumber%>"/>
+                            <input type ="<%=type1%>" value="complete"/><br/>
+                            </form>
+                             <form role="form" action="OrderHistoryServlet" method="post">   
+                                <input type="hidden" name="orderId" value="<%=o.getOrderId()%>"/><input type ="<%=type1%>" value="cancel"/>
+                                <input type="hidden" name="smartCardNumber" value="<%=o.getCardNumber()%>"/>
                              </form>
                          </td>
                     </tr>
@@ -112,7 +128,6 @@
                 </tbody>
             </table>
 </div> 
-       
 </body>
 </html>
 

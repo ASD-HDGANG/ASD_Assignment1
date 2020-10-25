@@ -1,6 +1,7 @@
 <%@page import="entity.SmartCard"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -26,7 +27,15 @@
         <%--left    button
             <a href="StoreServlet" style="float: left;">All Products</a>
             <a href="AllShipmentsServlet" style="float: right;">Shipments</a>--%>
-            <a href="home.jsp" style="float: left;"> Home </a>
+             <a href="home.jsp" style="float: left;"> Home </a>
+            <a href="tripPlanner.jsp" style="float: left;"> Trip_Planner </a>
+            <a href="orderManagement.jsp" style="float: left;">Order </a>
+            <a href="smartCardManagement.jsp" style="float: left;">Card </a>
+            <a href="bill.jsp" style="float: left;">Bill </a>
+            <a href="shipmentNew.jsp" style="float: left;">Shipment </a>
+            <a href="reporting.jsp" style="float: right;">Report </a>
+            <a href="userProfile.jsp" style="float: right;">Profile</a>
+            <a href="AllAdminServlet" style="float: right;">Admin</a>
 
         </div>
         
@@ -42,19 +51,20 @@
             <label for="name">Security Code</label><input type="password" id="securityCode" name="securityCode" maxlength="4"size="4" placeholder="4-digit security code" required> 
             <label for="name">Amount</label><input type="text" id="topUpAmount" name="topUpAmount" list="amountList" maxlength="10" size="10" placeholder="Top up amount" required> 
             <datalist id="amountList">
-                                     <option value="10">
-                                     <option value="20">
-                                     <option value="50">
-                                     <option value="100">
+                                     <option value="10.0">
+                                     <option value="20.0">
+                                     <option value="50.0">
+                                     <option value="100.0">
             </datalist>
+            <div align="center">
             <a class="button"  href="smartCardManagement.jsp"> Cancel </a>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input class="button" type ="submit" value="Top up">
+                <input class="button" type ="submit" value="Top up"></div>
             </form>
         </main>
         <script type="text/javascript">
              var msg="${requestScope.topup}";
-	    if(msg=="fail"){
+	    if(msg=="error"){
 		alert('Wrong card number or security code!!');
 	}
        </script>

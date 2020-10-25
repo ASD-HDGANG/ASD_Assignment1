@@ -68,7 +68,7 @@ public class NewShipmentServlet extends HttpServlet {
             collection.insertOne(document);
             
             
-            req.getRequestDispatcher("shipmentNew.jsp").include(req, resp);
+            req.getRequestDispatcher("shipments.jsp").include(req, resp);
         
      
   

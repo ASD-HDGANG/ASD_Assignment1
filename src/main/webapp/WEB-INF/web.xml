@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
-    <servlet>
-        <servlet-name>AddReportServlet</servlet-name>
-        <servlet-class>servlets.AddReportServlet</servlet-class>
-    </servlet>
-    
        <servlet>
         <servlet-name>NewShipmentServlet</servlet-name>
         <servlet-class>servlets.NewShipmentServlet</servlet-class>
@@ -25,8 +20,10 @@
         <servlet-name>shipmentUpdateServlet</servlet-name>
         <servlet-class>servlets.shipmentUpdateServlet</servlet-class>
     </servlet>
-    
-    
+    <servlet>
+        <servlet-name>AddReportServlet</servlet-name>
+        <servlet-class>servlets.AddReportServlet</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>ReportManageServlet</servlet-name>
         <servlet-class>servlets.ReportManageServlet</servlet-class>
@@ -54,6 +51,26 @@
     <servlet>
         <servlet-name>SmartCardListServlet</servlet-name>
         <servlet-class>servlets.SmartCardListServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SmartCardBlockServlet</servlet-name>
+        <servlet-class>servlets.SmartCardBlockServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SmartCardDeleteServlet</servlet-name>
+        <servlet-class>servlets.SmartCardDeleteServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>OrderCompleteServlet</servlet-name>
+        <servlet-class>servlets.OrderCompleteServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>servlets.LoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GoogleServlet</servlet-name>
+        <servlet-class>servlets.GoogleServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AddReportServlet</servlet-name>
@@ -87,8 +104,27 @@
         <servlet-name>SmartCardListServlet</servlet-name>
         <url-pattern>/SmartCardListServlet</url-pattern>
     </servlet-mapping>
-    
-      <servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SmartCardBlockServlet</servlet-name>
+        <url-pattern>/SmartCardBlockServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SmartCardDeleteServlet</servlet-name>
+        <url-pattern>/SmartCardDeleteServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrderCompleteServlet</servlet-name>
+        <url-pattern>/OrderCompleteServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GoogleServlet</servlet-name>
+        <url-pattern>/GoogleServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>NewShipmentServlet</servlet-name>
         <url-pattern>/NewShipmentServlet</url-pattern>
     </servlet-mapping>

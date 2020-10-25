@@ -4,6 +4,7 @@
     Author     : yike8
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,21 +30,32 @@
             <a href="StoreServlet" style="float: left;">All Products</a>
             <a href="AllShipmentsServlet" style="float: right;">Shipments</a>--%>
             <a href="home.jsp" style="float: left;"> Home </a>
+            <a href="tripPlanner.jsp" style="float: left;"> Trip_Planner </a>
+            <a href="orderManagement.jsp" style="float: left;">Order </a>
+            <a href="smartCardManagement.jsp" style="float: left;">Card </a>
+            <a href="bill.jsp" style="float: left;">Bill </a>
+            <a href="shipmentNew.jsp" style="float: left;">Shipment </a>
+            <a href="reporting.jsp" style="float: right;">Report </a>
+            <a href="userProfile.jsp" style="float: right;">Profile</a>
+            <a href="AllAdminServlet" style="float: right;">Admin</a>
 
         </div>
     <h1>New Order</h1>
 <div>
     <form role="form" action="AddOrderServlet" method="post">
             <label for="name">Smart Card Number</label><input type="text" name="smartCardNumber"  maxlength="16" placeholder="16-digits card number" required>
-            <label for="name">Start From</label><input type="text" name="fromLocation" placeholder="name of start station" required> 
-            <label for="name">Destination</label><input type="text" name="toLocation" placeholder="name of destination station" required> 
-            <label for="name">Type</label><input type="radio" name="orderType" value="Bus" required>Bus
+            <label for="name">Start From</label><input type="text" name="fromLocation" list="fromLocationList" required> 
+            <datalist id="fromLocationList">
+                <option value="Central">
+                <option value="Broadway">
+                <option value="Newtown">
+            </datalist>
+            <div align="center"><label for="name">Type</label><input type="radio" name="orderType" value="Bus" required>Bus
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="orderType" value="Train" >Train
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="orderType" value="Ship" >Ship
-            <label for="name">Date</label><input type="date" name="orderDate" required>
-            <a class="button"  href="orderManagement.jsp"> Cancel </a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="orderType" value="Ship" >Ship</div>
+            <br/><div align="center"><a class="button"  href="orderManagement.jsp"> Cancel </a>
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input class="button" type ="submit" value="Create">    
+                <input class="button" type ="submit" value="Create"></div> 
     </form>         
 </div> 
 </body>
