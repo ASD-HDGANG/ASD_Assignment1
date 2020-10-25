@@ -27,16 +27,22 @@ public class NotificationDao {
         this.collection = database.getCollection("Notification");
     }
     
-    public Document get(int notificationID){
+    public Notification get(int notificationID){
            for (Document doc : collection.find()){
                if ((doc.get("notificationID")).equals(notificationID)){
-                   return doc;
+                   String customerID = doc.get("customerID").toString();
+                   String createdDate = doc.get("createdDate").toString();
+                   String notificationDate = doc.get("notificationDate").toString();
+                   String priority = doc.get("priority").toString();
+                   String message = doc.get("message").toString();
+                           
+                   return new Notification(notificationID, customerID, createdDate, notificationDate, priority, message);
                }
            }
            return null;
         }
     
-    public void create(int notificationID, String customerID, String createdDate, String notificationDate, String type, String priority, String message) {
+    public void create(int notificationID, String customerID, String createdDate, String notificationDate, String priority, String message) {
         
             Document document = new Document();
             
@@ -44,12 +50,16 @@ public class NotificationDao {
             document.put("customerID",customerID);
             document.put("createdDate",createdDate);
             document.put("notificationDate",notificationDate);
-            document.put("type",type);
             document.put("priority",priority);
             document.put("message",message);
         
             collection.insertOne(document);
         }
+    
+    public void update(int notificationID, String customerID, String createdDate, String notificationDate, String priority, String message){
+    Document document = new Document();
+    //document.
+    }
     
     public void delete(int notificationID){
             Document document = new Document();
@@ -66,13 +76,12 @@ public class NotificationDao {
                 String customerID = doc.get("customerID").toString();
                 String createdDate=doc.get("createdDate").toString();
                 String notificationDate=doc.get("notificationDate").toString();
-                String type=doc.get("type").toString();
                 String priority=doc.get("priority").toString();
                 String message=doc.get("message").toString();
                 
                 
                 
-                //documents.add(new Notification(notificationID,customerID,createdDate,notificationDate,type,priority,message));
+                documents.add(new Notification(notificationID,customerID,createdDate,notificationDate,priority,message));
             }
             return documents;
      }

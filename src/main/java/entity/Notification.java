@@ -11,19 +11,27 @@ package entity;
  */
 public class Notification {
     String customerID;
+    int notificationID;
     String createdDate;
     String notificationDate;
-    String type;
     String priority;
     String message;
 
-    public Notification(String customerID, String createdDate, String notificationDate, String type, String priority, String message) {
+    public Notification(int notificationID, String customerID , String createdDate, String notificationDate, String priority, String message) {
         this.customerID = customerID;
+        this.notificationID = notificationID;
         this.createdDate = createdDate;
         this.notificationDate = notificationDate;
-        this.type = type;
         this.priority = priority;
         this.message = message;
+    }
+
+    public int getNotificationID() {
+        return notificationID;
+    }
+
+    public void setNotificationID(int notificationID) {
+        this.notificationID = notificationID;
     }
 
     public String getCustomerID() {
@@ -48,14 +56,6 @@ public class Notification {
 
     public void setNotificationDate(String notificationDate) {
         this.notificationDate = notificationDate;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
     public String getPriority() {

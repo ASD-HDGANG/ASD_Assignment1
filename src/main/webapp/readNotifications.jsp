@@ -1,13 +1,13 @@
 <%-- 
-    Document   : Notifications
-    Created on : 25/10/2020, 10:18:03 PM
+    Document   : readNotifications
+    Created on : 25/10/2020, 10:47:23 PM
     Author     : Martin
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-     <head>
+    <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/SmartCard.css">
         <script type="text/javascript" src="js/script.js"></script>

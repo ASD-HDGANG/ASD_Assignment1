@@ -27,6 +27,7 @@ public class MongoDBConnector {
     public MongoDBConnector() throws UnknownHostException {
 		String dbUri = "mongodb://hugh:hugh990104@ds011288.mlab.com:11288/heroku_lcjwqk0m";
 		mongoClient = new MongoClient(new MongoClientURI(dbUri));
+                
 	}
 
 	public MongoClient openConnection() {
