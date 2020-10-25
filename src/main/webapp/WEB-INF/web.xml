@@ -1,137 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
-       <servlet>
-        <servlet-name>BillingServlet</servlet-name>
-        <servlet-class>servlets.BillingServlet</servlet-class>
-    </servlet>    
-           <servlet>
-        <servlet-name>AddBillingServlet</servlet-name>
-        <servlet-class>servlets.AddBillingServlet</servlet-class>
-    </servlet>    
-           <servlet>
-        <servlet-name>ViewBillServlet</servlet-name>
-        <servlet-class>servlets.ViewBillServlet</servlet-class>
-    </servlet>    
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
     <servlet>
-        <servlet-name>NewShipmentServlet</servlet-name>
-        <servlet-class>servlets.NewShipmentServlet</servlet-class>
-    </servlet>
-           <servlet>
-        <servlet-name>AllShipmentsServlet</servlet-name>
-        <servlet-class>servlets.AllShipmentsServlet</servlet-class>
-    </servlet>
-           <servlet>
-        <servlet-name>ShipmentDeleteServlet</servlet-name>
-        <servlet-class>servlets.ShipmentDeleteServlet</servlet-class>
-    </servlet>    
- <servlet>
-        <servlet-name>ShipmentEditServlet</servlet-name>
-        <servlet-class>servlets.ShipmentEditServlet</servlet-class>
-    </servlet> 
-     <servlet>
-        <servlet-name>shipmentUpdateServlet</servlet-name>
-        <servlet-class>servlets.shipmentUpdateServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>AddReportServlet</servlet-name>
-        <servlet-class>servlets.AddReportServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ReportManageServlet</servlet-name>
-        <servlet-class>servlets.ReportManageServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>AddOrderServlet</servlet-name>
-        <servlet-class>servlets.AddOrderServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>OrderHistoryServlet</servlet-name>
-        <servlet-class>servlets.OrderHistoryServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>AddSmartCardServlet</servlet-name>
-        <servlet-class>servlets.AddSmartCardServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>TopUpServlet</servlet-name>
-        <servlet-class>servlets.TopUpServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>SmartCardLinkingServlet</servlet-name>
-        <servlet-class>servlets.SmartCardLinkingServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>SmartCardListServlet</servlet-name>
-        <servlet-class>servlets.SmartCardListServlet</servlet-class>
+        <servlet-name>AddNotificationServlet</servlet-name>
+        <servlet-class>servlets.AddNotificationServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>AddReportServlet</servlet-name>
-        <url-pattern>/AddReportServlet</url-pattern>
+        <servlet-name>AddNotificationServlet</servlet-name>
+        <url-pattern>/AddNotificationServlet</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ReportManageServlet</servlet-name>
-        <url-pattern>/ReportManageServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AddOrderServlet</servlet-name>
-        <url-pattern>/AddOrderServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>OrderHistoryServlet</servlet-name>
-        <url-pattern>/OrderHistoryServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AddSmartCardServlet</servlet-name>
-        <url-pattern>/AddSmartCardServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>TopUpServlet</servlet-name>
-        <url-pattern>/TopUpServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>SmartCardLinkingServlet</servlet-name>
-        <url-pattern>/SmartCardLinkingServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>SmartCardListServlet</servlet-name>
-        <url-pattern>/SmartCardListServlet</url-pattern>
-    </servlet-mapping>
-
-
-
-    <servlet-mapping>
-        <servlet-name>NewShipmentServlet</servlet-name>
-        <url-pattern>/NewShipmentServlet</url-pattern>
-    </servlet-mapping>
-          <servlet-mapping>
-        <servlet-name>AllShipmentsServlet</servlet-name>
-        <url-pattern>/AllShipmentsServlet</url-pattern>
-    </servlet-mapping>
-          <servlet-mapping>
-        <servlet-name>ShipmentDeleteServlet</servlet-name>
-        <url-pattern>/ShipmentDeleteServlet</url-pattern>
-    </servlet-mapping>    
-         <servlet-mapping>
-        <servlet-name>ShipmentEditServlet</servlet-name>
-        <url-pattern>/ShipmentEditServlet</url-pattern>
-    </servlet-mapping>     
-        <servlet-mapping>
-        <servlet-name>shipmentUpdateServlet</servlet-name>
-        <url-pattern>/shipmentUpdateServlet</url-pattern>
-    </servlet-mapping>
-            <servlet-mapping>
-        <servlet-name>ViewBillServlet</servlet-name>
-        <url-pattern>/ViewBillServlet</url-pattern>
-    </servlet-mapping>
-            <servlet-mapping>
-        <servlet-name>AddBillingServlet</servlet-name>
-        <url-pattern>/AddBillingServlet</url-pattern>
-    </servlet-mapping>
-            <servlet-mapping>
-        <servlet-name>BillingServlet</servlet-name>
-        <url-pattern>/BillingServlet</url-pattern>
-    </servlet-mapping>
-   <session-config>
+    <session-config>
         <session-timeout>
             30
         </session-timeout>
